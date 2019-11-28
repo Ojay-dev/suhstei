@@ -1,0 +1,31 @@
+<header>
+  <nav id="navbar">
+    <div>
+      <a href="#">
+        <img src="assets/icons/logo.svg" alt="suhstei" class="logo">
+      </a>
+
+      <div class="vl nav-link"></div>
+
+      <form>
+        <input type="search" placeholder="&#xF002; Search" aria-label="Search" style="font-family: SFProText, FontAwesome">
+      </form>
+    </div>
+
+    <ul class="nav-link">
+      <li><a [routerLink]="['']" class="active">Home</a></li>
+      <li><a [routerLink]="['book']">Book</a></li>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#" class="sign-up">Sign Up</a></li>
+    </ul>
+
+    <button class="openbtn hamburger-menu" onclick="openNav()" aria-disabled="true">&#9776;</button>
+    <ul id="mySidepanel" class="sidepanel hamburger-menu">
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+      <li><a [routerLink]="['']" class="active">Home</a></li>
+      <li><a [routerLink]="['book']">Book</a></li>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Sign Up</a></li>
+    </ul>
+  </nav>
+</header>
