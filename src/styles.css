@@ -53,6 +53,85 @@ footer h3 {
   left: 0;
   right:0;
 }
+/* Style the sidebar - fixed full height */
+.sidebar {
+  position: fixed;
+  height: calc(100% - 85px);
+  width: 25%;
+  z-index: 1;
+  top: 85px;
+  left: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #f1f1f1;
+  overflow: hidden;
+  padding-top: 16px;
+  transition: top .5s;
+}
+/* Style sidebar links */
+.sidebar a {
+  display: flex;
+  padding: 15px 8px 15px 60px;
+  text-decoration: none;
+  font-family: SFProText;
+  font-size: 16px;
+  line-height: 25px;
+  margin-block-end: 68px;
+  color: #293D4A;
+}
+.sidebar a:first-child {
+  margin-block-start: 46px;
+}
+
+.sidebar i {
+  margin-inline-end: 15px;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover:not(.active), .sidebar .active {
+  color: #4169E2;
+  padding-inline-start: 56px;
+  border-inline-start: 4px solid #4169E2;
+}
+
+.sidebar a:hover:not(.active) {
+  padding-inline-start: 56px;
+}
+
+/* Style the main content */
+.main {
+  margin-left: 25%; /* Same as the width of the sidenav */
+  padding: 85px 20px 130px 111px;
+}
+.image-cropper {
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #f2f2f2;
+  overflow: hidden;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-block-start: 40px;
+  margin-block-end: 70px;
+}
+.profile-header h1 {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #1D2029;
+}
+
+.profile-header > a {
+  position: relative;
+  top: 95px;
+  font-family: SFProText;
+  font-size: 16px;
+  text-decoration: none;
+  color: #4169E2;
+}
 
 .book-section-grid {
   display: flex;
@@ -60,6 +139,9 @@ footer h3 {
   flex-wrap: nowrap;
   overflow: auto;
   margin-bottom: 5.5rem;
+}
+.book-section-grid .book-section-subGrid > a {
+  text-decoration: none;
 }
 .review-section {
   margin-block-start: 88px;
@@ -75,16 +157,264 @@ footer h3 {
   border-radius: 2px;
   margin-bottom: 1.5rem;
 }
+[my-books] {
+  padding-inline-start: 100px;
+  padding-inline-end: 100px;
+}
+[my-books] .book-section-grid {
+  margin-block-end: 48px;
+}
+
+[my-books] .book-section-subGrid {
+  margin-inline-end: 40px;
+}
+
+[my-books] .book-section-subGrid:last-child {
+  margin-inline-end: 0;
+}
+
+[my-books] .book-section-subGrid button {
+  width: 100%;
+  font-family: SFProText;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  padding: 12px;
+  margin-block-start: 40px;
+  color: #FFFFFF;
+  background: #2CBA8F;
+  border: 0;
+  border-radius: 4px;
+}
+
+[my-books] .profile-header {
+  width: 100%;
+  margin-block-end: 30px;
+}
+
+[my-books] .profile-header h1 {
+  font-family: SFProText-bold;
+  font-size: 20px;
+  color: #222222;
+}
+
+[my-books] .book-list-header {
+  display: flex;
+  margin-block-end: 40px;
+}
+
+[my-books] .book-list-header > h2 {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 18px;
+  color: #1D2029;
+  margin: 0;
+}
+
+[my-books] .book-list-header > span {
+  font-size: 14px;
+  line-height: 18px;
+  margin-inline-start: 18px;
+  align-self: flex-end;
+  color: #ABB4BD;
+}
+
+[my-books] h4 {
+  font-family: CircularStd;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-block-start: 13px;
+  margin-block-end: 19px;
+  color: #4F4F4F;
+}
+
+[my-books] .profile-header > div {
+  display: flex;
+}
+
+[my-books] .profile-header > div a {
+  color: #0B0817;
+}
+
+[my-books] .profile-header > div i {
+  margin-inline-end: 24px;
+}
+
+[my-books] .profile-header > a {
+  top: 0;
+  font-family: CircularStd;
+  font-size: 14px;
+  text-align: center;
+  padding: 11px 33px;
+  color: #FFFFFF;
+  background: #4169E2;
+  border-radius: 4px;
+}
+
+[my-books] span {
+  font-family: CircularStd;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px;
+  color: #1D2029;
+}
+
+[my-books] .book-thumbnail{
+  margin-block-end: 49px;
+}
+
+[my-books] span a {
+  text-decoration: none;
+  color: #43CAED;
+}
+
+[my-books] .book-thumbnail h5 {
+  font-family: CircularStd;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-block-start: 13px;
+  margin-block-start: 18px;
+  color: #4F4F4F;
+}
+[my-books] article h2 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  margin-block-end: 24px;
+  color: #1D2029;
+}
+[my-books] article p {
+  font-family: SFProText;
+  font-size: 16px;
+  line-height: 28px;
+  color: #4F4F4F;
+}
+.signup-form {
+  width:50%;
+  margin: auto;
+  margin-block-start: 5%;
+  margin-block-end: 12%;
+  padding: 5% 6%;
+  padding-block-start: 3%;
+  background: #FFFFFF;
+  box-shadow: 0px 7.52055px 16.7123px rgba(171, 180, 189, 0.23);
+  border-radius: 10px;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-weight: 450;
+  font-size: 1rem;
+  font-family: CircularStd;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.signup-form input::-webkit-input-placeholder {
+  /* Edge */
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.signup-form input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.signup-form input::placeholder {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.signup-form h2 {
+  font-family: CircularStd;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #070809;
+}
+
+.signup-form h3 {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.7rem;
+  margin-bottom: .8rem;
+  color: #ABB4BD;
+}
+
+.signup-form a, div[register] {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 14px;
+  color: #ABB4BD;
+}
+
+.signup-form div[align="center"] {
+  margin-top: 1.5rem;
+}
+.signup-form div[align="center"] > a {
+  color: #4169E2;
+}
+
+.signup-form .button {
+  color: white;
+  font-weight: 450;
+  font-size: 1.25rem;
+  padding: 1.2rem;
+  /* margin: 8px 0; */
+  background: #4169E2;
+  box-shadow: 0px 9px 20px rgba(171, 180, 189, 0.148862);
+}
+
+@media (max-width: 1024px) {
+  .signup-form {
+    width:50%;
+  }
+}
 
 @media (max-width: 900px) {
   .book-section-grid {
     margin-bottom: 51px;
   }
+  [my-books] .book-list-header {
+    flex-direction: column;
+   }
+
+   [my-books] .book-list-header > span {
+     margin-inline-start: 0;
+     margin-block-start: 11px;
+     align-self: flex-start;
+   }
 }
 @media (max-width: 768px) {
   .book-section-subGrid {
     flex: 0 0 auto;
     margin-inline-end: 20px;
+  }
+  .sidebar a {
+    display: flex;
+    padding-inline-start: 35px;
+  }
+  .sidebar a:hover:not(.active) {
+    padding-inline-start: 29px;
+  }
+  .signup-form {
+    width:70%;
   }
 }
 
@@ -94,6 +424,39 @@ footer h3 {
   }
   footer h3 {
     padding: 45px 20px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .main {
+    margin-left: 0;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+  }
+  .profile-header {
+    width: 100%;
+  }
+  .profile-header a {
+    top: 0;
+  }
+  .main {
+    margin-left: 0;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    padding-block-end: 20px;
+  }
+  .signup-form {
+    width: 100%;
+    height: 100%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    box-shadow: none;
+    border-radius: 0;
+    padding-block-start: 38px;
+    padding-block-end: 55px;
+  }
+  .signup-form h2, .signup-form h3 {
+    text-align: left;
   }
 }
 

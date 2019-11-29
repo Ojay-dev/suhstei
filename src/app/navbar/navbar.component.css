@@ -135,9 +135,10 @@ nav > div a {
   text-decoration: none;
 }
 
-.nav-link a:hover:not(.sign-up) {
+.nav-link a:hover:not(.sign-up), .nav-link a.active {
   color: #4169E2;
 }
+
 .sign-up {
   text-align: center;
   padding: .5rem 1.375rem;

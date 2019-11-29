@@ -4,7 +4,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* padding: 100px; */
   margin-block-end: 6rem;
   position: relative;
   top: 86px;
@@ -76,6 +75,46 @@
   font-size: 16px;
   line-height: 31px;
   color: #4F4F4F;
+}
+.book-section {
+  padding: 0 150px ;
+  padding-block-start: 7.25rem;
+  padding-block-end: 10.375rem;
+  background: rgba(241, 241, 241, 0.55);
+}
+.book-section h3 {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1D2029;
+}
+.book-section h4 {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 1rem;
+  margin-bottom: .8rem;
+}
+.book-section span {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.book-section p {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 4.25rem;
+  color: #333333;
+}
+.book-section a {
+  color: #007bff;
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {

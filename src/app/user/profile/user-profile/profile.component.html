@@ -1,0 +1,26 @@
+<app-sidebar></app-sidebar>
+
+<section class="main profile">
+  <div class="profile-header">
+    <h1>My Profile</h1>
+    <a [routerLink]="['edit-profile']">Edit Profile</a>
+  </div>
+
+  <div>
+    <span class="image-cropper" style=" width: 150px; height: 150px;">
+      <img src="assets/images/avatar.jpg" alt="profile image" avatar>
+    </span>
+  </div>
+
+  <h3>Shenske Nakamura</h3>
+
+  <h2>Contact Information</h2>
+  <h4><span>Email Address</span> <br> <span id="profile-value">shenske.nakam@gmail.com</span></h4>
+  <h4><span>Phone Number</span> <br> <span id="profile-value">+234 803 456 7890</span></h4>
+  <h4><span>Password</span> <br> <span id="profile-value">*************</span></h4>
+
+  <!-- <div>
+    <h4>Progress Bar</h4>
+    <progress value="22" max="100" style=""></progress>
+  </div> -->
+</section>

@@ -1,0 +1,26 @@
+<section>
+
+  <div  class="signup-form">
+    <h2>Login to Suhstei</h2>
+    <h3>Enter your login details to proceed</h3>
+
+    <form action="">
+    <!-- username -->
+    <input type="text" placeholder="Email address" required>
+
+    <!-- Password -->
+    <input type="password" placeholder="Password" required>
+
+    <div align="right">
+        <a [routerLink]="['forgot-password']">Forgot Password?</a>
+    </div>
+
+    <!-- Submit button -->
+    <input type="submit" value="Login" class="button">
+
+    <div register align="center">Don’t have an account? <a [routerLink]="['/user/sign-up']">Register Now</a></div>
+    </form>
+</div>
+</section>
+
+<app-footer></app-footer>

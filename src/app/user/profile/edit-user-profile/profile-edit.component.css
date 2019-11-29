@@ -1,0 +1,76 @@
+.profile form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.profile input {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.875rem;
+  font-weight: 450;
+  font-size: 1rem;
+  font-family: CircularStd;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.profile input::-webkit-input-placeholder {
+  /* Edge */
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.profile input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.profile input::placeholder {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ABB4BD;
+}
+.profile .edit-btn {
+  color: white;
+  font-weight: 450;
+  font-size: 1.25rem;
+  padding: 1.125rem 2.9rem !important;
+  margin-block-start: 2.25rem;
+  background: #4169E2;
+  box-shadow: 0px 9px 20px rgba(171, 180, 189, 0.148862);
+}
+.edit-img-btn {
+  position: absolute;
+  /* bottom: 10%; */
+  /* left: 25%; */
+  color: white;
+  font-size: .5rem;
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  border: 0;
+  border-radius: 50%;
+  background: #4169E2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.21);
+}
+.edit-img-btn i {
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .profile form {
+    width: 75%;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+<section>
+
+    <div  class="signup-form">
+      <h2>Register on Suhstei</h2>
+      <h3>Personal details</h3>
+
+      <form action="">
+        <div class="row">
+          <div class="col-6 col-md-6">
+            <!-- firstname -->
+            <input type="text" placeholder="First Name" required>
+          </div>
+
+          <div class="col-6 col-md-6">
+            <!-- lastname -->
+            <input type="text" placeholder="Last Name" required>
+          </div>
+        </div>
+
+        <!-- phone no -->
+        <input type="text" placeholder="Phone Number (WhatsApp Number)" required>
+
+        <!-- email -->
+        <input type="text" placeholder="Email Address" required>
+
+        <!-- Password -->
+        <input type="password" placeholder="Password" required>
+
+        <!-- Submit button -->
+        <input type="submit" value="Register" class="button">
+
+        <div register align="center">Already have an account? <a [routerLink]="['/user/login']">Login now</a></div>
+      </form>
+  </div>
+  </section>
+
+  <app-footer></app-footer>

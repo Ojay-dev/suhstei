@@ -27,12 +27,3 @@ if (prevScrollpos > currentScrollPos) {
 }
   prevScrollpos = currentScrollPos;
 }
-
-/**** Stick footer to bottom ****/
-// document.addEventListener("DOMContentLoaded", function (event) {
-//   var element = document.getElementById('wrapper');
-//   var height = element.offsetHeight;
-//   if (height < screen.height) {
-//       document.getElementById("footer").classList.add('stikybottom');
-//   }
-// }, false);
