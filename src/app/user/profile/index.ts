@@ -1,3 +1,3 @@
 export * from './user-profile/profile.component';
-export * from './edit-user-profile/profile-edit.component';
+export * from './edit-profile/profile-edit.component';
 

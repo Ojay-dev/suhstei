@@ -44,27 +44,9 @@
       <h3>New Posts</h3>
 
       <div class="book-section-grid">
-        <div class="book-section-subGrid">
+        <div *ngFor="let book of books">
           <img src="assets/images/book1-1.png" alt="">
-          <h4>Photographer’s trouble shooter</h4>
-          <span>by <a href="#">Michael Freeman</a></span>
-        </div>
-
-        <div class="book-section-subGrid">
-          <img src="assets/images/book1-2.png" alt="">
-          <h4>Photographer’s trouble shooter</h4>
-          <span>by <a href="#">Michael Freeman</a></span>
-        </div>
-
-        <div class="book-section-subGrid">
-          <img src="assets/images/book1-3.png" alt="">
-          <h4>Photographer’s trouble shooter</h4>
-          <span>by <a href="#">Michael Freeman</a></span>
-        </div>
-
-        <div class="book-section-subGrid">
-          <img src="assets/images/book1-4.png" alt="">
-          <h4>Photographer’s trouble shooter</h4>
+          <h4>{{book?.title}}</h4>
           <span>by <a href="#">Michael Freeman</a></span>
         </div>
       </div>

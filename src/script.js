@@ -4,6 +4,14 @@ function openNav() {
   document.getElementById("mySidepanel").style.width = "80%";
 }
 
+// let domElement = (selector) => document.querySelectorAll(selector);
+// let linkDom = document.querySelectorAll("#mySidepanel a");
+
+// for (let i = 0; i < linkDom.length; i++) {
+//   linkDom[i].addEventListener("click", function() {
+//     document.getElementById("mySidepanel").style.width = "0";
+//   });
+// }
 /* Set the width of the sidebar to 0 (hide it) */
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";

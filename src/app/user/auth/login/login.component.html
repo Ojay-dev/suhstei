@@ -4,21 +4,25 @@
     <h2>Login to Suhstei</h2>
     <h3>Enter your login details to proceed</h3>
 
-    <form action="">
-    <!-- username -->
-    <input type="text" placeholder="Email address" required>
+    <form action="" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+      <!-- username -->
+      <em *ngIf="loginForm.controls.email?.invalid && (loginForm.controls.email?.touched)">Requires a valid email address</em>
+      <input (ngModel)="email" name="email" [class.invalid-input]="loginForm.controls.email?.invalid &&
+      loginForm.controls.email?.touched" type="email" placeholder="Email address" required>
 
-    <!-- Password -->
-    <input type="password" placeholder="Password" required>
+      <!-- Password -->
+      <em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched)">Requires a password</em>
+      <input (ngModel)="password" name="password" [class.invalid-input]="loginForm.controls.password?.invalid &&
+      loginForm.controls.password?.touched" type="password" placeholder="Password" required>
 
-    <div align="right">
-        <a [routerLink]="['forgot-password']">Forgot Password?</a>
-    </div>
+      <div align="right">
+          <a [routerLink]="['forgot-password']">Forgot Password?</a>
+      </div>
 
-    <!-- Submit button -->
-    <input type="submit" value="Login" class="button">
+      <!-- Submit button -->
+      <input type="submit" [disabled]="loginForm.invalid" value="Login" class="button">
 
-    <div register align="center">Don’t have an account? <a [routerLink]="['/user/sign-up']">Register Now</a></div>
+      <div register align="center">Don’t have an account? <a [routerLink]="['/user/sign-up']">Register Now</a></div>
     </form>
 </div>
 </section>

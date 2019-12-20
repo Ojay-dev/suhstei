@@ -79,6 +79,10 @@
   font-size: 16px;
   color: #2DA5EC;
 }
+
+.book-section-grid img {
+  max-width: none;
+}
 .book-list {
   padding: 37px 0 110px;
 }

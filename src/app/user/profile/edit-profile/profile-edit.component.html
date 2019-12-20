@@ -1,0 +1,42 @@
+<app-sidebar></app-sidebar>
+
+<section class="main profile">
+  <div class="profile-header">
+    <h1>My Profile</h1>
+  </div>
+
+  <span class="image-wrapper">
+    <span class="image-cropper" style=" width: 150px; height: 150px;">
+      <img src="https://via.placeholder.com/150" alt="">
+    </span>
+
+    <button class="edit-img-btn" (click)="fileLoader()" id="btnOpenFileDialog"><i class="material-icons">edit</i></button>
+    <input type="file" id="fileLoader" (change)="uploadImage($event)" style="display: none;" />
+  </span>
+
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)">
+    <!-- First Name -->
+    <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">Required</em>
+    <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Must start with a letter</em>
+    <input formControlName="firstName" type="text" [ngClass]="{'invalid-input':
+    !validateFirstName() }" placeholder="First Name">
+
+    <!-- Last Name -->
+    <em *ngIf="!validateLastName() && profileForm.controls.lastName.errors.required">Required</em>
+    <em *ngIf="!validateLastName() && profileForm.controls.lastName.errors.pattern">Must start with a letter</em>
+    <input formControlName="lastName" type="text" [ngClass]="{'invalid-input':
+    !validateLastName() }" placeholder="Last Name">
+
+    <!-- email -->
+    <input formControlName="email" type="text" placeholder="Email address">
+
+    <!-- phone number -->
+    <em *ngIf="!validatePhoneNo()">Required</em>
+    <input formControlName="phoneNo" type="number" [ngClass]="{'invalid-input':
+    !validatePhoneNo() }" placeholder="Tel">
+
+    <!-- Submit button -->
+    <input type="submit" [disabled]="profileForm.invalid" value="Save Changes" class="edit-btn">
+  </form>
+</section>
+

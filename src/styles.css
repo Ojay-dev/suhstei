@@ -134,13 +134,18 @@ footer h3 {
 }
 
 .book-section-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
   justify-content: space-between;
-  flex-wrap: nowrap;
+  column-gap: 1.75rem;
+  row-gap: 5.5rem;
+  /* max-width: 80%; */
   overflow: auto;
-  margin-bottom: 5.5rem;
+  min-width: 50%;
+  margin: auto;
 }
-.book-section-grid .book-section-subGrid > a {
+
+.book-section-grid a {
   text-decoration: none;
 }
 .review-section {

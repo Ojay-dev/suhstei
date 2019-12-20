@@ -40,9 +40,9 @@
 
 .how-it-works-section {
   position: relative;
-  padding-block-start: 167px;
-  /* height: 300px; */
-  margin-block-end: 191px;
+  padding-block-start: 7rem;
+  margin-block-end: 1.875rem;
+  text-align: center;
 }
 .how-it-works-section svg {
   position: absolute;
@@ -50,17 +50,6 @@
   left: 0;
   z-index: -1;
 }
-.how-it-works-section > div {
-  display: flex;
-}
-.how-it-works-section article {
-  max-width: 50%;
-}
-.how-it-works-section article {
-  padding-inline-start: 50px;
-  padding-inline-end: 50px;
-}
-
 .how-it-works-section h2 {
   font-family: SFProText-bold;
   font-style: normal;
@@ -73,9 +62,48 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 31px;
+  line-height: 28px;
+  margin-block-end: 7.125rem;
   color: #4F4F4F;
 }
+.how-it-works-section > div {
+  margin: auto;
+  width: 80%;
+}
+.how-it-works-section > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+}
+.how-it-works-section > div:last-child > span:not(:last-child) {
+  margin-inline-end: 10px;
+}
+.how-it-works-section > div:last-child > span {
+  width: 18rem;
+}
+.how-it-works-section > div:last-child h4 {
+  font-family: SFProText-bold;
+  font-size: 1.25rem;
+  line-height: 24px;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1rem;
+  color: #222222;
+}
+.how-it-works-section > div:last-child p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #333333;
+}
+.how-it-works-section span.v-rule {
+  border-right: 1px solid #DCDBDB;
+  width: 1px !important;
+  height: 9rem;
+  margin: 0 auto !important;
+  margin-block-start: 29px !important;
+}
+
+
 .book-section {
   padding: 0 150px ;
   padding-block-start: 7.25rem;
@@ -117,7 +145,7 @@
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 64rem) {
   .hero-image {
     height: 30%;
   }
@@ -127,15 +155,14 @@
   .hero-text p {
     line-height: 25px;
   }
-  .how-it-works-section {
-    margin-block-end: 100px;
-  }
-  .how-it-works-section article {
-    padding-inline-end: 0;
+  .how-it-works-section span.v-rule { display: none; }
+
+  .how-it-works-section > div:last-child {
+    align-items: center;
   }
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 56.25rem) {
   .hero-image {
     height: 65%;
   }
@@ -164,7 +191,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .hero-image {
     height: 50%;
   }
@@ -188,7 +215,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media screen and (max-width: 37.5rem) {
   footer {
     height:110px;			/* Height of the footer */
   }
@@ -215,13 +242,12 @@
     margin-block-start: 6px;
     line-height: 16px;
   }
-  .how-it-works-section {
-    padding-block-start: 100px;
-  }
   .how-it-works-section svg {
     left: -89px;
     height: 393px;
   }
+  .how-it-works-section h2 { font-size: 1.5rem}
+  .how-it-works-section p { font-size: 1rem}
 }
 
 @media (max-width: 480px) {

@@ -1,0 +1,222 @@
+import { Injectable, EventEmitter } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BookService {
+
+  constructor() { }
+
+  getBooks() {
+    return BOOKS;
+  }
+
+  searchBooks(searchTerm: string) {
+    const term = searchTerm.toLocaleLowerCase();
+    const results = [];
+
+    BOOKS.forEach(book => {
+      // let matchingBooks = [];
+      if (book.title.toLocaleLowerCase().indexOf(term) > -1) {
+        results.push(book);
+      }
+      // results.concat(matchingBooks);
+      // console.log(results);
+    });
+
+    const emitter = new EventEmitter(true);
+    setTimeout(() => {
+      emitter.emit(results);
+    }, 100);
+
+    return emitter;
+
+  }
+
+}
+
+const BOOKS = [
+  {
+    id: '1XP_tQEACAAJ',
+    title: 'Harry Potter',
+    authors: [
+      'J. K. Rowling'
+    ],
+    subtitle: 'The Illustrated Collection',
+    publisher: 'Harry Potter',
+    publishedDate: '2018-09-25',
+    categories: [
+    'Juvenile Fiction'
+    ],
+    imageLinks: {
+      smallThumbnail: 'http://books.google.com/books/content?id=1XP_tQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api',
+      thumbnail: 'http://books.google.com/books/content?id=1XP_tQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+    }
+  },
+  {
+  id: 'ThAaBwAAQBAJ',
+  title: 'Harry Potter’s World Wide Influence',
+  authors: [
+    'Diana Patterson'
+  ],
+  description: 'The Harry Potter series forms a single epic story that has been published in nearly 70 languages, and has been examined in a large number of disciplines. This collection of essays contributes to the scholarly discourse that forms Potter Studies. These essays take on the consideration of Rowling\'s work as being worthy of study as a phenomenon and influence, as well as a work of literary value. They add genuine statistical information about the reasons for the books\' popularity, consider their effects on child readers, and examine some deep-rooted reasons for their having been manipulated in American publishing, in film adaptations, in musical complements, and in their thingification in popular culture around the world. Some of these essays take on the critics of the books\' religion and considerations of psychological, as well as philosophical good and evil, and well as some stylistic anomalies. The fact that scholars from China, Germany, Poland, Romania, and Israel, in addition to English-speaking nations, have felt compelled to examine these books in detail testifies in part to Harry Potter\'s world-wide influence.',
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=ThAaBwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=ThAaBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+    },
+    publisher: 'Cambridge Scholars Publishing',
+    publishedDate: '2009-10-02',
+    categories: [
+    'Literary Criticism'
+    ]
+  },
+  {
+  id: 'JGQBcu5O_ZcC',
+  title: 'Friends and Foes of Harry Potter',
+  subtitle: 'Names Decoded',
+  authors: [
+    'Nikita Agarwal',
+    'Chitra Agarwal',
+    'Benjamin Vincent'
+  ],
+  publisher: 'Texas World Publishing',
+  publishedDate: '2005',
+  description: 'Examines the meanings behind the names of people and places in the Harry Potter books.',
+  categories: [
+    'Juvenile Nonfiction'
+  ],
+  imageLinks: {
+  smallThumbnail: 'http://books.google.com/books/content?id=JGQBcu5O_ZcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+  thumbnail: 'http://books.google.com/books/content?id=JGQBcu5O_ZcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  },
+  {
+  id: 'iO5pApw2JycC',
+  title: 'The Ivory Tower and Harry Potter',
+  subtitle: 'Perspectives on a Literary Phenomenon',
+  authors: [
+    'Lana A. Whited'
+  ],
+  publisher: 'University of Missouri Press',
+  publishedDate: '2004',
+  description: 'Now available in paper, The Ivory Tower and Harry Potter is the first book-length analysis of J. K. Rowling\'s work from a broad range of perspectives within literature, folklore, psychology, sociology, and popular culture. A significant portion of the book explores the Harry Potter series\' literary ancestors, including magic and fantasy works by Ursula K. LeGuin, Monica Furlong, Jill Murphy, and others, as well as previous works about the British boarding school experience. Other chapters explore the moral and ethical dimensions of Harry\'s world, including objections to the series raised within some religious circles. In her new epilogue, Lana A. Whited brings this volume up to date by covering Rowling\'s latest book, Harry Potter and the Order of the Phoenix.',
+  categories: [
+    'Literary Criticism'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=iO5pApw2JycC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=iO5pApw2JycC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  },
+  {
+  id: 'Aaug_RnI-xQC',
+  title: 'The Irresistible Rise of Harry Potter',
+  authors: [
+    'Andrew Blake'
+  ],
+  publisher: 'Verso',
+  publishedDate: '2002',
+  description: 'Blake\'s examination of the Potter phenomenon raises serious questions about the condition of the publishing industry, filmmaking, and the ways in which the Potter consumer campaign has changed ideas about literature and reading.',
+  categories: [
+    'Literary Criticism'
+  ],
+  imageLinks: {
+  smallThumbnail: 'http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+  thumbnail: 'http://books.google.com/books/content?id=Aaug_RnI-xQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  },
+  {
+  id: 'r0q9GTKO0qUC',
+  title: 'Mixing it Up With-- Harry Potter',
+  subtitle: '12 Sessions about Faith for 9-13s',
+  authors: [
+    'Owen Smith'
+  ],
+  publisher: 'Church House Publishing',
+  publishedDate: '2007',
+  description: 'Fact 1... The seven Harry Potter books have sold more than 350 million copies in 200 countries and the films are one of the highest grossing film series of all time. It is a cultural phenomenon in which our young people are greatly immersed. Fact 2... Young people aged 9-13 are a massively under-resourced age group in churches. Spanning the ‘tweenager’ and ‘tweenie’ age zones young people of this age are increasingly fashion-aware, media-savvy and worldly-wise. They don’t regard themselves as children but are not yet adults. This new book addresses both the need and the cultural interest.In 12 sessions, Mixing it up with Harry Potter draws parallels between events in the Harry Potter world, and the world in which our young people live. These parallels allow you to explore Christian concepts with your young people and engage with the Christian faith through the themes demonstrated – from complex subjects such as Sacrifice and Mercy, to everyday issues such as Fitting in and Boasting – with an introduction to the book covering all you need to consider in terms of health and safety, child protection, and how to handle the aspects of Harry Potter that are not always very godly.Mixing it up with Harry Potter will help young people to delight in their faith and encourage them to see that a relationship with God is even more enchanting than a visit to Hogwarts!Each session is divided into five parts and includes photocopiable material: · Beforehand (to help leaders prepare the session)· Opening Activity (introducing the session to the young people in an interactive and fun format)· Film Clip (a short clip from one of the Harry Potter films)· Taking It Further (developing the theme and exploring it in greater depth)· Bible Focus (a Bible verse that deals with the Christian perspective of the theme)· Prayer Response (prayer activity drawing on the theme and giving space for response)',
+  categories: [
+    'Church work with youth'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=r0q9GTKO0qUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=r0q9GTKO0qUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  },
+  {
+  id: '2BMDuAEACAAJ',
+  title: 'Harry Potter and the Cursed Child',
+  subtitle: 'Parts One and Two Playscript',
+  authors: [
+    'J. K. Rowling',
+    'Jack Thorne',
+    'John Tiffany'
+  ],
+  publisher: 'Arthur A. Levine Books',
+  publishedDate: '2017-07-25',
+  description: 'The Eighth Story. Nineteen Years Later. Based on an original story by J.K. Rowling, John Tiffany, and Jack Thorne, a play by Jack Thorne. It was always difficult being Harry Potter and it isn\'t much easier now that he is an overworked employee of the Ministry of Magic, a husband, and father of three school-age children. While Harry grapples with a past that refuses to stay where it belongs, his youngest son, Albus, must struggle with the weight of a family legacy he never wanted. As past and present fuse ominously, both father and son learn the uncomfortable truth: Sometimes, darkness comes from unexpected places. The playscript for Harry Potter and the Cursed Child was originally released as a "special rehearsal edition" alongside the opening of Jack Thorne\'s play in London\'s West End in summer 2016. Based on an original story by J.K. Rowling, John Tiffany, and Jack Thorne, the play opened to rapturous reviews from theatergoers and critics alike, while the official playscript became an immediate global bestseller. This revised edition updates the "special rehearsal edition" with the conclusive and final dialogue from the play, which has subtly changed since its rehearsals, as well as a conversation piece between director John Tiffany and writer Jack Thorne, who share stories and insights about reading playscripts. This edition also includes useful background information including the Potter family tree and a timeline of events from the wizarding world prior to the beginning of Harry Potter and the Cursed Child.',
+  categories: [
+    'Juvenile Nonfiction'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=2BMDuAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=2BMDuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  }
+  },
+  {
+  id: 'f280CwAAQBAJ',
+  title: 'Harry Potter: The Complete Collection (1-7)',
+  authors: [
+    'J.K. Rowling'
+  ],
+  publisher: 'Pottermore Publishing',
+  publishedDate: '2015-12-14',
+  description: 'All seven eBooks in the multi-award winning, internationally bestselling Harry Potter series, available as one download with stunning cover art by Olly Moss. Enjoy the stories that have captured the imagination of millions worldwide.',
+  categories: [
+    'Juvenile Fiction'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=f280CwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=f280CwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api'
+  }
+  },
+  {
+  id: '7HgwCgAAQBAJ',
+  title: 'Harry Potter and the Classical World',
+  subtitle: 'Greek and Roman Allusions in J.K. Rowling’s Modern Epic',
+  authors: [
+    'Richard A. Spencer'
+  ],
+  publisher: 'McFarland',
+  publishedDate: '2015-07-11',
+  description: 'J.K. Rowling has drawn deeply from classical sources to inform and color her Harry Potter novels, with allusions ranging from the obvious to the obscure. “Fluffy,” the vicious three-headed dog in Harry Potter and the Sorcerer’s Stone, is clearly a repackaging of Cerberus, the hellhound of Greek and Roman mythology. But the significance of Rowling’s quotation from Aeschylus at the front of Harry Potter and the Deathly Hallows is a matter of speculation. Her use of classical material is often presented with irony and humor. This extensive analysis of the Harry Potter series examines Rowling’s wide range of allusion to classical characters and themes and her varied use of classical languages. Chapters discuss Harry and Narcissus, Dumbledore’s many classical predecessors, Lord Voldemort’s likeness to mythical figures, and magic in Harry Potter and classical antiquity—among many topics.',
+  categories: [
+    'Literary Criticism'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=7HgwCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=7HgwCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  },
+  {
+  id: 'DKcWE3WXoj8C',
+  title: 'Harry Potter and International Relations',
+  authors: [
+    'Daniel H. Nexon',
+    'Iver B. Neumann'
+  ],
+  publisher: 'Rowman & Littlefield',
+  publishedDate: '2006',
+  description: 'Drawing on a range of historical and sociological sources, this work shows how aspects of Harry\'s world contain aspects of our own. It also includes chapters on the political economy of the franchise, and on the problems of studying popular culture.',
+  categories: [
+    'Literary Criticism'
+  ],
+  imageLinks: {
+    smallThumbnail: 'http://books.google.com/books/content?id=DKcWE3WXoj8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
+    thumbnail: 'http://books.google.com/books/content?id=DKcWE3WXoj8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
+  }
+  }
+];
+
+
+

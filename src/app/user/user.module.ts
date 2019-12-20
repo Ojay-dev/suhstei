@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { userRoutes } from './routes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { userRoutes } from './routes';
 import { ProfileComponent, ProfileEditComponent } from './profile';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './auth/footer/footer.component';
@@ -22,6 +23,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(userRoutes)
   ],
   declarations: [

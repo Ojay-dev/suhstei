@@ -36,6 +36,19 @@
   font-size: 1rem;
   color: #ABB4BD;
 }
+.profile input.invalid-input  {
+  border: 1px solid #E00202;
+  background: url("/assets/icons/warning.svg") no-repeat scroll 97%;
+  margin-block-start: 0;
+}
+
+em {
+  font-size: small;
+  display: inline-block;
+  color: #E00202;
+  margin-block-start: 2rem;
+  /* padding-block-start: 0rem; */
+}
 .profile .edit-btn {
   color: white;
   font-weight: 450;
@@ -45,10 +58,21 @@
   background: #4169E2;
   box-shadow: 0px 9px 20px rgba(171, 180, 189, 0.148862);
 }
+.profile input[disabled].edit-btn {
+  background: #8c92a5;
+}
+.image-wrapper {
+  position: relative;
+}
+.image-cropper {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
 .edit-img-btn {
   position: absolute;
-  /* bottom: 10%; */
-  /* left: 25%; */
+  bottom: 5px; /* 5px up from the bottom */
+  right: 26px; /* 35px in from the right */
   color: white;
   font-size: .5rem;
   width: 22px;
