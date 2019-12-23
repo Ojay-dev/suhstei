@@ -1,4 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { IBook } from 'src/app/shared/book.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,9 +8,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class BookService {
   searchResults: any = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getBooks() {
+  getBooks(): IBook[] {
     return BOOKS;
   }
 
@@ -33,13 +35,13 @@ export class BookService {
 
   }
 
-  getSearchBooks(): any {
+  getSearchBooks(): IBook {
     return this.searchResults;
   }
 
 }
 
-const BOOKS = [
+const BOOKS: IBook[] = [
   {
     id: '1XP_tQEACAAJ',
     title: 'Harry Potter',

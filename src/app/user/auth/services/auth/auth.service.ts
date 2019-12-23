@@ -11,7 +11,7 @@ export class AuthService {
 
   loginUser(userName: string, password: string) {
     this.currentUser = {
-      id: 1,
+      id: Math.random(),
       firstName: 'Shenske',
       lastName: 'Nakamura',
       email: 'shenske.nakam@gmail.com',
