@@ -4,6 +4,7 @@ import { Injectable, EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class BookService {
+  searchResults: any = [];
 
   constructor() { }
 
@@ -13,24 +14,27 @@ export class BookService {
 
   searchBooks(searchTerm: string) {
     const term = searchTerm.toLocaleLowerCase();
-    const results = [];
 
     BOOKS.forEach(book => {
       // let matchingBooks = [];
       if (book.title.toLocaleLowerCase().indexOf(term) > -1) {
-        results.push(book);
+        this.searchResults.push(book);
       }
       // results.concat(matchingBooks);
       // console.log(results);
     });
 
-    const emitter = new EventEmitter(true);
-    setTimeout(() => {
-      emitter.emit(results);
-    }, 100);
+    // const emitter = new EventEmitter(true);
+    // setTimeout(() => {
+    //   emitter.emit(this.searchResults);
+    // }, 100);
 
-    return emitter;
+    // return emitter;
 
+  }
+
+  getSearchBooks(): any {
+    return this.searchResults;
   }
 
 }

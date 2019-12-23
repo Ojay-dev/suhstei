@@ -18,13 +18,14 @@ export class NavbarComponent implements OnInit {
   }
 
   searchBooks(searchTerm) {
-    this.bookService.searchBooks(searchTerm)
-      .subscribe(books => {
-        this.foundBooks = books;
-        console.log(this.foundBooks);
-        this.router.navigateByUrl('search-result', { state: { result: this.foundBooks } });
-      });
+    this.bookService.searchBooks(searchTerm);
+    this.router.navigateByUrl('search-result');
 
+      // .subscribe(books => {
+      //   this.foundBooks = books;
+      //   console.log(this.foundBooks);
+      //   this.router.navigateByUrl('search-result', { state: { result: this.foundBooks } });
+      // });
   }
 
 }

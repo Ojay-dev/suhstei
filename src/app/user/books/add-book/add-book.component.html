@@ -1,0 +1,40 @@
+<app-sidebar></app-sidebar>
+
+<section class="main" my-books>
+  <div class="profile-header" style="margin-block-end: 57px;">
+    <div>
+      <a [routerLink]="['/user/books']"><i class="material-icons">arrow_back_ios</i></a>
+      <h1>My Books</h1>
+    </div>
+  </div>
+
+  <form action="">
+    <div class="book-upload">
+      <div id="imgFileUpload">
+        <span id="spnFilePath">Click to Upload Image</span>
+        <input type="file" id="FileUpload1" style="display: none" />
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="Book-Title">Book Title</label>
+            <input type="text" name="Book-Title" id="" placeholder="Book Title" required>
+          </div>
+
+          <div class="col-md-6">
+            <label for="Author">Author</label>
+            <input type="text" name="Book-Title" id="" placeholder="Author" required>
+          </div>
+        </div>
+
+        <label for="Book-Review">Book Review</label>
+        <textarea name="message" rows="10" cols="30" placeholder="Write review here..." required></textarea>
+
+        <button>Save</button>
+      </div>
+
+    </div>
+  </form>
+
+</section>

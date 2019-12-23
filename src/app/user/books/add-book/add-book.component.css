@@ -1,0 +1,102 @@
+div#imgFileUpload {
+  position: relative;
+  border: 3px dashed #758CCF;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 12rem;
+  height: 12.5rem;
+}
+
+div#imgFileUpload>span {
+  position: absolute;
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  text-align: center;
+  /* margin: auto 26px; */
+  top: 35%;
+  cursor: pointer;
+  color: #1D2029;
+}
+
+.book-upload {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-upload label {
+  font-family: SFProText;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8A939A;
+}
+
+.book-upload input {
+  width: 100%;
+  height: 48px;
+  padding: 1rem;
+  margin-block-start: 11px;
+  margin-block-end: 45px;
+  font-weight: 450;
+  font-size: 1rem;
+  font-family: CircularStd;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.book-upload input::placeholder {
+  font-family: SFProText;
+  font-size: 14px;
+  line-height: 24px;
+  /* padding: 12px 0; */
+  color: #e5e3e3;
+}
+
+.book-upload textarea {
+  width: 100%;
+  /* height: 48px; */
+  padding: 1rem;
+  margin-top: 11px;
+  margin-block-end: 45px;
+  font-weight: 450;
+  font-size: 1rem;
+  font-family: CircularStd;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.book-upload textarea::placeholder {
+  font-family: SFProText;
+  font-size: 14px;
+  line-height: 24px;
+  /* padding: 12px 0; */
+  color: #e5e3e3;
+}
+
+.book-upload button {
+  font-family: SFProText;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 11px 44px;
+  color: #FFFFFF;
+  background: #4169E2;
+  border: 0;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 82.5rem) {
+  .book-upload {
+    flex-direction: column;
+  }
+
+  div#imgFileUpload {
+    margin-block-end: 3.125rem;
+  }
+}

@@ -10,7 +10,9 @@ import { FooterComponent } from './auth/footer/footer.component';
 import {
   BookListComponent,
   BookReviewComponent,
-  BooksBorrowedComponent
+  BooksBorrowedComponent,
+  AddBookComponent,
+  BookHistoryComponent
 } from './books';
 import {
   LoginComponent,
@@ -40,6 +42,8 @@ import {
     FooterComponent,
     BookReviewComponent,
     BooksBorrowedComponent,
+    AddBookComponent,
+    BookHistoryComponent
   ]
 })
 export class UserModule { }

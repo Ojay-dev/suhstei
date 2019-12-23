@@ -4,7 +4,9 @@ import { ProfileComponent, ProfileEditComponent } from './profile';
 import {
   BookListComponent,
   BookReviewComponent,
-  BooksBorrowedComponent
+  BooksBorrowedComponent,
+  AddBookComponent,
+  BookHistoryComponent
 } from './books';
 
 import {
@@ -18,7 +20,9 @@ export  const userRoutes: Routes = [
   { path: 'profile/edit-profile', component: ProfileEditComponent},
   { path: 'books', component: BookListComponent},
   { path: 'books/book-review', component: BookReviewComponent},
+  { path: 'books/add-book', component: AddBookComponent},
   { path: 'books-borrowed', component: BooksBorrowedComponent},
+  { path: 'history', component: BookHistoryComponent},
   { path: 'sign-in', component: LoginComponent},
   { path: 'sign-in/forgot-password', component: ForgotPasswordComponent},
   { path: 'sign-up', component: RegisterComponent},
