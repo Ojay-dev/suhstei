@@ -1,39 +1,64 @@
 <header>
   <nav id="navbar">
     <div>
-      <div>
-        <a [routerLink]="['']">
-          <img src="assets/icons/new-logo.png" alt="suhstei" class="logo">
-        </a>
+      <a [routerLink]="['']" style="width: 4.5rem;">
+        <img src="assets/icons/new-logo.png" alt="suhstei" class="logo">
+      </a>
 
-        <div class="vl"></div>
+      <div class="vl nav-link"></div>
 
-        <form (ngSubmit)="searchBooks(searchTerm)">
-          <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xF002; Search" aria-label="Search" style="font-family: SFProText, FontAwesome">
-        </form>
+      <form (ngSubmit)="searchBooks(searchTerm)">
+        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xF002; Search"
+          aria-label="Search" style="font-family: SFProText, FontAwesome">
+      </form>
+    </div>
+
+    <div class="nav-link">
+      <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a [routerLink]="['book']" routerLinkActive="active">Book</a>
+
+      <div *ngIf="!auth.isAuthenticated()" class="auth-link">
+        <a [routerLink]="['/user/sign-in']">Sign In</a>
+        <a class="sign-up" [routerLink]="['/user/sign-up']">Sign Up</a>
       </div>
 
-      <ul class="nav-link">
-        <span>
-          <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
-          <li><a [routerLink]="['book']" routerLinkActive="active">Book</a></li>
-        </span>
+      <div *ngIf="auth.isAuthenticated()" class="user">
+        <h4>Shenske Nakamura <br><span>shenske.nakam@gmail.com</span></h4>
 
-        <span *ngIf="!auth.isAuthenticated()">
-          <li><a [routerLink]="['/user/sign-in']">Sign In</a></li>
-          <li><a [routerLink]="['/user/sign-up']" class="sign-up">Sign Up</a></li>
-        </span>
-        <li *ngIf="auth.isAuthenticated()"><a [routerLink]="['/user/profile']">Welcome {{auth.currentUser.firstName}}!</a></li>
-      </ul>
+        <div>
+          <span class="image-cropper" style=" width: 36px; height: 36px; margin-inline-end: 10px;">
+            <img src="assets/images/avatar.jpg" alt="profile image" avatar>
+          </span>
 
-      <button class="openbtn hamburger-menu" onclick="openNav()" aria-disabled="true">&#9776;</button>
-      <ul id="mySidepanel" class="sidepanel hamburger-menu">
-        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-        <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" onclick="closeNav()">Home</a></li>
-        <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">Book</a></li>
-        <li><a [routerLink]="['user/sign-in']" routerLinkActive="active" onclick="closeNav()">Sign In</a></li>
-        <li><a [routerLink]="['user/sign-up']" routerLinkActive="active" onclick="closeNav()">Sign Up</a></li>
-      </ul>
+          <div style="position: relative;">
+            <i class="material-icons" (click)="hoverMenu()" style="cursor: pointer;">keyboard_arrow_down</i>
+            <div class="dropdown-content">
+              <ul>
+                <a [routerLink]="['/user/profile']" (click)="hideHoverMenu()">
+                  <li>My Profile</li>
+                </a>
+                <a>
+                  <li>Log out</li>
+                </a>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- <div class="user">
+
+
+    </div> -->
     </div>
+
+    <button class="openbtn hamburger-menu" onclick="openNav()" aria-disabled="true">&#9776;</button>
+    <ul id="mySidepanel" class="sidepanel hamburger-menu">
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+      <li><a href="#" class="active" onclick="closeNav()">Home</a></li>
+      <li><a href="#" onclick="closeNav()">Book</a></li>
+      <li><a href="#" onclick="closeNav()">Sign In</a></li>
+      <li><a href="#" onclick="closeNav()">Sign Up</a></li>
+    </ul>
   </nav>
 </header>

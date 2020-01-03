@@ -11,7 +11,8 @@ export class AuthService {
 
   loginUser(userName: string, password: string) {
     this.currentUser = {
-      id: Math.random(),
+      // id: Math.random(),
+      avatar: '',
       firstName: 'Shenske',
       lastName: 'Nakamura',
       email: 'shenske.nakam@gmail.com',
@@ -23,7 +24,8 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  updateCurrentUser(firstName: string, lastName: string, email: string, phoneNo: string) {
+  updateCurrentUser(avatar: string, firstName: string, lastName: string, email: string, phoneNo: string) {
+    this.currentUser.avatar = avatar;
     this.currentUser.firstName = firstName;
     this.currentUser.lastName = lastName;
     this.currentUser.email = email;

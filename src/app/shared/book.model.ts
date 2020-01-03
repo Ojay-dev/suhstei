@@ -1,14 +1,7 @@
 export interface IBook {
-  id: string;
+  id?: string;
+  avatar: File;
   title: string;
-  authors: string[];
-  subtitle?: string;
-  publisher?: string;
-  publishedDate?: string;
-  categories?: string[];
-  description?: string;
-  imageLinks?: {
-    smallThumbnail: string;
-    thumbnail: string;
-  };
+  authors: string;
+  description: string;
 }

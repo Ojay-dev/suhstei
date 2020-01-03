@@ -28,4 +28,20 @@ export class NavbarComponent implements OnInit {
       // });
   }
 
+  hoverMenu() {
+    const item: HTMLElement = document.querySelector('.dropdown-content');
+    // item.style.display = "block";
+
+    if (item.style.display === 'block') {
+      item.style.display = 'none';
+    } else {
+      item.style.display = 'block';
+    }
+  }
+
+  hideHoverMenu() {
+    const item: HTMLElement = document.querySelector('.dropdown-content');
+    item.style.display = 'none';
+  }
+
 }

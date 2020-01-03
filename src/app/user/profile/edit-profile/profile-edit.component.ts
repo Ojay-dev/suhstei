@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/services';
 
@@ -15,7 +15,7 @@ export class ProfileEditComponent implements OnInit {
   private email: FormControl;
   private phoneNo: FormControl;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, public fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -39,7 +39,8 @@ export class ProfileEditComponent implements OnInit {
       Validators.required
     );
 
-    this.profileForm = new FormGroup({
+    this.profileForm = this.fb.group({
+      avatar: [null],
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
@@ -50,12 +51,14 @@ export class ProfileEditComponent implements OnInit {
   saveProfile(formValues) {
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(
+        formValues.avatar,
         formValues.firstName,
         formValues.lastName,
         formValues.email,
         formValues.phoneNo
       );
-      this.router.navigate(['user/profile'])
+
+      this.router.navigate(['user/profile']);
     }
   }
 
@@ -77,10 +80,20 @@ export class ProfileEditComponent implements OnInit {
   }
 
   uploadImage(event) {
-    if (event.target.files && event.target.files[0]) {
-      const avatarImg: HTMLImageElement = document.querySelector('.image-wrapper img');
-      avatarImg.src = URL.createObjectURL(event.target.files[0]);
-    }
+    const avatarImg: HTMLImageElement = document.querySelector('.image-wrapper img');
+    const file = (event.target as HTMLInputElement).files[0];
+
+    // File Preview
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      avatarImg.src = reader.result as string;
+    };
+
+    this.profileForm.patchValue({
+      avatar: file
+    });
+    this.profileForm.get('avatar').updateValueAndValidity();
   }
 
 }

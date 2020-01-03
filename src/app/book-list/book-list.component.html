@@ -45,9 +45,9 @@
 
       <div class="book-section-grid">
         <div *ngFor="let book of books">
-          <img src="assets/images/book1-1.png" alt="">
+          <img [src]="book?.avatar" [alt]="book?.title">
           <h4>{{book?.title}}</h4>
-          <span>by <a href="#">Michael Freeman</a></span>
+          <span>by <a href="#">{{book?.author}}</a></span>
         </div>
       </div>
 

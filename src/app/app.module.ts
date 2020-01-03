@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { Error404Component } from './errors/page-404/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { BooksListResolver } from './services/books-list-resolver/books-list-resolver.service';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { SearchComponent } from './search/search.component';
   ],
   providers: [
     AuthService,
-    BookService
+    BookService,
+    BooksListResolver
   ],
   bootstrap: [AppComponent]
 })
