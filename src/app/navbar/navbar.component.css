@@ -264,15 +264,17 @@ nav>div a {
 @media (max-width: 1024px) {
   .hamburger-menu {
     display: block;
+    margin-inline-end: 10px;
   }
 
-  .nav-link {
+  .nav-link > a, .nav-link > .auth-link, .nav-link > .user {
     display: none;
   }
 
   nav>div {
     justify-content: space-around;
     width: 60%;
+    margin-inline-start: 20px;
   }
 
   [type="search"] {

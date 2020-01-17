@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { IBook } from 'src/app/shared/book.model';
-import { HttpClient, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -29,7 +29,7 @@ export class BookService {
     return this.httpClient.post<IBook>(`${this.baseURL}/create-new-book`, formData, {
       reportProgress: true,
       observe: 'events'
-    });
+    }).pipe(catchError(this.handleError<HttpEvent<IBook>>('saveBook')));
   }
 
   searchBooks(searchTerm: string) {

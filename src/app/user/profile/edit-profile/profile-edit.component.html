@@ -14,7 +14,7 @@
     <input type="file" id="fileLoader" (change)="uploadImage($event)" style="display: none;" />
   </span>
 
-  <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)">
+  <form [formGroup]="profileForm" *ngIf="profileForm" (ngSubmit)="saveProfile(profileForm.value)">
     <!-- First Name -->
     <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">Required</em>
     <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Must start with a letter</em>

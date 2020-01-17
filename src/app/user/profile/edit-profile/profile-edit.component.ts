@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth/services';
+import { AuthService, TokenPayload } from '../../auth/services';
 
 @Component({
   selector: 'app-profile-edit',
@@ -10,68 +10,66 @@ import { AuthService } from '../../auth/services';
 })
 export class ProfileEditComponent implements OnInit {
   profileForm: FormGroup;
-  private firstName: FormControl;
-  private lastName: FormControl;
-  private email: FormControl;
-  private phoneNo: FormControl;
+  retrievedData: any;
+  credentials: TokenPayload = {
+    // avatar: ,
+    firstname: '',
+    lastname: '',
+    phone: '',
+    email: ''
+  };
 
   constructor(private authService: AuthService, private router: Router, public fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.firstName = new FormControl(
-      this.authService.currentUser.firstName,
-      [Validators.required, Validators.pattern('[a-zA-Z].*')]
-    );
+    // console.log(this.authService.currentUser);
+    this.authService.profile().subscribe(profile => {
 
-    this.lastName = new FormControl(
-      this.authService.currentUser.lastName,
-      [Validators.required, Validators.pattern('[a-zA-Z].*')]
-    );
+      this.retrievedData = profile;
+      this.profileForm = this.fb.group({
+        avatar: [null],
+        firstName: [profile.firstname, [Validators.required, Validators.pattern('[a-zA-Z].*')]],
+        lastName: [profile.lastname, [Validators.required, Validators.pattern('[a-zA-Z].*')]],
+        email: {value: profile.email, disabled: true},
+        phoneNo: [profile.phone, Validators.required]
+      });
 
-    this.email = new FormControl(
-      {value: this.authService.currentUser.email, disabled: true},
-      Validators.required
-    );
-
-    this.phoneNo = new FormControl(
-      this.authService.currentUser.phoneNo,
-      Validators.required
-    );
-
-    this.profileForm = this.fb.group({
-      avatar: [null],
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      phoneNo: this.phoneNo
     });
+
   }
 
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(
-        formValues.avatar,
-        formValues.firstName,
-        formValues.lastName,
-        formValues.email,
-        formValues.phoneNo
-      );
+      const formValue = this.profileForm.value;
 
-      this.router.navigate(['user/profile']);
+      this.credentials.firstname = formValue.firstName;
+      this.credentials.lastname = formValue.lastName;
+      this.credentials.phone = formValue.phoneNo;
+      this.credentials.email = this.retrievedData.email;
+
+      this.authService.updateCurrentUser(this.credentials)
+      .subscribe(() => {
+        console.log('Successfull!!!');
+        this.router.navigate(['user/profile']);
+      }, (err) => {
+        console.error(err);
+      });
+
+      // this.router.navigate(['user/profile']);
     }
   }
 
   validateFirstName() {
-    return this.firstName.valid || this.firstName.untouched;
+    return this.profileForm.controls.firstName.valid || this.profileForm.controls.firstName.untouched;
   }
 
   validateLastName() {
-    return this.lastName.valid || this.lastName.untouched;
+    return this.profileForm.controls.lastName.valid || this.profileForm.controls.lastName.untouched;
   }
 
   validatePhoneNo() {
-    return this.phoneNo.valid || this.phoneNo.untouched;
+    return this.profileForm.controls.phoneNo.valid || this.profileForm.controls.phoneNo.untouched;
   }
 
   fileLoader() {

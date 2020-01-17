@@ -15,10 +15,18 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.firstName = this.authService.currentUser.firstName;
-    this.lastName = this.authService.currentUser.lastName;
-    this.email = this.authService.currentUser.email;
-    this.phoneNo = this.authService.currentUser.phoneNo;
+    // this.firstName = this.authService.currentUser.firstName;
+    // this.lastName = this.authService.currentUser.lastName;
+    // this.email = this.authService.currentUser.email;
+    // this.phoneNo = this.authService.currentUser.phoneNo;
+
+    this.authService.profile().subscribe(profile => {
+      console.log(profile);
+      this.firstName = profile.firstname;
+      this.lastName = profile.lastname;
+      this.email = profile.email;
+      this.phoneNo = `0${profile.phone}`;
+    });
 
   }
 

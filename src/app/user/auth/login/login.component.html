@@ -4,15 +4,16 @@
     <h2>Login to Suhstei</h2>
     <h3>Enter your login details to proceed</h3>
 
-    <form action="" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <form action="" #loginForm="ngForm" (ngSubmit)="login()">
+      <em *ngIf="unAuthorized">Invalid email or password</em>
       <!-- username -->
       <em *ngIf="loginForm.controls.email?.invalid && (loginForm.controls.email?.touched)">Requires a valid email address</em>
-      <input (ngModel)="email" name="email" [class.invalid-input]="loginForm.controls.email?.invalid &&
+      <input [(ngModel)]="credentials.email" name="email" [class.invalid-input]="loginForm.controls.email?.invalid &&
       loginForm.controls.email?.touched" type="email" placeholder="Email address" required>
 
       <!-- Password -->
       <em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched)">Requires a password</em>
-      <input (ngModel)="password" name="password" [class.invalid-input]="loginForm.controls.password?.invalid &&
+      <input [(ngModel)]="credentials.password" name="password" [class.invalid-input]="loginForm.controls.password?.invalid &&
       loginForm.controls.password?.touched" type="password" placeholder="Password" required>
 
       <div align="right">

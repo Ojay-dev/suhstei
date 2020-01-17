@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksBorrowedComponent implements OnInit {
 
+  tabbedMode = true;
+
   constructor() { }
 
   ngOnInit() {

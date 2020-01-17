@@ -22,7 +22,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit() {
     this.bookTitle = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.author = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
-    this.bookReview = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*'), Validators.maxLength(30)]);
+    this.bookReview = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*'), Validators.maxLength(400)]);
     this.avatar = new FormControl('', [Validators.required]);
 
     this.newBookForm = this.fb.group({

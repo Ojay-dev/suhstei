@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services';
+import { AuthService, TokenPayload } from '../services';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,19 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: any;
-  password: any;
-  mouseverLogin: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {
+  unAuthorized = false;
+  credentials: TokenPayload = {
+    email: '',
+    password: ''
+  };
+
+  constructor(private auth: AuthService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  login(formsValue) {
-    this.authService.loginUser(formsValue.email, formsValue.password);
-    this.router.navigate(['user/profile']);
+  login() {
+    this.auth.login(this.credentials).subscribe(() => {
+      this.router.navigate(['user/profile']);
+    }, (err) => {
+      this.unAuthorized = true;
+      console.error(err);
+    });
   }
 
 }

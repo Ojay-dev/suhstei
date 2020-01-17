@@ -1,0 +1,22 @@
+.tabbed {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 20px;
+  text-align: center;
+  margin-block-start: 40px;
+  margin-block-end: 5rem;
+}
+
+.tabbed a {
+  font-family: CircularStd;
+  font-weight: 450;
+  font-size: 1.25rem;
+  margin: 0;
+  padding-block-end: 10px;
+  cursor: pointer;
+  color: #1D2029;
+}
+
+.tabbed a.active, .tabbed a:hover {
+  border-block-end: 2px solid #4169E2;
+}

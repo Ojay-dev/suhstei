@@ -14,15 +14,16 @@ import {
   RegisterComponent,
   ForgotPasswordComponent
 } from './auth';
+import { AuthGuardService } from './auth/services/auth-guard/auth-guard.service';
 
 export  const userRoutes: Routes = [
-  { path: 'profile', component: ProfileComponent},
-  { path: 'profile/edit-profile', component: ProfileEditComponent},
-  { path: 'books', component: BookListComponent},
-  { path: 'books/book-review', component: BookReviewComponent},
-  { path: 'books/add-book', component: AddBookComponent},
-  { path: 'books-borrowed', component: BooksBorrowedComponent},
-  { path: 'history', component: BookHistoryComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'profile/edit-profile', component: ProfileEditComponent, canActivate: [AuthGuardService] },
+  { path: 'books', component: BookListComponent, canActivate: [AuthGuardService] },
+  { path: 'books/book-review', component: BookReviewComponent, canActivate: [AuthGuardService] },
+  { path: 'books/add-book', component: AddBookComponent, canActivate: [AuthGuardService] },
+  { path: 'books-borrowed', component: BooksBorrowedComponent, canActivate: [AuthGuardService] },
+  { path: 'history', component: BookHistoryComponent, canActivate: [AuthGuardService] },
   { path: 'sign-in', component: LoginComponent},
   { path: 'sign-in/forgot-password', component: ForgotPasswordComponent},
   { path: 'sign-up', component: RegisterComponent},

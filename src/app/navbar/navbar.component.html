@@ -17,13 +17,13 @@
       <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
       <a [routerLink]="['book']" routerLinkActive="active">Book</a>
 
-      <div *ngIf="!auth.isAuthenticated()" class="auth-link">
+      <div *ngIf="!auth.isLoggedIn()" class="auth-link">
         <a [routerLink]="['/user/sign-in']">Sign In</a>
         <a class="sign-up" [routerLink]="['/user/sign-up']">Sign Up</a>
       </div>
 
-      <div *ngIf="auth.isAuthenticated()" class="user">
-        <h4>Shenske Nakamura <br><span>shenske.nakam@gmail.com</span></h4>
+      <div *ngIf="auth.isLoggedIn()" class="user" (mouseover)="showMenu()" (mouseout)="hideMenu()">
+        <h4> Welcome !</h4>
 
         <div>
           <span class="image-cropper" style=" width: 36px; height: 36px; margin-inline-end: 10px;">
@@ -31,13 +31,13 @@
           </span>
 
           <div style="position: relative;">
-            <i class="material-icons" (click)="hoverMenu()" style="cursor: pointer;">keyboard_arrow_down</i>
+            <i class="material-icons" style="cursor: pointer;">keyboard_arrow_down</i>
             <div class="dropdown-content">
               <ul>
-                <a [routerLink]="['/user/profile']" (click)="hideHoverMenu()">
+                <a [routerLink]="['/user/profile']">
                   <li>My Profile</li>
                 </a>
-                <a>
+                <a (click)="auth.logout()">
                   <li>Log out</li>
                 </a>
               </ul>
@@ -55,10 +55,10 @@
     <button class="openbtn hamburger-menu" onclick="openNav()" aria-disabled="true">&#9776;</button>
     <ul id="mySidepanel" class="sidepanel hamburger-menu">
       <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-      <li><a href="#" class="active" onclick="closeNav()">Home</a></li>
-      <li><a href="#" onclick="closeNav()">Book</a></li>
-      <li><a href="#" onclick="closeNav()">Sign In</a></li>
-      <li><a href="#" onclick="closeNav()">Sign Up</a></li>
+      <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="active" onclick="closeNav()">Home</a></li>
+      <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">Book</a></li>
+      <li><a [routerLink]="['/user/sign-in']" onclick="closeNav()">Sign In</a></li>
+      <li><a [routerLink]="['/user/sign-up']" onclick="closeNav()">Sign Up</a></li>
     </ul>
   </nav>
 </header>

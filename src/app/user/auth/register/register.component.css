@@ -1,2 +1,12 @@
-
-
+.signup-form em {
+  font-size: small;
+  display: inline-block;
+  color: #E00202;
+  margin-block-start: .75rem;
+  /* padding-block-start: 0rem; */
+}
+.signup-form input.invalid-input  {
+  border: 1px solid #E00202;
+  background: url("/assets/icons/warning.svg") no-repeat scroll 97%;
+  margin-top: 0;
+}

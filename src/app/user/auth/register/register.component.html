@@ -1,37 +1,64 @@
 <section>
 
-    <div  class="signup-form">
-      <h2>Register on Suhstei</h2>
-      <h3>Personal details</h3>
+  <div class="signup-form">
+    <h2>Register on Suhstei</h2>
+    <h3>Personal details</h3>
 
-      <form action="">
-        <div class="row">
-          <div class="col-6 col-md-6">
-            <!-- firstname -->
-            <input type="text" placeholder="First Name" required>
-          </div>
-
-          <div class="col-6 col-md-6">
-            <!-- lastname -->
-            <input type="text" placeholder="Last Name" required>
-          </div>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="row">
+        <div class="col-6 col-md-6">
+          <!-- firstname -->
+          <em *ngIf="!validateFirstName() && registerForm.controls.firstName.errors.required">First Name is required</em>
+          <em *ngIf="!validateFirstName() && registerForm.controls.firstName.errors.pattern">Must start with a
+            letter</em>
+          <input formControlName="firstName" type="text" [class.invalid-input]="registerForm.controls.firstName?.invalid &&
+          registerForm.controls.firstName?.touched" placeholder="First Name">
         </div>
 
-        <!-- phone no -->
-        <input type="text" placeholder="Phone No." required>
+        <div class="col-6 col-md-6">
+          <!-- lastname -->
+          <em *ngIf="!validateLastName() && registerForm.controls.lastName.errors.required">Last Name is required</em>
+          <em *ngIf="!validateLastName() && registerForm.controls.lastName.errors.pattern">Must start with a
+            letter</em>
+          <input formControlName="lastName" type="text" [class.invalid-input]="registerForm.controls.lastName?.invalid &&
+          registerForm.controls.lastName?.touched" placeholder="Last Name">
+        </div>
+      </div>
 
-        <!-- email -->
-        <input type="text" placeholder="Email Address" required>
+      <!-- phone no -->
+      <em *ngIf="!validatePhoneNo() && registerForm.controls.phoneNo.errors.required">Phone Number is required</em>
+      <!-- <em *ngIf="!validateFirstName() && registerForm.controls.firstName.errors.pattern">Must start with number</em> -->
+      <input formControlName="phoneNo" type="text" [class.invalid-input]="registerForm.controls.phoneNo?.invalid &&
+      registerForm.controls.phoneNo?.touched" placeholder="Phone No.">
 
-        <!-- Password -->
-        <input type="password" placeholder="Password" required>
+      <!-- email -->
+      <em *ngIf="!validateEmail() && registerForm.controls.email.errors.email">Email must be a valid email address</em>
+      <em *ngIf="!validateEmail() && registerForm.controls.email.errors.required">Email is required</em>
+      <input formControlName="email" [class.invalid-input]="registerForm.controls.email?.invalid &&
+      registerForm.controls.email?.touched" type="text" placeholder="Email Address">
 
-        <!-- Submit button -->
-        <input type="submit" value="Register" class="button">
+      <!-- Password -->
+      <em *ngIf="!validatePassword() && registerForm.controls.password.errors.minlength">
+        Password must be at least 6 characters</em>
+      <em *ngIf="!validatePassword() && registerForm.controls.password.errors.required">
+        Password is required</em>
+      <input formControlName="password" [class.invalid-input]="registerForm.controls.password?.invalid &&
+      registerForm.controls.password?.touched" type="password" placeholder="Password">
 
-        <div register align="center">Already have an account? <a [routerLink]="['/user/sign-in']">Login now</a></div>
-      </form>
+      <!-- Confirm Password -->
+      <em *ngIf="!validateConfirmPassword() && registerForm.controls.confirmPassword.errors.mustMatch">
+        Passwords must match</em>
+      <em *ngIf="!validateConfirmPassword() && registerForm.controls.confirmPassword.errors.required">
+        Confirm Password is required</em>
+      <input formControlName="confirmPassword" [class.invalid-input]="registerForm.controls.confirmPassword?.invalid &&
+      registerForm.controls.confirmPassword?.touched" type="password" placeholder="Confirm Password">
+
+      <!-- Submit button -->
+      <input type="submit" value="Register" class="button">
+
+      <div register align="center">Already have an account? <a [routerLink]="['/user/sign-in']">Login now</a></div>
+    </form>
   </div>
-  </section>
+</section>
 
-  <app-footer></app-footer>
+<app-footer></app-footer>

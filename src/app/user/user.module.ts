@@ -21,6 +21,8 @@ import {
   ResetPasswordComponent,
   EmailCheckComponent
 } from './auth';
+import { BorrowedTabComponent } from './books/borrowed-tab/borrowed-tab.component';
+import { LendedTabComponent } from './books/lended-tab/lended-tab.component';
 
 @NgModule({
   imports: [
@@ -43,7 +45,9 @@ import {
     BookReviewComponent,
     BooksBorrowedComponent,
     AddBookComponent,
-    BookHistoryComponent
+    BookHistoryComponent,
+    BorrowedTabComponent,
+    LendedTabComponent
   ]
 })
 export class UserModule { }

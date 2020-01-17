@@ -2,46 +2,14 @@
 
 
 <section class="main profile" my-books>
-  <div class="profile-header">
-    <h1>Books Borrowed</h1>
+  <div class="tabbed">
+    <a [class.active]="tabbedMode" (click)="tabbedMode=true">Books Borrowed</a>
+    <a [class.active]="!tabbedMode" (click)="tabbedMode=!tabbedMode">Books Lended</a>
   </div>
 
-  <div class="book-list-header">
-    <h2>List of Books Lend </h2>
-    <span>(Confirm by click the recieved button once book is returned)</span>
-  </div>
-
-  <div class="book-section-grid">
-    <div class="book-section-subGrid">
-      <img src="assets/images/book1.png" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-      <button>Recieved</button>
-    </div>
-
-    <div class="book-section-subGrid">
-      <img src="assets/images/book2.png" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-      <button>Recieved</button>
-    </div>
-
-    <div class="book-section-subGrid">
-      <img src="assets/images/book3.png" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-      <button>Recieved</button>
-    </div>
-
-    <div class="book-section-subGrid">
-      <img src="assets/images/book4.png" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-      <button>Recieved</button>
-    </div>
-  </div>
+  <app-borrowed-tab *ngIf="tabbedMode"></app-borrowed-tab>
+  <app-lended-tab *ngIf="!tabbedMode"></app-lended-tab>
 
 
 
 </section>
-
