@@ -16,6 +16,11 @@ import {
 } from './auth';
 import { AuthGuardService } from './auth/services/auth-guard/auth-guard.service';
 
+// const redirectTo = (uri: string) => {
+//   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+//   this.router.navigate([uri]));
+// }
+
 export  const userRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'profile/edit-profile', component: ProfileEditComponent, canActivate: [AuthGuardService] },

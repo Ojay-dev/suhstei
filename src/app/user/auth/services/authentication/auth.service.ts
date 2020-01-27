@@ -32,8 +32,8 @@ export interface TokenPayload {
 export class AuthService {
 
   private token: string;
-  // baseURL = 'http://localhost:8808/api';
-  baseURL = 'http://suhstei.herokuapp.com/api';
+  baseURL = 'http://localhost:8808/api';
+  // baseURL = 'http://suhstei.herokuapp.com/api';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -78,7 +78,20 @@ export class AuthService {
     if (method === 'post') {
       base = this.http.post(`${this.baseURL}/${type}`, user);
     } else if (method === 'put') {
-      base = this.http.put(`${this.baseURL}/${type}`, user, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      const  formData: any = new FormData();
+
+      formData.append('avatar', user.avatar);
+      formData.append('email', user.email);
+      formData.append('password', user.password);
+      formData.append('firstname', user.firstname);
+      formData.append('lastname', user.lastname);
+      formData.append('phone', user.phone);
+
+      base = this.http.put(
+        `${this.baseURL}/${type}`,
+        formData  ,
+        { headers: { Authorization: `Bearer ${this.getToken()}` }},
+      );
     } else {
       base = this.http.get(`${this.baseURL}/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
@@ -116,10 +129,12 @@ export class AuthService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('user/sign-in');
   }
 
   updateCurrentUser(user: TokenPayload): Observable<any> {
+    console.log(user.avatar);
+
     return this.request('put', 'update', user);
   }
   // Former code

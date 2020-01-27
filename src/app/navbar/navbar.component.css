@@ -216,7 +216,7 @@ nav>div a {
 
 .dropdown-content {
   display: none;
-  left: -530%;
+  left: -584%;
   top: 35px;
   position: absolute;
   background: #FFFFFF;
@@ -251,6 +251,10 @@ nav>div a {
 .dropdown-content ul li {
   padding: 10px 15px;
   color: #293D4A;
+}
+
+.dropdown-content ul a {
+  text-decoration: none;
 }
 
 .dropdown-content ul li:hover,

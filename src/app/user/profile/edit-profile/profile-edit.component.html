@@ -5,16 +5,17 @@
     <h1>My Profile</h1>
   </div>
 
-  <span class="image-wrapper">
-    <span class="image-cropper" style=" width: 150px; height: 150px;">
-      <img src="https://via.placeholder.com/150" alt="">
-    </span>
-
-    <button class="edit-img-btn" (click)="fileLoader()" id="btnOpenFileDialog"><i class="material-icons">edit</i></button>
-    <input type="file" id="fileLoader" (change)="uploadImage($event)" style="display: none;" />
-  </span>
 
   <form [formGroup]="profileForm" *ngIf="profileForm" (ngSubmit)="saveProfile(profileForm.value)">
+    <span class="image-wrapper">
+      <span class="image-cropper" style=" width: 150px; height: 150px;">
+        <img src="https://via.placeholder.com/150" alt="">
+      </span>
+
+      <button type="button" class="edit-img-btn" (click)="fileLoader()" id="btnOpenFileDialog"><i class="icon-edit"></i></button>
+      <input type="file" id="fileLoader" (change)="uploadImage($event)" style="display: none;" />
+    </span>
+
     <!-- First Name -->
     <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">Required</em>
     <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Must start with a letter</em>

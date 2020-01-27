@@ -11,13 +11,21 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   searchTerm = '';
   foundBooks: any;
+  firstname = 'User';
 
   constructor(public auth: AuthService, private bookService: BookService, private router: Router) { }
 
   ngOnInit() {
+    this.auth.profile().subscribe(profile => {
+      console.log(profile.firstname);
+
+      this.firstname = profile.firstname;
+    })
   }
 
   searchBooks(searchTerm) {
+
+
     this.bookService.searchBooks(searchTerm);
     this.router.navigateByUrl('search-result');
 

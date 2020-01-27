@@ -12,11 +12,11 @@ export class ProfileEditComponent implements OnInit {
   profileForm: FormGroup;
   retrievedData: any;
   credentials: TokenPayload = {
-    // avatar: ,
+    avatar: null,
     firstname: '',
     lastname: '',
+    email: '',
     phone: '',
-    email: ''
   };
 
   constructor(private authService: AuthService, private router: Router, public fb: FormBuilder) {
@@ -39,10 +39,37 @@ export class ProfileEditComponent implements OnInit {
 
   }
 
+  fileLoader() {
+    const fileInput: HTMLElement = document.querySelector('#fileLoader');
+    fileInput.click();
+  }
+
+  uploadImage(event) {
+    const avatarImg: HTMLImageElement = document.querySelector('.image-wrapper img');
+    const file = (event.target as HTMLInputElement).files[0];
+    // console.log(file);
+
+    // File Preview
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      avatarImg.src = reader.result as string;
+    };
+
+    this.profileForm.patchValue({
+      avatar: file
+    });
+    this.profileForm.get('avatar').updateValueAndValidity();
+    console.log(this.profileForm.value.avatar);
+
+  }
+
   saveProfile(formValues) {
-    if (this.profileForm.valid) {
+    if (this.profileForm.valid && this.profileForm.value.avatar !== null) {
+
       const formValue = this.profileForm.value;
 
+      this.credentials.avatar = formValue.avatar;
       this.credentials.firstname = formValue.firstName;
       this.credentials.lastname = formValue.lastName;
       this.credentials.phone = formValue.phoneNo;
@@ -56,7 +83,7 @@ export class ProfileEditComponent implements OnInit {
         console.error(err);
       });
 
-      // this.router.navigate(['user/profile']);
+      this.router.navigate(['user/profile']);
     }
   }
 
@@ -70,28 +97,6 @@ export class ProfileEditComponent implements OnInit {
 
   validatePhoneNo() {
     return this.profileForm.controls.phoneNo.valid || this.profileForm.controls.phoneNo.untouched;
-  }
-
-  fileLoader() {
-    const fileInput: HTMLElement = document.querySelector('#fileLoader');
-    fileInput.click();
-  }
-
-  uploadImage(event) {
-    const avatarImg: HTMLImageElement = document.querySelector('.image-wrapper img');
-    const file = (event.target as HTMLInputElement).files[0];
-
-    // File Preview
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      avatarImg.src = reader.result as string;
-    };
-
-    this.profileForm.patchValue({
-      avatar: file
-    });
-    this.profileForm.get('avatar').updateValueAndValidity();
   }
 
 }

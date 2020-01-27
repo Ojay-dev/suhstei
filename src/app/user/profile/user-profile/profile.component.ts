@@ -15,10 +15,11 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    // this.firstName = this.authService.currentUser.firstName;
-    // this.lastName = this.authService.currentUser.lastName;
-    // this.email = this.authService.currentUser.email;
-    // this.phoneNo = this.authService.currentUser.phoneNo;
+    // const win = (window as any);
+    // if(win.location.search !== '?loaded' ) {
+    //       win.location.search = '?loaded';
+    //       win.location.reload();
+    //   }
 
     this.authService.profile().subscribe(profile => {
       console.log(profile);
@@ -26,6 +27,13 @@ export class ProfileComponent implements OnInit {
       this.lastName = profile.lastname;
       this.email = profile.email;
       this.phoneNo = `0${profile.phone}`;
+
+      if (!!profile.avatar && profile.avatar !== "") {
+        const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
+        const avatarImg: HTMLImageElement = document.querySelector('#profile-img');
+        avatarImg.src = profile.avatar;
+        avatarImgNav.src = profile.avatar;
+      }
     });
 
   }

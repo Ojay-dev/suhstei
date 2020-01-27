@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { Error404Component } from './errors/page-404/404.component';
 import { SearchComponent } from './search/search.component';
 import { BooksListResolver } from './services/books-list-resolver/books-list-resolver.service';
+import { IcomoonComponent } from './icomoon/icomoon.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { BooksListResolver } from './services/books-list-resolver/books-list-res
     FooterComponent,
     BookListComponent,
     Error404Component,
-    SearchComponent
+    SearchComponent,
+    IcomoonComponent
   ],
   providers: [
     AuthService,

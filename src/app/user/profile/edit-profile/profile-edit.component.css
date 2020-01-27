@@ -71,8 +71,8 @@ em {
 }
 .edit-img-btn {
   position: absolute;
-  bottom: 5px; /* 5px up from the bottom */
-  right: 26px; /* 35px in from the right */
+  bottom: 18px;
+  left: 116px;
   color: white;
   font-size: .5rem;
   width: 22px;

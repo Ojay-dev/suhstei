@@ -8,8 +8,8 @@
       <div class="vl nav-link"></div>
 
       <form (ngSubmit)="searchBooks(searchTerm)">
-        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xF002; Search"
-          aria-label="Search" style="font-family: SFProText, FontAwesome">
+        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xe90c;  Search"
+          aria-label="Search" style="font-family: SFProText, icomoon">
       </form>
     </div>
 
@@ -23,7 +23,7 @@
       </div>
 
       <div *ngIf="auth.isLoggedIn()" class="user" (mouseover)="showMenu()" (mouseout)="hideMenu()">
-        <h4> Welcome !</h4>
+        <h4> Welcome {{firstname}} !</h4>
 
         <div>
           <span class="image-cropper" style=" width: 36px; height: 36px; margin-inline-end: 10px;">
@@ -31,7 +31,7 @@
           </span>
 
           <div style="position: relative;">
-            <i class="material-icons" style="cursor: pointer;">keyboard_arrow_down</i>
+            <i class="icon-dropdown" style="cursor: pointer;"></i>
             <div class="dropdown-content">
               <ul>
                 <a [routerLink]="['/user/profile']">
