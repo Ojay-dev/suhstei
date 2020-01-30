@@ -81,24 +81,30 @@ nav>div a {
 
 /* The sidepanel links */
 .sidepanel a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   transition: 0.3s;
   padding: 15px 15px 15px 24px;
-  line-height: 1em;
-  font-family: CircularStd;
+  line-height: 1.375rem;
+  font-family: SFProText;
   font-style: normal;
   font-weight: 450;
-  font-size: 1em;
+  font-size: 1rem;
   text-transform: capitalize;
   color: #1D2029;
   text-decoration: none;
 }
 
+.sidepanel a i {
+  font-size: 1rem;
+  margin-inline-end: 1rem;
+}
+
 /* When you mouse over the navigation links, change their color */
-.sidepanel a:hover,
+/* .sidepanel a:hover,
 .sidepanel .active {
   color: #4169E2;
-}
+} */
 
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
@@ -216,7 +222,7 @@ nav>div a {
 
 .dropdown-content {
   display: none;
-  left: -584%;
+  left: -642%;
   top: 35px;
   position: absolute;
   background: #FFFFFF;
@@ -271,7 +277,9 @@ nav>div a {
     margin-inline-end: 10px;
   }
 
-  .nav-link > a, .nav-link > .auth-link, .nav-link > .user {
+  .nav-link>a,
+  .nav-link>.auth-link,
+  .nav-link>.user {
     display: none;
   }
 

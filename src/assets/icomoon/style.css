@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f83y73');
-  src:  url('fonts/icomoon.eot?f83y73#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f83y73') format('truetype'),
-    url('fonts/icomoon.woff?f83y73') format('woff'),
-    url('fonts/icomoon.svg?f83y73#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?drml0x');
+  src:  url('fonts/icomoon.eot?drml0x#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?drml0x') format('truetype'),
+    url('fonts/icomoon.woff?drml0x') format('woff'),
+    url('fonts/icomoon.svg?drml0x#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,11 +26,14 @@
 }
 
 .icon-back:before {
+  content: "\e911";
+}
+.icon-dropdown:before {
   content: "\e900";
+  color: #828282;
 }
 .icon-account:before {
   content: "\e901";
-  font-size: 24px;
 }
 .icon-call:before {
   content: "\e902";
@@ -44,45 +47,43 @@
   content: "\e904";
   color: #fff;
 }
-.icon-label:before {
+.icon-chart:before {
   content: "\e905";
-  color: #485964;
+}
+.icon-baseline-label-24px:before {
+  content: "\e906";
 }
 .icon-list:before {
-  content: "\e906";
-  font-size: 24px;
+  content: "\e907";
 }
 .icon-person:before {
-  content: "\e907";
-  color: #485964;
-}
-.icon-statistic:before {
   content: "\e908";
-  font-size: 18px;
-}
-.icon-dropdown:before {
-  content: "\e909";
-  color: #828282;
-  font-size: 11px;
 }
 .icon-eye-slash:before {
-  content: "\e90a";
+  content: "\e909";
   color: #abb4bd;
 }
-.icon-history:before {
+.icon-home:before {
+  content: "\e90a";
+}
+.icon-books:before {
   content: "\e90b";
-  /* color: #485964; */
-  font-size: 24px;
+}
+.icon-power:before {
+  content: "\e90c";
+}
+.icon-history:before {
+  content: "\e90d";
 }
 .icon-search:before {
-  content: "\e90c";
+  content: "\e90e";
   color: #828282;
 }
 .icon-star:before {
-  content: "\e90d";
+  content: "\e90f";
   color: #ced0d2;
 }
 .icon-warning:before {
-  content: "\e90e";
+  content: "\e910";
   color: #e00202;
 }

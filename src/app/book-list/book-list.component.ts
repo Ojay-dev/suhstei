@@ -16,8 +16,19 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     // this.bookService.getBooks().subscribe(books => this.books = books);
-    this.books = this.route.snapshot.data.books['books'];
+
+    const chunkArrayInGroups = (arr, size) => {
+      const newArr = new Array();
+
+      for (let i = 0; i < arr.length; i += size) {
+        newArr.push(arr.slice(i, i + size));
+      }
+      return newArr;
+    };
+
+    this.books = chunkArrayInGroups(this.route.snapshot.data.books['books'], 4);
     console.log(this.books);
+
   }
 
 }

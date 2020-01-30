@@ -28,24 +28,21 @@ section {
   padding-top: 85px;
 }
 footer {
-  /* position:absolute; */
-  /* bottom:0; */
-  width:100%;
-  height:140px;			/* Height of the footer */
+  width: 100%;
   background: #C4C4C4;
 }
+
 footer h3 {
-	font-family: CircularStd;
-	font-style: normal;
-	font-weight: 450;
-	font-size: 1.125rem;
-	display: flex;
-	align-items: center;
+  font-family: CircularStd;
+  font-style: normal;
+  font-weight: 450;
+  font-size: 1.125rem;
   text-transform: capitalize;
-  padding: 3.75rem 12.5rem;
-  padding-inline-end: 50px;
-  margin: 0;
-	color: #1D2029;
+  width: 80%;
+  margin: auto;
+  padding-block-start: 3.75rem;
+  padding-block-end: 3.75rem;
+  color: #1D2029;
 }
 #footer.stikybottom {
   position: fixed;
@@ -70,6 +67,7 @@ footer h3 {
 /* Style sidebar links */
 .sidebar a {
   display: flex;
+  align-items: center;
   padding: 15px 8px 15px 60px;
   text-decoration: none;
   font-family: SFProText;
@@ -84,6 +82,7 @@ footer h3 {
 
 .sidebar i {
   margin-inline-end: 15px;
+  font-size: 1.5rem;
 }
 
 /* Style links on mouse-over */
@@ -424,10 +423,8 @@ footer h3 {
 }
 
 @media (max-width: 600px) {
-  footer {
-    height:110px;			/* Height of the footer */
-  }
   footer h3 {
+    font-size: 1rem;
     padding: 45px 20px;
   }
   .sidebar {

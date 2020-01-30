@@ -75,7 +75,7 @@ export class AddBookComponent implements OnInit {
           case HttpEventType.Response:
             console.log('User successfully created!', event.body);
             this.percentDone = false;
-            // this.router.navigate(['users-list']);
+            this.router.navigate(['user/books']);
         }
       });
     }

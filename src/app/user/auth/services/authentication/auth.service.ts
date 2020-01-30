@@ -42,7 +42,7 @@ export class AuthService {
     this.token = token;
   }
 
-  private getToken(): string {
+  protected getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('mean-token');
     }

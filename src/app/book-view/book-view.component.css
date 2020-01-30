@@ -1,0 +1,249 @@
+.book-header {
+  background: #F1F4FB;
+  padding-block-start: 7rem;
+  padding-block-end: 7rem;
+  margin-block-start: 6.25rem;
+  margin-block-end: 5.5rem;
+}
+
+.book-header h1 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 55px;
+  margin-block-end: 1.5rem;
+  color: #4169E2;
+}
+
+.book-header span {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1D2029;
+}
+
+.book-header span a {
+  color: #2da5ec;
+  text-decoration: none;
+}
+
+.book-header div {
+  width: 80%;
+  margin: auto;
+}
+
+.image-cropper {
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #f2f2f2;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.review-section {
+  display: grid;
+  grid-template-columns: 20% 70%;
+  grid-template-rows: auto;
+  grid-column-gap: 3.625rem;
+  grid-template-areas:
+    "image article";
+  width: 80%;
+  margin: auto;
+  margin-block-end: 14.875rem;
+}
+
+.book-view {
+  grid-area: image;
+  text-align: left;
+}
+
+.book-view h5 {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-block-start: 1.875rem;
+  margin-block-end: .5rem;
+  /* identical to box height */
+
+
+  color: #1D2029;
+}
+
+.contact-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  padding: 25px 7px;
+  border: 1px solid #ABB4BD;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+
+.contact-link {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: .8rem;
+  grid-column-gap: 13px;
+  margin-block-end: 4rem;
+
+}
+
+.review-section>.book-view>.book-button {
+  color: #FFFFFF;
+  font-size: 1rem;
+  padding: 1.125rem 1rem;
+  margin-block-end: 72px;
+  background: #4169E2;
+  box-shadow: 0px 9px 20px rgba(171, 180, 189, 0.148862);
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+}
+
+.book-article {
+  grid-area: article;
+}
+
+.book-article .uploader {
+  display: flex;
+  align-items: center;
+}
+
+.book-article h2 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  margin-block-start: 2.625rem;
+  margin-block-end: 1.875rem;
+  color: #1D2029
+}
+
+.book-article h3 {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #1D2029;
+}
+
+.book-article p {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 31px;
+  color: #4F4F4F;
+}
+
+.more-book {
+  width: 80%;
+  margin: auto;
+  margin-block-end: 8rem;
+}
+
+.book-section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 5.5rem;
+  overflow: auto;
+}
+
+.more-book h3 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-size: 34px;
+  line-height: 35px;
+  margin-block-end: 2.5rem;
+  color: #1D2029
+}
+
+.book-section-grid>div img {
+  width: 100%;
+}
+
+.book-section-grid h4 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 20px;
+  color: #4F4F4F;
+}
+
+.book-section-grid span {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 19px;
+  color: #1D2029;
+}
+
+.book-section-grid span a {
+  color: #2da5ec;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 48rem) {
+  .review-section {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    /* grid-column-gap: 2rem; */
+    grid-template-areas:
+      "image"
+      "article";
+    width: 90%;
+    margin-block-end: 6.75rem;
+  }
+
+  .book-view {
+    margin: auto;
+    text-align: center;
+  }
+
+  .book-section-grid {
+    grid-column-gap: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 31.25rem) {
+  .book-header {
+    background: #F1F4FB;
+    padding-block-start: 3.125rem;
+    padding-block-end: 4rem;
+  }
+
+  .book-header h1 {
+    font-size: 2rem;
+    line-height: 2.375rem;
+  }
+
+  .book-header span {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+}
+
+@media screen and (max-width: 26.56rem) {
+  .book-view {
+    text-align: left;
+    margin-inline-start: 10%;
+  }
+}

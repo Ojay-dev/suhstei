@@ -3,18 +3,29 @@ import { IBook } from 'src/app/shared/book.model';
 import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthService } from 'src/app/user/auth/services';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class BookService extends AuthService {
   searchResults: any = [];
   baseURL = 'http://localhost:8808/api';
+  // baseURL = 'http://suhstei.herokuapp.com/api';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, router: Router) {
+    super(httpClient, router);
+  }
 
   getBooks(): Observable<IBook[]> {
     return this.httpClient.get<IBook[]>(this.baseURL)
+      .pipe(catchError(this.handleError<IBook[]>('getBooks', [])));
+    // return BOOKS;
+  }
+
+  getBook(id: string): Observable<IBook[]> {
+    return this.httpClient.get<IBook[]>(`${this.baseURL}/${id}`)
       .pipe(catchError(this.handleError<IBook[]>('getBooks', [])));
     // return BOOKS;
   }
@@ -27,6 +38,7 @@ export class BookService {
     formData.append('review', review);
 
     return this.httpClient.post<IBook>(`${this.baseURL}/create-new-book`, formData, {
+      headers: { Authorization: `Bearer ${this.getToken()}` },
       reportProgress: true,
       observe: 'events'
     }).pipe(catchError(this.handleError<HttpEvent<IBook>>('saveBook')));

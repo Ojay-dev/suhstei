@@ -8,7 +8,7 @@
       <div class="vl nav-link"></div>
 
       <form (ngSubmit)="searchBooks(searchTerm)">
-        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xe90c;  Search"
+        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xe90e;  Search"
           aria-label="Search" style="font-family: SFProText, icomoon">
       </form>
     </div>
@@ -23,7 +23,7 @@
       </div>
 
       <div *ngIf="auth.isLoggedIn()" class="user" (mouseover)="showMenu()" (mouseout)="hideMenu()">
-        <h4> Welcome {{firstname}} !</h4>
+        <h4> Welcome, {{firstname}}</h4>
 
         <div>
           <span class="image-cropper" style=" width: 36px; height: 36px; margin-inline-end: 10px;">
@@ -31,7 +31,7 @@
           </span>
 
           <div style="position: relative;">
-            <i class="icon-dropdown" style="cursor: pointer;"></i>
+            <i class="icon-dropdown" style="cursor: pointer; font-size: 10px;"></i>
             <div class="dropdown-content">
               <ul>
                 <a [routerLink]="['/user/profile']">
@@ -53,12 +53,43 @@
     </div>
 
     <button class="openbtn hamburger-menu" onclick="openNav()" aria-disabled="true">&#9776;</button>
-    <ul id="mySidepanel" class="sidepanel hamburger-menu">
+    <ul *ngIf="!auth.isLoggedIn()" id="mySidepanel" class="sidepanel hamburger-menu">
       <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-      <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="active" onclick="closeNav()">Home</a></li>
+
+      <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="active"
+          onclick="closeNav()">Home</a></li>
+
       <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">Book</a></li>
+
       <li><a [routerLink]="['/user/sign-in']" onclick="closeNav()">Sign In</a></li>
+
       <li><a [routerLink]="['/user/sign-up']" onclick="closeNav()">Sign Up</a></li>
+    </ul>
+
+    <ul *ngIf="auth.isLoggedIn()" id="mySidepanel" class="sidepanel hamburger-menu">
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+
+      <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="active"
+          onclick="closeNav()"><i class="icon-home"></i>Home</a></li>
+
+      <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-books"></i>Books</a></li>
+
+      <li><a [routerLink]="['/user/profile']" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-account"></i>Profile</a></li>
+
+      <li><a [routerLink]="['/user/books']" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-list"></i>My Books</a></li>
+
+      <li><a [routerLink]="['/user/history']" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-history"></i>History</a></li>
+
+      <li><a [routerLink]="['/user/books-borrowed']" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-chart"></i>Books Transactions</a></li>
+
+      <li><a (click)="auth.logout()" routerLinkActive="active" onclick="closeNav()">
+          <i class="icon-power"></i>Sign Out</a></li>
+
     </ul>
   </nav>
 </header>
