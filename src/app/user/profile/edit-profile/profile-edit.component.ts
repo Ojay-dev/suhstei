@@ -83,7 +83,6 @@ export class ProfileEditComponent implements OnInit {
         console.error(err);
       });
 
-      this.router.navigate(['user/profile']);
     }
   }
 

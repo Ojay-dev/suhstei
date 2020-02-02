@@ -72,7 +72,7 @@ export class AuthService {
     }
   }
 
-  private request(method: 'post'|'get'|'put', type: 'login'|'register'|'profile'|'update', user?: TokenPayload): Observable<any> {
+  private request(method: 'post'|'get'|'put', type: string, user?: TokenPayload): Observable<any> {
     let base;
 
     if (method === 'post') {
@@ -137,6 +137,12 @@ export class AuthService {
 
     return this.request('put', 'update', user);
   }
+
+  getUser(id: string): Observable<any> {
+    return this.request('get', `user/${id}`);
+  }
+
+
   // Former code
   // loginUser(userName: string, password: string) {
 

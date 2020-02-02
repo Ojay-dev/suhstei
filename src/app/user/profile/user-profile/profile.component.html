@@ -12,11 +12,11 @@
     </span>
   </div>
 
-  <h3>{{firstName}} {{lastName}}</h3>
+  <h3>{{profileData.firstname}} {{profileData.lastname}}</h3>
 
   <h2>Contact Information</h2>
-  <h4><span>Email Address</span> <br> <span id="profile-value">{{email}}</span></h4>
-  <h4><span>Phone Number</span> <br> <span id="profile-value">{{phoneNo}}</span></h4>
+  <h4><span>Email Address</span> <br> <span id="profile-value">{{profileData?.email}}</span></h4>
+  <h4><span>Phone Number</span> <br> <span id="profile-value">0{{profileData?.phone}}</span></h4>
   <h4><span>Password</span> <br> <span id="profile-value">*************</span></h4>
 
   <!-- <div>

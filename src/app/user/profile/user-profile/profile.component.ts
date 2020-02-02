@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,34 +8,37 @@ import { AuthService } from '../../auth/services';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNo: string;
+  profileData: any;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // const win = (window as any);
-    // if(win.location.search !== '?loaded' ) {
-    //       win.location.search = '?loaded';
-    //       win.location.reload();
-    //   }
+    this.profileData = this.route.snapshot.data['profile'];
 
-    this.authService.profile().subscribe(profile => {
-      console.log(profile);
-      this.firstName = profile.firstname;
-      this.lastName = profile.lastname;
-      this.email = profile.email;
-      this.phoneNo = `0${profile.phone}`;
+    console.log(this.profileData);
 
-      if (!!profile.avatar && profile.avatar !== "") {
-        const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
-        const avatarImg: HTMLImageElement = document.querySelector('#profile-img');
-        avatarImg.src = profile.avatar;
-        avatarImgNav.src = profile.avatar;
-      }
-    });
+
+    if (!!this.profileData.avatar && this.profileData.avatar !== '') {
+      const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
+      const avatarImg: HTMLImageElement = document.querySelector('#profile-img');
+      avatarImg.src = this.profileData.avatar;
+      avatarImgNav.src = this.profileData.avatar;
+    }
+
+    // this.authService.profile().subscribe(profile => {
+    //   console.log(profile);
+    //   // this.firstName = profile.firstname;
+    //   // this.lastName = profile.lastname;
+    //   // this.email = profile.email;
+    //   // this.phoneNo = `0${profile.phone}`;
+
+    //   // if (!!profile.avatar && profile.avatar !== "") {
+    //   //   const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
+    //   //   const avatarImg: HTMLImageElement = document.querySelector('#profile-img');
+    //   //   avatarImg.src = profile.avatar;
+    //   //   avatarImgNav.src = profile.avatar;
+    //   // }
+    // });
 
   }
 

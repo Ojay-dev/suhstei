@@ -7,7 +7,7 @@
 
 <div class="review-section">
   <div class="book-view">
-    <img [src]="book?.avatar"  alt="">
+    <img [src]="book?.avatar" alt="">
     <h5 *ngIf="auth.isLoggedIn()">Connect with Book Owner</h5>
     <div *ngIf="auth.isLoggedIn()" class="contact-link">
       <a href="#"><i><img src="assets/icons/baseline-call-24px.svg" alt=""></i>Call</a>
@@ -20,27 +20,14 @@
   <div class="book-article">
     <div class="uploader">
       <span class="image-cropper" style=" width: 40px; height: 40px; margin-inline-end: 25px;">
-        <img src="assets/images/avatar.jpg" alt="avatar">
+        <img src="assets/images/avatar.jpg" alt="avatar" id="uploader-avatar">
       </span>
 
-      <h3>Shenske Nakamura</h3>
+      <h3>{{book?.uploader_name}}</h3>
     </div>
 
     <h2>Book review</h2>
-    <p> I’ve heard a lot of great things about Photography’s trouble shooter. Friends and co-workers tell me that this
-      subjects is interesting and the manner in which this book was written is easy to follow without talking down to
-      the reader. I wasn’t disappointed with Trouble shooter. In it, Justice Chads tackles the subject of good
-      photography – how people are to create extraordinary photographs as opposed to regular ones.
-
-      The thesis – that our pictures depends much more on circumstances out of our control than any effort we put
-      forth – isn’t exactly revolutionary. Most of us know it to be true. However, I don’t think I’m lying when I say
-      that most of us also believe that we if we just try that much harder and develop our talent that much further,
-      it will be enough to become wildly successful in photography, despite bad or just mediocre beginnings.
-
-      Most of the evidence Chads gives us is anecdotal, which is my favorite kind to read. I can’t really speak to how
-      scientifically valid it is, but it sure makes for engrossing listening. For example, did you know that being a
-      good photographer is not dependent on the value of your camera? If anyone could make photography interesting to
-      a career person who only grudgingly admits that photography is even a career path , it’s Justice Chads. </p>
+    <p>{{book?.description}}</p>
   </div>
 </div>
 

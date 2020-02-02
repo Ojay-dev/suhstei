@@ -24,9 +24,9 @@ export class BookService extends AuthService {
     // return BOOKS;
   }
 
-  getBook(id: string): Observable<IBook[]> {
-    return this.httpClient.get<IBook[]>(`${this.baseURL}/${id}`)
-      .pipe(catchError(this.handleError<IBook[]>('getBooks', [])));
+  getBook(id: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseURL}/${id}`)
+      .pipe(catchError(this.handleError<any>('getBooks', [])));
     // return BOOKS;
   }
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IBook } from '../../shared/book.model';
 import { BookService } from '..';

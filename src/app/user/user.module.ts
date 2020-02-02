@@ -23,6 +23,7 @@ import {
 } from './auth';
 import { BorrowedTabComponent } from './books/borrowed-tab/borrowed-tab.component';
 import { LendedTabComponent } from './books/lended-tab/lended-tab.component';
+import { ProfileResolver } from './auth/services/profile-resolver/profile-resolver.service';
 
 @NgModule({
   imports: [
@@ -48,6 +49,9 @@ import { LendedTabComponent } from './books/lended-tab/lended-tab.component';
     BookHistoryComponent,
     BorrowedTabComponent,
     LendedTabComponent
+  ],
+  providers: [
+    ProfileResolver
   ]
 })
 export class UserModule { }

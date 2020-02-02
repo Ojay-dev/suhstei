@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BooksListResolver} from './books-list-resolver.service';
+import { BookViewResolver} from './book-view-resolver.service';
 
 describe('BooksListResolverService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BooksListResolver = TestBed.get(BooksListResolver);
+    const service: BookViewResolver = TestBed.get(BookViewResolver);
     expect(service).toBeTruthy();
   });
 });

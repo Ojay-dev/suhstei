@@ -16,7 +16,6 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     // this.bookService.getBooks().subscribe(books => this.books = books);
-
     const chunkArrayInGroups = (arr, size) => {
       const newArr = new Array();
 

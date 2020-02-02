@@ -15,6 +15,7 @@ import {
   ForgotPasswordComponent
 } from './auth';
 import { AuthGuardService } from './auth/services/auth-guard/auth-guard.service';
+import { ProfileResolver } from './auth/services/profile-resolver/profile-resolver.service';
 
 // const redirectTo = (uri: string) => {
 //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
@@ -22,7 +23,7 @@ import { AuthGuardService } from './auth/services/auth-guard/auth-guard.service'
 // }
 
 export  const userRoutes: Routes = [
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService], resolve: {profile: ProfileResolver} },
   { path: 'profile/edit-profile', component: ProfileEditComponent, canActivate: [AuthGuardService] },
   { path: 'books', component: BookListComponent, canActivate: [AuthGuardService] },
   { path: 'books/book-review', component: BookReviewComponent, canActivate: [AuthGuardService] },
