@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { AuthService } from '../authentication/auth.service';
+import { AuthService } from '../../auth/services/authentication/auth.service';
 
 
 @Injectable({

@@ -1,1 +1,47 @@
 
+.book-section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 3rem;
+  overflow: auto;
+  margin-block-end: 5.5rem;
+}
+
+.book-section-grid>div img {
+  min-width: 100%;
+  max-width: none;
+}
+
+.book-section-grid h4 {
+  font-family: SFProText-bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 20px;
+  margin-block-start: 1rem;
+  margin-block-end: .8rem;
+  color: #4F4F4F;
+}
+
+.book-section-grid span {
+  font-family: SFProText;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 19px;
+  color: #1D2029;
+}
+
+.book-section-grid a {
+  text-decoration: none;
+}
+
+.book-section-grid span a {
+  color: #2da5ec;
+}
+
+@media screen and (max-width: 48rem) {
+  .book-section-grid {
+    grid-column-gap: 1.7rem;
+  }
+}

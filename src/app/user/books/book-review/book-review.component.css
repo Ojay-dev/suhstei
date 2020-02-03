@@ -1,0 +1,7 @@
+[my-books] .profile-header > a {
+  cursor: pointer;
+}
+
+[my-books] .profile-header > a:hover {
+  color: #fff;
+}

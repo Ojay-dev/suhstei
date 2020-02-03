@@ -23,7 +23,8 @@ import {
 } from './auth';
 import { BorrowedTabComponent } from './books/borrowed-tab/borrowed-tab.component';
 import { LendedTabComponent } from './books/lended-tab/lended-tab.component';
-import { ProfileResolver } from './auth/services/profile-resolver/profile-resolver.service';
+import { ProfileResolver } from './profile/profile-resolver/profile-resolver.service';
+import { EditBookComponent } from './books/edit-book/edit-book.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { ProfileResolver } from './auth/services/profile-resolver/profile-resolv
     AddBookComponent,
     BookHistoryComponent,
     BorrowedTabComponent,
-    LendedTabComponent
+    LendedTabComponent,
+    EditBookComponent
   ],
   providers: [
     ProfileResolver

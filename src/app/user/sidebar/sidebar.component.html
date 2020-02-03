@@ -1,9 +1,13 @@
 <!-- The sidebar -->
 <div class="sidebar" id="sidebar">
-  <a [routerLink]="['/user/profile']" routerLinkActive="active">
-    <i class="icon-account"></i>Profile
-  </a>
+  <a [routerLink]="['/user/profile']" routerLinkActive="active"><i class="icon-account"></i>Profile</a>
+
   <a [routerLink]="['/user/books']" routerLinkActive="active"><i class="icon-list"></i>My Books</a>
+
+  <a [routerLink]="['/user/books-borrowed']" routerLinkActive="active"><i class="icon-swap"></i>Books Transactions</a>
+
+  <a [routerLink]="['/user/books-borrowed']" routerLinkActive="active"><i class="icon-notifications"></i>Notification</a>
+
   <a [routerLink]="['/user/history']" routerLinkActive="active"><i class="icon-history"></i>History</a>
-  <a [routerLink]="['/user/books-borrowed']" routerLinkActive="router-link-active"  routerLinkActive="active"><i class="icon-chart"></i>Books Transactions</a>
+
 </div>
