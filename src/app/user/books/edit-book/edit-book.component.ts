@@ -65,15 +65,23 @@ export class EditBookComponent implements OnInit {
   }
 
   uploadFile(event) {
+    const avatarImg: HTMLImageElement = document.querySelector('.cropper img');
     const file = (event.target as HTMLInputElement).files[0];
-    const filePath: HTMLElement = document.querySelector('#spnFilePath');
-    filePath.innerHTML = `<b>Selected File: </b> ${file.name}`;
+
     console.log(file);
+
+    // File Preview
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      avatarImg.src = reader.result as string;
+    };
 
     this.newBookForm.patchValue({
       avatar: file
     });
     this.newBookForm.get('avatar').updateValueAndValidity();
+    console.log(this.newBookForm.value.avatar);
   }
 
   updateBook(newBookForm) {
@@ -81,23 +89,29 @@ export class EditBookComponent implements OnInit {
 
       console.log(newBookForm);
 
-      this.bookService.saveBook(
+      this.bookService.updateBook(
         this.newBookForm.value.bookTitle,
         this.newBookForm.value.author,
         this.newBookForm.value.bookReview,
         this.newBookForm.value.avatar,
-      ).subscribe((event: HttpEvent<any>) => {
+        this.bookData._id
+      )
+      .subscribe((event: HttpEvent<any>) => {
+
         switch (event.type) {
           case HttpEventType.Sent:
             console.log('Request has been made!');
             break;
+
           case HttpEventType.ResponseHeader:
             console.log('Response header has been received!');
             break;
+
           case HttpEventType.UploadProgress:
             this.percentDone = Math.round(event.loaded / event.total * 100);
             console.log(`Uploaded! ${this.percentDone}%`);
             break;
+
           case HttpEventType.Response:
             console.log('User successfully created!', event.body);
             this.percentDone = false;

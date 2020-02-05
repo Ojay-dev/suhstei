@@ -30,15 +30,36 @@ export class BookService extends AuthService {
     // return BOOKS;
   }
 
-  saveBook(id: string, title: string, author: string, review: string, avatar: File):Observable<HttpEvent<IBook>> {
+  saveBook( title: string, author: string, review: string, avatar: File): Observable<HttpEvent<IBook>> {
     const formData: any = new FormData();
-    formData.append('id', id);
+    // formData.append('id', id);
     formData.append('title', title);
     formData.append('avatar', avatar);
     formData.append('author', author);
     formData.append('review', review);
 
-    return this.httpClient.post<IBook>(`${this.baseURL}/update-book`, formData, {
+    return this.httpClient.post<IBook>(`${this.baseURL}/create-new-book`, formData, {
+      headers: { Authorization: `Bearer ${this.getToken()}` },
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(catchError(this.handleError<HttpEvent<IBook>>('saveBook')));
+  }
+
+  updateBook( title: string, author: string, review: string, avatar: File, id: string): Observable<HttpEvent<IBook>> {
+    const formData: any = new FormData(); 
+
+    // formData.append('id', id);
+    formData.append('title', title);
+    if (!!avatar) {
+      formData.append('avatar', avatar);
+    }
+    formData.append('author', author);
+    formData.append('review', review);
+
+    console.log(formData);
+
+
+    return this.httpClient.post<IBook>(`${this.baseURL}/update-book/${id}`, formData, {
       headers: { Authorization: `Bearer ${this.getToken()}` },
       reportProgress: true,
       observe: 'events'

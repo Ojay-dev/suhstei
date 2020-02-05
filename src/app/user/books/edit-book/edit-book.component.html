@@ -10,11 +10,15 @@
 
   <form [formGroup]="newBookForm" (ngSubmit)="updateBook(newBookForm.value)">
     <div class="book-upload">
-      <div id="imgFileUpload" (click)="fileLoader()">
+      <span class="cropper" id="imgFileUpload" (click)="fileLoader()">
+        <h3 >Click to Update Image</h3>
+        <img [src]="bookData.avatar" alt="">
+        <input type="file" (change)="uploadFile($event)" id="FileUpload1">
+      </span>
+      <!-- <div id="imgFileUpload" (click)="fileLoader()">
         <span id="spnFilePath">Click to Upload Image</span>
-        <input type="file" (change)="uploadFile($event)" id="FileUpload1"
           style="display: none" />
-      </div>
+      </div> -->
 
       <div>
         <div class="row">
