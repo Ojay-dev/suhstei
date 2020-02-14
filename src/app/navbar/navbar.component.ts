@@ -20,20 +20,11 @@ export class NavbarComponent implements OnInit {
       console.log(profile.firstname);
 
       this.firstname = profile.firstname;
-    })
+    });
   }
 
   searchBooks(searchTerm) {
-
-
-    this.bookService.searchBooks(searchTerm);
-    this.router.navigateByUrl('search-result');
-
-      // .subscribe(books => {
-      //   this.foundBooks = books;
-      //   console.log(this.foundBooks);
-      //   this.router.navigateByUrl('search-result', { state: { result: this.foundBooks } });
-      // });
+    this.router.navigate(['search-result'], { queryParams: { search: searchTerm } });
   }
 
   showMenu() {

@@ -9,10 +9,11 @@ import { IBook } from '../shared/book.model';
   templateUrl: './book-view.component.html',
   styleUrls: ['./book-view.component.css']
 })
+
 export class BookViewComponent implements OnInit {
   book: any;
   uploader: any;
-  constructor(private bookService: BookService, private auth: AuthService, private route: ActivatedRoute) { }
+  constructor(private bookService: BookService, public auth: AuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // this.bookService.getBook('5e317a605ae13d1aa88fbb80').subscribe(data => {

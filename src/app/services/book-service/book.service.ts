@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class BookService extends AuthService {
-  searchResults: any = [];
+
   baseURL = 'http://localhost:8808/api';
   // baseURL = 'http://suhstei.herokuapp.com/api';
 
@@ -46,7 +46,7 @@ export class BookService extends AuthService {
   }
 
   updateBook( title: string, author: string, review: string, avatar: File, id: string): Observable<HttpEvent<IBook>> {
-    const formData: any = new FormData(); 
+    const formData: any = new FormData();
 
     // formData.append('id', id);
     formData.append('title', title);
@@ -85,10 +85,6 @@ export class BookService extends AuthService {
 
     // return emitter;
 
-  }
-
-  getSearchBooks(): IBook {
-    return this.searchResults;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -9,13 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  books: IBook[];
+  newBooks: IBook[] = [];
+  allBooks: IBook[] = [];
 
   constructor(private bookService: BookService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    // this.bookService.getBooks().subscribe(books => this.books = books);
+    // function to split into four arr
     const chunkArrayInGroups = (arr, size) => {
       const newArr = new Array();
 
@@ -25,8 +26,25 @@ export class BookListComponent implements OnInit {
       return newArr;
     };
 
-    this.books = chunkArrayInGroups(this.route.snapshot.data.books['books'], 4);
-    console.log(this.books);
+    // New Books
+    let newBookArr = this.route.snapshot.data.books['books'];
+
+    for (let i = 0; i < newBookArr.length; i++) {
+      if (this.newBooks.length === 4) {
+        break;
+      }
+      this.newBooks.push(newBookArr[newBookArr.length - (i + 1)]);
+    }
+    this.newBooks = chunkArrayInGroups(this.newBooks, 4);
+    
+
+    // All Books
+    let allBookArr = this.route.snapshot.data.books['books'];
+
+    for (let i = 0; i < allBookArr.length; i++) {
+      this.allBooks.push(allBookArr[allBookArr.length - (i + 1)]);
+    }
+    this.allBooks = chunkArrayInGroups(this.allBooks, 4)
 
   }
 

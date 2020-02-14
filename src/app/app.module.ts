@@ -11,15 +11,18 @@ import { FooterComponent } from './footer/footer.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth/services';
-import { BookService } from './services';
+import {
+  BookService,
+  BooksListResolver,
+  BookViewResolver,
+  SearchResolver
+} from './services';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { Error404Component } from './errors/page-404/404.component';
 import { SearchComponent } from './search/search.component';
-import { BooksListResolver } from './services/books-list-resolver/books-list-resolver.service';
 import { IcomoonComponent } from './icomoon/icomoon.component';
 import { BookViewComponent } from './book-view/book-view.component';
-import { BookViewResolver } from './services/book-view-resolver/book-view-resolver.service';
 import { UserResolver } from './services/user-resolver/user-resolver.service';
 
 @NgModule({
@@ -47,6 +50,7 @@ import { UserResolver } from './services/user-resolver/user-resolver.service';
     BookService,
     BooksListResolver,
     BookViewResolver,
+    SearchResolver,
     UserResolver
   ],
   bootstrap: [AppComponent]

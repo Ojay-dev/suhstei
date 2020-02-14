@@ -8,13 +8,13 @@
 <div class="more-book">
   <h3>New Posts</h3>
 
-  <div class="book-section-grid" *ngFor="let array of books;">
+  <div class="book-section-grid" *ngFor="let array of newBooks;">
     <div *ngFor="let book of array">
       <a [routerLink]="['/book-view', book._id]" >
-        <img [src]="book.avatar" alt="">
-        <h4>{{book.title}}</h4>
+        <img [src]="book?.avatar" [alt]="book?.title">
+        <h4>{{book?.title}}</h4>
       </a>
-      <span>by <a href="#">{{book.author}}</a></span>
+      <span>by <a href="#">{{book?.author}}</a></span>
     </div>
   </div>
 
@@ -23,71 +23,13 @@
 
 <div class="more-book">
   <h3>All Books</h3>
-  <div class="book-section-grid">
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/b3d7ff/FFFFFF/?text=Book-A" alt="">
-        <h4>Photographer’s trouble shooter</h4>
+  <div class="book-section-grid" *ngFor="let array of allBooks;">
+    <div *ngFor="let book of array">
+      <a [routerLink]="['/book-view', book._id]" >
+        <img [src]="book?.avatar" [alt]="book?.title">
+        <h4>{{book?.title}}</h4>
       </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/4169E2/FFFFFF/?text=Book-B" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/c4c4c4/FFFFFF/?text=Book-C" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/17a2b8/FFFFFF/?text=Book-D" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-  </div>
-
-  <div class="book-section-grid">
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/b3d7ff/FFFFFF/?text=Book-A" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/4169E2/FFFFFF/?text=Book-B" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/c4c4c4/FFFFFF/?text=Book-C" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <a href="#">
-        <img src="https://via.placeholder.com/220x312/17a2b8/FFFFFF/?text=Book-D" alt="">
-        <h4>Photographer’s trouble shooter</h4>
-      </a>
-      <span>by <a href="#">Michael Freeman</a></span>
+      <span>by <a href="#">{{book?.author}}</a></span>
     </div>
   </div>
 </div>

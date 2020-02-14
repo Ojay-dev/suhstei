@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { BookService } from '../services';
 
 @Component({
@@ -10,19 +8,31 @@ import { BookService } from '../services';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  state$: Observable<object>;
-  searchResult;
+  searchTerm: string;
 
-  constructor(private bookService: BookService, private activatedRoute: ActivatedRoute) { }
+  constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.state$ = this.activatedRoute.paramMap
-    //   .pipe(map(() => window.history.state));
+    this.searchTerm =  this.route.snapshot.queryParams['search'];
+    const term = this.searchTerm.toLocaleLowerCase();
+    const result: any[] = [];
 
-    this.searchResult = this.bookService.getSearchBooks();
+    const BOOKS = this.route.snapshot.data.books.books;
 
-    console.log(this.searchResult);
-    this.bookService.searchResults = [];
+    // console.log(BOOKS);
+
+
+    BOOKS.forEach(books => {
+      console.log(Object.values(books));
+
+      // let matchingBooks = books.filter(book => book.toLocaleLowerCase().indexOf(term) > -1);
+      // console.log(matchingBooks);
+
+    });
+
+    console.log(this.searchTerm);
+
+    // console.log(this.route.snapshot.data.books.books);
 
   }
 
