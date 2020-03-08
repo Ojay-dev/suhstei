@@ -23,8 +23,8 @@
 
 <div class="more-book">
   <h3>All Books</h3>
-  <div class="book-section-grid" *ngFor="let array of allBooks;">
-    <div *ngFor="let book of array">
+  <div class="book-section-grid" *ngFor="let array of allBooks | paginate: config">
+    <div *ngFor="let book of array ">
       <a [routerLink]="['/book-view', book._id]" >
         <img [src]="book?.avatar" [alt]="book?.title">
         <h4>{{book?.title}}</h4>
@@ -33,6 +33,8 @@
     </div>
   </div>
 </div>
+
+<pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 
 
 <footer id="footer">

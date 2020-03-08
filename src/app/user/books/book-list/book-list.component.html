@@ -11,7 +11,7 @@
     <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
   </div>
 
-  <div class="book-section-grid" *ngFor="let array of books;">
+  <div class="book-section-grid" *ngFor="let array of books | paginate: config">
     <div *ngFor="let book of array">
       <!-- <a [routerLink]="['/book-view', book._id]" > -->
       <a [routerLink]="['book-review', book._id]">
@@ -21,4 +21,6 @@
       <span>by <a href="#">{{book.author}}</a></span>
     </div>
   </div>
+
+  <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 </section>

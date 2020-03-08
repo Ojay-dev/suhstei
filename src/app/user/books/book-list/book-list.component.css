@@ -1,4 +1,3 @@
-
 .book-section-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -8,8 +7,8 @@
 }
 
 .book-section-grid>div img {
-  min-width: 100%;
-  max-width: none;
+  min-width: 50%;
+  max-width: 100%;
 }
 
 .book-section-grid h4 {
@@ -38,6 +37,14 @@
 
 .book-section-grid span a {
   color: #2da5ec;
+}
+
+@media screen and (max-width: 68.75rem){
+  .book-section-grid>div img {
+    min-width: 100%;
+    max-width: none;
+  }
+  
 }
 
 @media screen and (max-width: 48rem) {

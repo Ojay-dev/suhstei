@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -10,8 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 export class BookListComponent implements OnInit {
 
   books: any;
+  config: any;
 
-  constructor(private auth: AuthService, private route: ActivatedRoute) { }
+
+  constructor(private auth: AuthService, private route: ActivatedRoute, private router: Router) {
+    this.config = {
+      currentPage: 1,
+      itemsPerPage: 3,
+      totalItems: 0
+    };
+    route.queryParams.subscribe(
+      params => this.config.currentPage = params['page'] ? params['page'] : 1
+    );
+   }
 
   ngOnInit() {
 
@@ -41,7 +52,10 @@ export class BookListComponent implements OnInit {
 
     console.log(this.books);
 
+  }
 
+  pageChange(newPage: number) {
+    this.router.navigate(['user/books'], { queryParams: { page: newPage } });
   }
 
 }

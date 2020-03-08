@@ -260,13 +260,13 @@ footer h3 {
   border-radius: 4px;
 }
 
-[my-books] span {
+/* [my-books] span {
   font-family: CircularStd;
   font-weight: 500;
   font-size: 15px;
   line-height: 19px;
   color: #1D2029;
-}
+} */
 
 [my-books] .book-thumbnail{
   margin-block-end: 49px;

@@ -1,0 +1,32 @@
+<app-sidebar></app-sidebar>
+
+<section class="main profile " my-books>
+    <div class="profile-header">
+      <h1>Notifications</h1>
+    </div>
+
+    <div class="book-list-header">
+      <h2>Showing Recent Notifications</h2>
+      <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
+    </div>
+
+    <div history *ngFor="let item of requestData">
+      <a [routerLink]="['details']">
+        <h3>9:15 AM | Mon, Feb 11, 2019</h3>
+        <div class="first">
+          <span>
+            <span class="image-cropper" style=" width: 36px; height: 36px;">
+              <img src="assets/images/avatar.jpg" alt="profile image" avatar>
+            </span>
+            <h4>{{item.request.firstname}} {{item.request.lastname}}</h4>
+          </span>
+
+          <span>
+            <h3>Book Title</h3>
+            <h4>{{item.bookTitle}}</h4>
+          </span>
+        </div>
+      </a>
+    </div>
+
+</section>

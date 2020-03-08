@@ -18,19 +18,19 @@ export class BookService extends AuthService {
     super(httpClient, router);
   }
 
-  getBooks(): Observable<IBook[]> {
-    return this.httpClient.get<IBook[]>(this.baseURL)
-      .pipe(catchError(this.handleError<IBook[]>('getBooks', [])));
+  getBooks(): Observable<any> {
+    return this.httpClient.get<any>(this.baseURL)
+      .pipe(catchError(this.handleError<any>('getBooks', [])));
     // return BOOKS;
   }
 
   getBook(id: string): Observable<any> {
     return this.httpClient.get<any>(`${this.baseURL}/${id}`)
-      .pipe(catchError(this.handleError<any>('getBooks', [])));
+      .pipe(catchError(this.handleError<any>('getBook', [])));
     // return BOOKS;
   }
 
-  saveBook( title: string, author: string, review: string, avatar: File): Observable<HttpEvent<IBook>> {
+  saveBook( title: string, author: string, review: string, avatar: File): Observable<HttpEvent<any>> {
     const formData: any = new FormData();
     // formData.append('id', id);
     formData.append('title', title);
@@ -38,14 +38,14 @@ export class BookService extends AuthService {
     formData.append('author', author);
     formData.append('review', review);
 
-    return this.httpClient.post<IBook>(`${this.baseURL}/create-new-book`, formData, {
+    return this.httpClient.post<any>(`${this.baseURL}/create-new-book`, formData, {
       headers: { Authorization: `Bearer ${this.getToken()}` },
       reportProgress: true,
       observe: 'events'
-    }).pipe(catchError(this.handleError<HttpEvent<IBook>>('saveBook')));
+    }).pipe(catchError(this.handleError<HttpEvent<any>>('saveBook')));
   }
 
-  updateBook( title: string, author: string, review: string, avatar: File, id: string): Observable<HttpEvent<IBook>> {
+  updateBook( title: string, author: string, review: string, avatar: File, id: string): Observable<HttpEvent<any>> {
     const formData: any = new FormData();
 
     // formData.append('id', id);
@@ -59,11 +59,11 @@ export class BookService extends AuthService {
     console.log(formData);
 
 
-    return this.httpClient.post<IBook>(`${this.baseURL}/update-book/${id}`, formData, {
+    return this.httpClient.post<any>(`${this.baseURL}/update-book/${id}`, formData, {
       headers: { Authorization: `Bearer ${this.getToken()}` },
       reportProgress: true,
       observe: 'events'
-    }).pipe(catchError(this.handleError<HttpEvent<IBook>>('saveBook')));
+    }).pipe(catchError(this.handleError<HttpEvent<any>>('updateBook')));
   }
 
   searchBooks(searchTerm: string) {

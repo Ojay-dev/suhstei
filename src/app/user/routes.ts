@@ -19,6 +19,9 @@ import { ProfileResolver } from './profile/profile-resolver/profile-resolver.ser
 import { BooksListResolver } from '../services/books-list-resolver/books-list-resolver.service';
 import { BookReviewResolver } from './books/book-review-resolver/book-review-resolver.service';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
+import { NotificationComponent } from './books/notification/notification.component';
+import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
+import { NotificationResolverService } from '../services/notification-resolver/notification-resolver.service';
 
 // const redirectTo = (uri: string) => {
 //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
@@ -62,6 +65,17 @@ export const userRoutes: Routes = [
   {
     path: 'history',
     component: BookHistoryComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'notification',
+    component: NotificationComponent,
+    canActivate: [AuthGuardService],
+    resolve: { users: NotificationResolverService }
+  },
+  {
+    path: 'notification/details',
+    component: NotificationDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {

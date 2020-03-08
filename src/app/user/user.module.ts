@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { userRoutes } from './routes';
 import { ProfileComponent, ProfileEditComponent } from './profile';
@@ -25,12 +26,15 @@ import { BorrowedTabComponent } from './books/borrowed-tab/borrowed-tab.componen
 import { LendedTabComponent } from './books/lended-tab/lended-tab.component';
 import { ProfileResolver } from './profile/profile-resolver/profile-resolver.service';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
+import { NotificationComponent } from './books/notification/notification.component';
+import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forChild(userRoutes)
   ],
   declarations: [
@@ -50,7 +54,9 @@ import { EditBookComponent } from './books/edit-book/edit-book.component';
     BookHistoryComponent,
     BorrowedTabComponent,
     LendedTabComponent,
-    EditBookComponent
+    EditBookComponent,
+    NotificationComponent,
+    NotificationDetailsComponent
   ],
   providers: [
     ProfileResolver

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services';
 import { IBook } from '../shared/book.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -11,8 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 export class BookListComponent implements OnInit {
   newBooks: IBook[] = [];
   allBooks: IBook[] = [];
+  config: any;
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) {
+  constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) {
+    this.config = {
+      currentPage: 1,
+      itemsPerPage: 3,
+      totalItems: 0
+    };
+    route.queryParams.subscribe(
+      params => this.config.currentPage = params['page'] ? params['page'] : 1
+    );
   }
 
   ngOnInit() {
@@ -36,7 +45,7 @@ export class BookListComponent implements OnInit {
       this.newBooks.push(newBookArr[newBookArr.length - (i + 1)]);
     }
     this.newBooks = chunkArrayInGroups(this.newBooks, 4);
-    
+
 
     // All Books
     let allBookArr = this.route.snapshot.data.books['books'];
@@ -46,6 +55,10 @@ export class BookListComponent implements OnInit {
     }
     this.allBooks = chunkArrayInGroups(this.allBooks, 4)
 
+  }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['book'], { queryParams: { page: newPage } });
   }
 
 }
