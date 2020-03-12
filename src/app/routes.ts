@@ -7,6 +7,7 @@ import { IcomoonComponent } from './icomoon/icomoon.component';
 import { BookViewComponent } from './book-view/book-view.component';
 import { BooksListResolver, BookViewResolver, SearchResolver } from './services';
 import { UserResolver } from './services/user-resolver/user-resolver.service';
+import { CurrentUserResolver } from './services/current-user-resolver/current-user-resolver.service';
 
 export  const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -23,7 +24,8 @@ export  const appRoutes: Routes = [
     component: BookViewComponent,
     resolve: {
       book: BookViewResolver,
-      user: UserResolver
+      uploader: UserResolver,
+      loggedInUser: CurrentUserResolver
     }
   },
   // { path: 'book', component: BookListComponent },

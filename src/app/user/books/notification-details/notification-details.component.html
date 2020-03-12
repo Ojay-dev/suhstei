@@ -7,12 +7,12 @@
 
     <div class="profile-view">
       <span class="image-cropper" style=" width: 60px; height: 60px;">
-        <img src="assets/images/avatar.jpg" alt="profile image" avatar="">
+        <img [src]="requestData.requester.avatar" alt="profile image" avatar="">
       </span>
 
       <span>
-        <h3>Mary Shipeolu</h3>
-        <h3>shenske.nakam@gmail.com</h3>
+        <h3>{{requestData.requester.firstname}} {{requestData.requester.lastname}}</h3>
+        <h3>{{requestData.requester.email}}</h3>
       </span>
     </div>
 
@@ -20,8 +20,8 @@
     <div history>
       <h2>Book Details</h2>
       <div>
-        <h3>Book Title <br><b>Rich Dad Poor Dad</b></h3>
-        <h3>Author <br><b>Robert Freeman</b></h3>
+        <h3>Book Title <br><b>{{requestData.book_requested.title}}</b></h3>
+        <h3>Author <br><b>{{requestData.book_requested.author}}</b></h3>
 
         <div class="btn">
           <button class="accept">Accept</button>
@@ -30,7 +30,7 @@
       </div>
 
       <div>
-        <img src="assets/images/book10.png" alt="book-image" width="177">
+        <img [src]="requestData.book_requested.avatar" alt="book-image" width="177">
       </div>
 
     </div>

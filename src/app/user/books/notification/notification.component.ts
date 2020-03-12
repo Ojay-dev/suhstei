@@ -4,13 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../auth/services';
+import { RequestService } from 'src/app/services/request-service/request.service';
 
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.css']
 })
-export class NotificationComponent implements OnInit, OnDestroy {
+export class NotificationComponent implements OnInit {
   // content: any;
   requestData;
 
@@ -19,17 +20,22 @@ export class NotificationComponent implements OnInit, OnDestroy {
   constructor(
     private bookService: BookService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private requestService: RequestService
   ) { }
 
   ngOnInit() {
+    const requestDetails = this.route.snapshot.data['request']
 
-    // this.subscription = this.reque
+    this.requestData =  requestDetails.filter(d => {
+      if ( d.requester._id === this.authService.getUserDetails()._id ) {
+        return d;
+      }
+    });
+
+    console.log( this.requestData );
 
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
 
 }

@@ -25,6 +25,8 @@ import { SearchComponent } from './search/search.component';
 import { IcomoonComponent } from './icomoon/icomoon.component';
 import { BookViewComponent } from './book-view/book-view.component';
 import { UserResolver } from './services/user-resolver/user-resolver.service';
+import { CurrentUserResolver } from './services/current-user-resolver/current-user-resolver.service';
+import { RequestResolver } from './services/request-resolver/request-resolver.service';
 
 @NgModule({
   imports: [
@@ -53,7 +55,9 @@ import { UserResolver } from './services/user-resolver/user-resolver.service';
     BooksListResolver,
     BookViewResolver,
     SearchResolver,
-    UserResolver
+    UserResolver,
+    CurrentUserResolver,
+    RequestResolver
   ],
   bootstrap: [AppComponent]
 })

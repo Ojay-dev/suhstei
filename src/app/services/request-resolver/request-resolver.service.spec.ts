@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RequestResolver} from './books-list-resolver.service';
+import { RequestResolver} from './request-resolver.service';
 
 describe('BooksListResolverService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

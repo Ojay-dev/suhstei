@@ -18,7 +18,7 @@ export class BookViewComponent implements OnInit {
   uploader: any;
   subscription: Subscription;
 
-  requestData: any;
+  selfUploaded: boolean;
 
   constructor(
     private bookService: BookService,
@@ -30,7 +30,7 @@ export class BookViewComponent implements OnInit {
 
   ngOnInit() {
     // this.bookService.getBook('5e317a605ae13d1aa88fbb80').subscribe(data => {
-    this.uploader = this.route.snapshot.data['user'];
+    this.uploader = this.route.snapshot.data['uploader'];
     // console.log(this.route.snapshot.data['user']);
 
     this.book = this.route.snapshot.data['book'];
@@ -43,29 +43,30 @@ export class BookViewComponent implements OnInit {
       }
     }
 
+    this.selfUploaded = this.auth.getUserDetails()._id === this.book.uploader_id ? true : false;
+  }
+
+  selfUploade() {
+
   }
 
 
   request() {
 
-    this.requestService.getRequests().subscribe(data => console.log(data));
+    let requestData;
 
-      // this.requestData = {
-      //   requester: {
-      //     id: this.auth.getUserDetails()._id,
-      //     email: this.auth.getUserDetails().email,
-      //     name: this.auth.getUserDetails().name
-      //   },
-      //   book: this.book
-      // };
+    requestData = {
+      requester: this.route.snapshot.data['loggedInUser'],
+      book: this.book
+    };
 
-      // console.log(this.requestData);
+    console.log(requestData);
 
-      // this.requestService.saveRequest(this.requestData).subscribe((data) => {
-      //   // this.router.navigate(['book']);
-      // }, (err) => {
-      //   console.error(err);
-      // });
+    this.requestService.saveRequest(requestData).subscribe((data) => {
+      // this.router.navigate(['book']);
+    }, (err) => {
+      console.error(err);
+    });
   }
 
 }

@@ -8,11 +8,12 @@
 <div class="review-section">
   <div class="book-view">
     <img [src]="book?.avatar" alt="">
-    <h5 *ngIf="auth.isLoggedIn()">Connect with Book Owner</h5>
-    <div *ngIf="auth.isLoggedIn()" class="contact-link">
+    <h5 *ngIf="auth.isLoggedIn()  && !selfUploaded">Connect with Book Owner</h5>
+    <div *ngIf="auth.isLoggedIn()  && !selfUploaded" class="contact-link">
       <a href="#"><i><img src="assets/icons/baseline-call-24px.svg" alt=""></i>Call</a>
       <a href="#"><i><img src="assets/icons/whatsapp.svg" alt=""></i>Chat</a>
     </div>
+    <!-- <button *ngIf="auth.isLoggedIn() && !selfUploaded" (click)="request()" class="book-button">Borrow Book</button> -->
     <button *ngIf="auth.isLoggedIn()" (click)="request()" class="book-button">Borrow Book</button>
   </div>
 

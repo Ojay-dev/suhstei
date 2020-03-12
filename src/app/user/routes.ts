@@ -22,6 +22,7 @@ import { EditBookComponent } from './books/edit-book/edit-book.component';
 import { NotificationComponent } from './books/notification/notification.component';
 import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
 import { NotificationResolverService } from '../services/notification-resolver/notification-resolver.service';
+import { RequestResolver } from '../services/request-resolver/request-resolver.service';
 
 // const redirectTo = (uri: string) => {
 //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
@@ -71,12 +72,13 @@ export const userRoutes: Routes = [
     path: 'notification',
     component: NotificationComponent,
     canActivate: [AuthGuardService],
-    resolve: { users: NotificationResolverService }
+    resolve: { request: NotificationResolverService }
   },
   {
-    path: 'notification/details',
+    path: 'notification/detail/:id',
     component: NotificationDetailsComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    resolve: { request: RequestResolver }
   },
   {
     path: 'sign-in',

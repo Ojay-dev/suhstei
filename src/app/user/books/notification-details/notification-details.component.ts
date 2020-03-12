@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notification-details',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-details.component.css']
 })
 export class NotificationDetailsComponent implements OnInit {
+  requestData: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.requestData = this.route.snapshot.data['request'];
+    console.log(this.requestData);
   }
 
 }
