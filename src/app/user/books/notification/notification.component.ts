@@ -16,6 +16,7 @@ export class NotificationComponent implements OnInit {
   requestData;
 
   private subscription: Subscription;
+  isAvailableNotification: boolean;
 
   constructor(
     private bookService: BookService,
@@ -28,10 +29,12 @@ export class NotificationComponent implements OnInit {
     const requestDetails = this.route.snapshot.data['request']
 
     this.requestData =  requestDetails.filter(d => {
-      if ( d.requester._id === this.authService.getUserDetails()._id ) {
+      if ( d.requester._id === this.authService.getUserDetails()._id && ( d.approved === false || d.disapproved === false) ) {
         return d;
       }
     });
+
+    this.isAvailableNotification = this.requestData.length !== 0 ? true : false;
 
     console.log( this.requestData );
 

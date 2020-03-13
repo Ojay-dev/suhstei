@@ -11,6 +11,7 @@ export class BookListComponent implements OnInit {
 
   books: any;
   config: any;
+  booksUploaded: boolean;
 
 
   constructor(private auth: AuthService, private route: ActivatedRoute, private router: Router) {
@@ -50,7 +51,9 @@ export class BookListComponent implements OnInit {
 
     this.books = chunkArrayInGroups(bookDataFilteredByUser, 4);
 
-    console.log(this.books);
+    this.booksUploaded = this.books.length !== 0 ? true : false;
+
+    console.log(this.books, this.booksUploaded);
 
   }
 

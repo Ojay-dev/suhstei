@@ -1,26 +1,36 @@
 <app-sidebar></app-sidebar>
 
-<section class="main profile" my-books>
+<section  class="main profile" my-books>
   <div class="profile-header">
     <h1>My Books</h1>
     <a [routerLink]="['add-book']">Add Book</a>
   </div>
 
-  <div class="book-list-header">
-    <h2>List of Books </h2>
-    <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
-  </div>
-
-  <div class="book-section-grid" *ngFor="let array of books | paginate: config">
-    <div *ngFor="let book of array">
-      <!-- <a [routerLink]="['/book-view', book._id]" > -->
-      <a [routerLink]="['book-review', book._id]">
-        <img [src]="book.avatar" alt="">
-        <h4>{{book.title}}</h4>
-      </a>
-      <span>by <a href="#">{{book.author}}</a></span>
+  <div *ngIf="booksUploaded">
+    <div class="book-list-header">
+      <h2>List of Books </h2>
+      <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
     </div>
+  
+    <div class="book-section-grid" *ngFor="let array of books | paginate: config">
+      <div *ngFor="let book of array">
+        <!-- <a [routerLink]="['/book-view', book._id]" > -->
+        <a [routerLink]="['book-review', book._id]">
+          <img [src]="book.avatar" alt="">
+          <h4>{{book.title}}</h4>
+        </a>
+        <span>by <a href="#">{{book.author}}</a></span>
+      </div>
+    </div>
+  
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
   </div>
 
-  <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+  <div *ngIf="!booksUploaded" class="not-available">
+    <h1>No books uploaded yet</h1>
+  </div>
 </section>
+
+
+<!-- <section style="margin-top: 100px;">
+</section> -->

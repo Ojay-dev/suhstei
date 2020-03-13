@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth/services';
 
 @Component({
   selector: 'app-book-history',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookHistoryComponent implements OnInit {
 
-  constructor() { }
+  historyData: any[];
+
+  constructor(private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
+
+    const requestDetails = this.route.snapshot.data['request']
+
+    this.historyData =  requestDetails.filter(d => {
+      if ( d.approved === true || d.disapproved === true || d.returned === true ) {
+        return d;
+      }
+    });
+
+
+    console.log(this.historyData);
+
   }
 
 }

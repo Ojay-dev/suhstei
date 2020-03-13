@@ -17,10 +17,20 @@ export class RequestService extends AuthService {
     super(httpClient, router);
   }
 
-  saveRequest( requestData): Observable<any> {
+  saveRequest(requestData): Observable<any> {
     // console.log(requestData);
 
     return this.httpClient.post<any>(`${this.baseURL}/new-request`, requestData, {
+      headers: { Authorization: `Bearer ${this.getToken()}` },
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(catchError(this.handleError<any>('saveRequest')));
+  }
+
+  updateRequest(updateData): Observable<any> {
+    // console.log(requestData);
+
+    return this.httpClient.put(`${this.baseURL}/update-request`, updateData, {
       headers: { Authorization: `Bearer ${this.getToken()}` },
       reportProgress: true,
       observe: 'events'

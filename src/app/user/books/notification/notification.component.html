@@ -1,9 +1,11 @@
 <app-sidebar></app-sidebar>
 
 <section class="main profile " my-books>
-    <div class="profile-header">
-      <h1>Notifications</h1>
-    </div>
+  <div class="profile-header">
+    <h1>Notifications</h1>
+  </div>
+
+  <div *ngIf="isAvailableNotification">
 
     <div class="book-list-header">
       <h2>Showing Recent Notifications</h2>
@@ -18,7 +20,7 @@
             <span class="image-cropper" style=" width: 36px; height: 36px;">
               <img [src]="item.requester.avatar" alt="profile image" avatar>
             </span>
-            <h4>{{item.requester.firstname}} {{item.requester.firstname}}</h4>
+            <h4>{{item.requester.firstname}} {{item.requester.lastname}}</h4>
           </span>
 
           <span>
@@ -28,5 +30,11 @@
         </div>
       </a>
     </div>
+
+  </div>
+
+  <div *ngIf="!isAvailableNotification" class="not-available">
+    <h1>No notifications yet</h1>
+  </div>
 
 </section>

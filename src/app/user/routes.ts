@@ -66,7 +66,8 @@ export const userRoutes: Routes = [
   {
     path: 'history',
     component: BookHistoryComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    resolve: { request: NotificationResolverService }
   },
   {
     path: 'notification',
