@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-books-borrowed',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class BooksBorrowedComponent implements OnInit {
 
   tabbedMode = true;
+  requestData: any;
 
-  constructor() { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.requestData = this.route.snapshot.data['request'];
+    console.log(this.requestData);
+
+
   }
 
 }

@@ -1,34 +1,23 @@
-<div class="book-list-header">
-  <h2>List of Books Borrowed </h2>
-  <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
-</div>
 
-<div class="book-section-grid">
-  <div class="book-section-subGrid">
-    <img src="assets/images/book1.png" alt="">
-    <h4>Photographer’s trouble shooter</h4>
-    <span>by <a href="#">Michael Freeman</a></span>
-    <!-- <button>Recieved</button> -->
+  <div *ngIf="ifBooksBorrowed">
+    <div class="book-list-header">
+      <h2>List of Books Borrowed</h2>
+      <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
+    </div>
+  
+    <div class="book-section-grid" *ngFor="let array of borrowedBooks | paginate: config">
+      <div *ngFor="let item of array">
+        <a [routerLink]="['/book-view', item.book_requested._id]" >
+          <img [src]="item.book_requested.avatar" [alt]="item.book_requested.title">
+          <h4>{{item.book_requested.title}}</h4>
+        </a>
+        <span>by <a href="/search-result?search={{item.book_requested.author}}">{{item.book_requested.author}}</a></span>
+      </div>
+    </div>
+  
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
   </div>
 
-  <div class="book-section-subGrid">
-    <img src="assets/images/book2.png" alt="">
-    <h4>Photographer’s trouble shooter</h4>
-    <span>by <a href="#">Michael Freeman</a></span>
-    <!-- <button>Recieved</button> -->
+  <div *ngIf="!ifBooksBorrowed" class="not-available">
+    <h1>You have not borrowed any book yet</h1>
   </div>
-
-  <div class="book-section-subGrid">
-    <img src="assets/images/book3.png" alt="">
-    <h4>Photographer’s trouble shooter</h4>
-    <span>by <a href="#">Michael Freeman</a></span>
-    <!-- <button>Recieved</button> -->
-  </div>
-
-  <div class="book-section-subGrid">
-    <img src="assets/images/book4.png" alt="">
-    <h4>Photographer’s trouble shooter</h4>
-    <span>by <a href="#">Michael Freeman</a></span>
-    <!-- <button>Recieved</button> -->
-  </div>
-</div>

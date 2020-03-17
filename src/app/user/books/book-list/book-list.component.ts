@@ -14,7 +14,11 @@ export class BookListComponent implements OnInit {
   booksUploaded: boolean;
 
 
-  constructor(private auth: AuthService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private auth: AuthService,
+    private route: ActivatedRoute,
+    private router: Router) {
+
     this.config = {
       currentPage: 1,
       itemsPerPage: 3,
@@ -23,7 +27,7 @@ export class BookListComponent implements OnInit {
     route.queryParams.subscribe(
       params => this.config.currentPage = params['page'] ? params['page'] : 1
     );
-   }
+  }
 
   ngOnInit(): void {
 
@@ -33,7 +37,7 @@ export class BookListComponent implements OnInit {
 
 
     for (let dt of bookDataUnfiltered) {
-      if (dt.uploader_id === id ) {
+      if (dt.uploader_id === id) {
         bookDataFilteredByUser.push(dt);
       }
     }

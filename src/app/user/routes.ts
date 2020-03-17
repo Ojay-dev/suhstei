@@ -61,7 +61,8 @@ export const userRoutes: Routes = [
   {
     path: 'books-borrowed',
     component: BooksBorrowedComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    resolve: { request: NotificationResolverService }
   },
   {
     path: 'timeline',

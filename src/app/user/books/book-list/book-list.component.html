@@ -9,17 +9,15 @@
   <div *ngIf="booksUploaded">
     <div class="book-list-header">
       <h2>List of Books </h2>
-      <!-- <span>(Confirm by click the recieved button once book is returned)</span> -->
     </div>
   
     <div class="book-section-grid" *ngFor="let array of books | paginate: config">
       <div *ngFor="let book of array">
-        <!-- <a [routerLink]="['/book-view', book._id]" > -->
         <a [routerLink]="['book-review', book._id]">
-          <img [src]="book.avatar" alt="">
+          <img [src]="book.avatar" [alt]="book.title">
           <h4>{{book.title}}</h4>
         </a>
-        <span>by <a href="#">{{book.author}}</a></span>
+        <span>by <a href="/search-result?search={{book.author}}">{{book.author}}</a></span>
       </div>
     </div>
   

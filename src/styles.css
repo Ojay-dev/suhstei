@@ -170,15 +170,7 @@ footer h3 {
   margin-block-end: 48px;
 }
 
-[my-books] .book-section-subGrid {
-  margin-inline-end: 40px;
-}
-
-[my-books] .book-section-subGrid:last-child {
-  margin-inline-end: 0;
-}
-
-[my-books] .book-section-subGrid button {
+[my-books] .book-section-grid button {
   width: 100%;
   font-family: SFProText;
   font-weight: 500;

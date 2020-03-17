@@ -1,14 +1,15 @@
 <app-sidebar></app-sidebar>
 
 
+
 <section class="main profile" my-books>
   <div class="tabbed">
     <a [class.active]="tabbedMode" (click)="tabbedMode=true">Books Borrowed</a>
     <a [class.active]="!tabbedMode" (click)="tabbedMode=!tabbedMode">Books Lended</a>
   </div>
+  <app-borrowed-tab *ngIf="tabbedMode" [bookRequestData]="requestData"></app-borrowed-tab>
 
-  <app-borrowed-tab *ngIf="tabbedMode"></app-borrowed-tab>
-  <app-lended-tab *ngIf="!tabbedMode"></app-lended-tab>
+  <app-lended-tab *ngIf="!tabbedMode" [bookRequestData]="requestData"></app-lended-tab>
 
 
 
