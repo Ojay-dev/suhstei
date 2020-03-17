@@ -14,16 +14,41 @@ export class NotificationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestData = this.route.snapshot.data['request'];
+    this.requestData.request_viewed = true;
+    this.updateRequestView(this.requestData);
     console.log(this.requestData);
   }
 
   accept() {
     // console.log("Accept!!!");
+    this.requestData.approved = true;
 
     this.requestService.updateRequest(this.requestData)
       .subscribe(() => {
         console.log('Successfull!!!');
         this.router.navigate(['/user/notification']);
+      }, (err) => {
+        console.error(err);
+      });
+  }
+
+  decline() {
+    // console.log("Accept!!!");
+    this.requestData.disapproved = true;
+
+    this.requestService.updateRequest(this.requestData)
+      .subscribe(() => {
+        console.log('Successfull!!!');
+        this.router.navigate(['/user/notification']);
+      }, (err) => {
+        console.error(err);
+      });
+  }
+
+  updateRequestView(requestData) {
+    this.requestService.updateRequest(requestData)
+      .subscribe(() => {
+        console.log('Successfull!!!');
       }, (err) => {
         console.error(err);
       });

@@ -12,7 +12,7 @@
           <h4>{{item.book_requested.title}}</h4>
       </a>
       <span>by <a href="/search-result?search={{item.book_requested.author}}">{{item.book_requested.author}}</a></span>
-      <button disabled>Recieved</button>
+      <button (click)="onBookReturn(item)">Recieved</button>
     </div>
     
   </div>

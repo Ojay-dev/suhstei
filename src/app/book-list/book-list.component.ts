@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services';
 import { IBook } from '../shared/book.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IPaginage } from '../shared/paginateConfig';
 
 @Component({
   selector: 'app-book-list',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BookListComponent implements OnInit {
   newBooks: IBook[] = [];
   allBooks: IBook[] = [];
-  config: any;
+  config: IPaginage;
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) {
     this.config = {

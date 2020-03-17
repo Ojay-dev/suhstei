@@ -14,9 +14,8 @@ import { RequestService } from 'src/app/services/request-service/request.service
 export class NotificationComponent implements OnInit {
   // content: any;
   requestData;
-
-  private subscription: Subscription;
   isAvailableNotification: boolean;
+  badgeAlert: number;
 
   constructor(
     private bookService: BookService,
@@ -29,13 +28,18 @@ export class NotificationComponent implements OnInit {
     const requestDetails = this.route.snapshot.data['request']
 
     this.requestData = requestDetails.filter(d => {
-      if ( d.requester._id !== this.authService.getUserDetails()._id && d.approved === false && d.approved === false ) {
+      if (
+        d.book_requested.uploader_id === this.authService.getUserDetails()._id &&
+        d.requester._id !== this.authService.getUserDetails()._id &&
+        d.approved === false && d.approved === false
+      ) {
         return d;
       }
     });
 
     this.isAvailableNotification = this.requestData.length <= 0 ? false : true;
 
+    // this.badgeAlert = this.requestData.filter(d => d.request_viewed === false).length;
     console.log(this.requestData);
 
   }

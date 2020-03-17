@@ -48,7 +48,8 @@ export class AddBookComponent implements OnInit {
   uploadFile(event) {
     const file = (event.target as HTMLInputElement).files[0];
     const filePath: HTMLElement = document.querySelector('#spnFilePath');
-    filePath.innerHTML = `<b>Selected File: </b> ${file.name}`;
+    // filePath.innerHTML = `<b>Selected File: </b> ${file.name}`;
+    filePath.innerHTML = `<b>Selected File: </b> book-image`;
     // console.log(file);
 
     this.ng2ImgMax.resizeImage(file, 10000, 312).subscribe(

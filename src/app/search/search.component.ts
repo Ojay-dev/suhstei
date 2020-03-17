@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../services';
+import { IPaginage } from '../shared/paginateConfig';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ import { BookService } from '../services';
 export class SearchComponent implements OnInit {
   searchTerm: string;
   searchResult = [];
-  config: any;
+  config: IPaginage;
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) {
     this.config = {

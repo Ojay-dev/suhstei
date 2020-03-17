@@ -1,13 +1,29 @@
 <!-- The sidebar -->
 <div class="sidebar" id="sidebar">
-  <a [routerLink]="['/user/profile']" routerLinkActive="active"><i class="icon-account"></i>Profile</a>
+  <a [routerLink]="['/user/profile']" routerLinkActive="active">
+    <i class="icon-account"></i>
+    Profile
+  </a>
 
-  <a [routerLink]="['/user/books']" routerLinkActive="active"><i class="icon-list"></i>My Books</a>
+  <a [routerLink]="['/user/books']" routerLinkActive="active">
+    <i class="icon-list"></i>
+    My Books
+  </a>
 
-  <a [routerLink]="['/user/books-borrowed']" routerLinkActive="active"><i class="icon-swap"></i>Books Transactions</a>
+  <a [routerLink]="['/user/books-borrowed']" routerLinkActive="active">
+    <i class="icon-swap"></i>
+    Books Transactions
+  </a>
 
-  <a [routerLink]="['/user/notification']" routerLinkActive="active"><i class="icon-notifications"></i>Notification</a>
+  <a [routerLink]="['/user/notification']" routerLinkActive="active" style="position: relative;">
+    <i class="icon-notifications"></i>
+    Notification
+    <span class="badge" [style.display]="badgeAlert > 0 ? 'block' : 'none'">{{badgeAlert}}</span>
+  </a>
 
-  <a [routerLink]="['/user/timeline']" routerLinkActive="active"><i class="icon-history"></i>History</a>
+  <a [routerLink]="['/user/timeline']" routerLinkActive="active">
+    <i class="icon-history"></i>
+    History
+  </a>
 
 </div>

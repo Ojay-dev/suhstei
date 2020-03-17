@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IPaginage } from 'src/app/shared/paginateConfig';
 
 @Component({
   selector: 'app-book-list',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BookListComponent implements OnInit {
 
   books: any;
-  config: any;
+  config: IPaginage;
   booksUploaded: boolean;
 
 

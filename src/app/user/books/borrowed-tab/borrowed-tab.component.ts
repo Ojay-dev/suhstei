@@ -14,7 +14,7 @@ export class BorrowedTabComponent implements OnInit {
   ifBooksBorrowed: boolean;
   config: IPaginage;
 
-  constructor( private authService: AuthService, private route: ActivatedRoute, private router: Router) { 
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) {
 
     this.config = {
       currentPage: 1,
@@ -28,8 +28,12 @@ export class BorrowedTabComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.borrowedBooks =  this.bookRequestData.filter(d => {
-      if (d.requester._id === this.authService.getUserDetails()._id && d.approved === true) {
+    this.borrowedBooks = this.bookRequestData.filter(d => {
+      if (
+        d.requester._id === this.authService.getUserDetails()._id &&
+        d.approved === true &&
+        d.returned === false
+      ) {
         return d;
       }
     });
