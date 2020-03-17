@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { BookService } from 'src/app/services';
 import { HttpEventType, HttpEvent } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-add-book',
@@ -16,10 +17,16 @@ export class AddBookComponent implements OnInit {
   private bookReview: FormControl;
   private avatar: FormControl;
   percentDone: any = 0;
+  uploadedImage: File;
 
-  constructor(private bookService: BookService, private router: Router, private fb: FormBuilder) { }
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private fb: FormBuilder,
+    private ng2ImgMax: Ng2ImgMaxService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.bookTitle = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.author = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.bookReview = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*'), Validators.maxLength(400)]);
@@ -42,12 +49,26 @@ export class AddBookComponent implements OnInit {
     const file = (event.target as HTMLInputElement).files[0];
     const filePath: HTMLElement = document.querySelector('#spnFilePath');
     filePath.innerHTML = `<b>Selected File: </b> ${file.name}`;
-    console.log(file);
+    // console.log(file);
 
-    this.newBookForm.patchValue({
-      avatar: file
-    });
-    this.newBookForm.get('avatar').updateValueAndValidity();
+    this.ng2ImgMax.resizeImage(file, 10000, 312).subscribe(
+      result => {
+
+        this.uploadedImage = new File([result], result.name, {type: file.type});
+        console.log(this.uploadedImage);
+
+        this.newBookForm.patchValue({
+          avatar: this.uploadedImage
+        });
+        this.newBookForm.get('avatar').updateValueAndValidity();
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
+
+    // console.log(this.uploadedImage);
+
   }
 
   saveNewBook(newBookForm) {

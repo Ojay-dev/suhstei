@@ -24,7 +24,7 @@ export class BookListComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // function to split into four arr
     const chunkArrayInGroups = (arr, size) => {
       const newArr = new Array();
@@ -53,7 +53,7 @@ export class BookListComponent implements OnInit {
     for (let i = 0; i < allBookArr.length; i++) {
       this.allBooks.push(allBookArr[allBookArr.length - (i + 1)]);
     }
-    this.allBooks = chunkArrayInGroups(this.allBooks, 4)
+    this.allBooks = chunkArrayInGroups(this.allBooks, 4);
 
   }
 

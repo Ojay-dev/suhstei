@@ -25,18 +25,18 @@ export class NotificationComponent implements OnInit {
     private requestService: RequestService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const requestDetails = this.route.snapshot.data['request']
 
-    this.requestData =  requestDetails.filter(d => {
-      if ( d.requester._id === this.authService.getUserDetails()._id && ( d.approved === false || d.disapproved === false) ) {
+    this.requestData = requestDetails.filter(d => {
+      if ( d.requester._id !== this.authService.getUserDetails()._id && d.approved === false && d.approved === false ) {
         return d;
       }
     });
 
-    this.isAvailableNotification = this.requestData.length !== 0 ? true : false;
+    this.isAvailableNotification = this.requestData.length <= 0 ? false : true;
 
-    console.log( this.requestData );
+    console.log(this.requestData);
 
   }
 

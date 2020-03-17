@@ -9,7 +9,7 @@ export class BorrowedTabComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

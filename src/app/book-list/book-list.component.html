@@ -12,9 +12,9 @@
     <div *ngFor="let book of array">
       <a [routerLink]="['/book-view', book._id]" >
         <img [src]="book?.avatar" [alt]="book?.title">
-        <h4>{{book?.title}}</h4>
+        <h4>{{book?.title | titlecase}}</h4>
       </a>
-      <span>by <a href="#">{{book?.author}}</a></span>
+      <span>by <a href="#">{{book?.author | titlecase}}</a></span>
     </div>
   </div>
 
@@ -27,9 +27,9 @@
     <div *ngFor="let book of array ">
       <a [routerLink]="['/book-view', book._id]" >
         <img [src]="book?.avatar" [alt]="book?.title">
-        <h4>{{book?.title}}</h4>
+        <h4>{{book?.title | titlecase}}</h4>
       </a>
-      <span>by <a href="#">{{book?.author}}</a></span>
+      <span>by <a href="#">{{book?.author | titlecase}}</a></span>
     </div>
   </div>
 </div>

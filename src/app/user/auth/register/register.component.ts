@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private auth: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z].*')]],

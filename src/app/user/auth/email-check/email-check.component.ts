@@ -9,7 +9,7 @@ export class EmailCheckComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

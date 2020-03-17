@@ -12,7 +12,7 @@ export class NotificationDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private requestService: RequestService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.requestData = this.route.snapshot.data['request'];
     console.log(this.requestData);
   }

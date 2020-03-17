@@ -9,7 +9,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

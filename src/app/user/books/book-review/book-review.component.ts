@@ -13,7 +13,7 @@ export class BookReviewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.book = this.route.snapshot.data['book'];
     console.log(this.book);
   }

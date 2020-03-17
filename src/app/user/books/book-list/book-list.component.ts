@@ -25,7 +25,7 @@ export class BookListComponent implements OnInit {
     );
    }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     const id = this.auth.getUserDetails()._id;
     const bookDataUnfiltered = this.route.snapshot.data.books['books'];
@@ -51,7 +51,7 @@ export class BookListComponent implements OnInit {
 
     this.books = chunkArrayInGroups(bookDataFilteredByUser, 4);
 
-    this.booksUploaded = this.books.length !== 0 ? true : false;
+    this.booksUploaded = this.books.length <= 0 ? false : true;
 
     console.log(this.books, this.booksUploaded);
 

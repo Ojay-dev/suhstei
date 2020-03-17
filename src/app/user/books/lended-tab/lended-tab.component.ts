@@ -9,7 +9,7 @@ export class LendedTabComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

@@ -27,7 +27,8 @@
 
         <div>
           <span class="image-cropper" style=" width: 36px; height: 36px; margin-inline-end: 10px;">
-            <img src="assets/images/avatar.jpg" alt="profile image" avatar>
+            <img *ngIf="!avatar" src="assets/images/avatar.jpg" alt="profile image" avatar>
+            <img *ngIf="avatar" [src]="avatar" alt="profile image" avatar>
           </span>
 
           <div style="position: relative;">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, TokenPayload } from '../../auth/services';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-profile-edit',
@@ -18,11 +19,16 @@ export class ProfileEditComponent implements OnInit {
     email: '',
     phone: '',
   };
+  uploadedImage: File;
 
-  constructor(private authService: AuthService, private router: Router, public fb: FormBuilder) {
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public fb: FormBuilder,
+    private ng2ImgMax: Ng2ImgMaxService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // console.log(this.authService.currentUser);
     this.authService.profile().subscribe(profile => {
 
@@ -31,7 +37,7 @@ export class ProfileEditComponent implements OnInit {
         avatar: [null],
         firstName: [profile.firstname, [Validators.required, Validators.pattern('[a-zA-Z].*')]],
         lastName: [profile.lastname, [Validators.required, Validators.pattern('[a-zA-Z].*')]],
-        email: {value: profile.email, disabled: true},
+        email: { value: profile.email, disabled: true },
         phoneNo: [profile.phone, Validators.required]
       });
 
@@ -47,20 +53,30 @@ export class ProfileEditComponent implements OnInit {
   uploadImage(event) {
     const avatarImg: HTMLImageElement = document.querySelector('.image-wrapper img');
     const file = (event.target as HTMLInputElement).files[0];
-    // console.log(file);
+    console.log(file);
 
-    // File Preview
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      avatarImg.src = reader.result as string;
-    };
+    // Image compression
+    this.ng2ImgMax.compressImage(file, 1.0).subscribe(
+      result => {
+        this.uploadedImage = new File([result], result.name, {type: file.type});
+        // File Preview
+        const reader = new FileReader();
+        reader.readAsDataURL(this.uploadedImage);
+        reader.onload = () => {
+          avatarImg.src = reader.result as string;
+        };
 
-    this.profileForm.patchValue({
-      avatar: file
-    });
-    this.profileForm.get('avatar').updateValueAndValidity();
-    console.log(this.profileForm.value.avatar);
+        this.profileForm.patchValue({
+          avatar: this.uploadedImage
+        });
+        this.profileForm.get('avatar').updateValueAndValidity();
+        console.log(this.profileForm.value.avatar);
+
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
 
   }
 
@@ -76,12 +92,12 @@ export class ProfileEditComponent implements OnInit {
       this.credentials.email = this.retrievedData.email;
 
       this.authService.updateCurrentUser(this.credentials)
-      .subscribe(() => {
-        console.log('Successfull!!!');
-        this.router.navigate(['user/profile']);
-      }, (err) => {
-        console.error(err);
-      });
+        .subscribe(() => {
+          console.log('Successfull!!!');
+          this.router.navigate(['user/profile']);
+        }, (err) => {
+          console.error(err);
+        });
 
     }
   }

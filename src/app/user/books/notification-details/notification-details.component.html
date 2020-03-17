@@ -1,38 +1,42 @@
 <app-sidebar></app-sidebar>
 
 <section class="main profile " my-books>
-    <div class="profile-header">
-      <h1>Notifications</h1>
-    </div>
+  <div class="profile-header">
+    <h1>Notifications</h1>
+  </div>
 
-    <div class="profile-view">
-      <span class="image-cropper" style=" width: 60px; height: 60px;">
-        <img [src]="requestData.requester.avatar" alt="profile image" avatar="">
-      </span>
+  <div class="profile-view">
+    <span class="image-cropper" style=" width: 60px; height: 60px;">
+      <img *ngIf="requestData.requester.avatar" [src]="requestData.requester.avatar" 
+      alt="{{requestData.requester.firstname}} {requestData.requester.lastname}} image" avatar>
 
-      <span>
-        <h3>{{requestData.requester.firstname}} {{requestData.requester.lastname}}</h3>
-        <h3>{{requestData.requester.email}}</h3>
-      </span>
-    </div>
+      <img *ngIf="!requestData.requester.avatar" src="assets/images/avatar.jpg" 
+      alt="{{requestData.requester.firstname}} {requestData.requester.lastname}} image" avatar>
+    </span>
+
+    <span>
+      <h3>{{requestData.requester.firstname}} {{requestData.requester.lastname}}</h3>
+      <h3>{{requestData.requester.email}}</h3>
+    </span>
+  </div>
 
 
-    <div history>
-      <h2>Book Details</h2>
-      <div>
-        <h3>Book Title <br><b>{{requestData.book_requested.title}}</b></h3>
-        <h3>Author <br><b>{{requestData.book_requested.author}}</b></h3>
+  <div history>
+    <h2>Book Details</h2>
+    <div>
+      <h3>Book Title <br><b>{{requestData.book_requested.title}}</b></h3>
+      <h3>Author <br><b>{{requestData.book_requested.author}}</b></h3>
 
-        <div class="btn">
-          <button (click)="accept()" class="accept">Accept</button>
-          <button class="decline">Decline</button>
-        </div>
+      <div class="btn">
+        <button (click)="accept()" class="accept">Accept</button>
+        <button class="decline">Decline</button>
       </div>
-
-      <div>
-        <img [src]="requestData.book_requested.avatar" alt="book-image" width="177">
-      </div>
-
     </div>
 
-  </section>
+    <div>
+      <img [src]="requestData.book_requested.avatar" alt="book-image" width="177">
+    </div>
+
+  </div>
+
+</section>

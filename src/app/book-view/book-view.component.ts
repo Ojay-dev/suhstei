@@ -28,7 +28,7 @@ export class BookViewComponent implements OnInit {
     private requestService: RequestService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // this.bookService.getBook('5e317a605ae13d1aa88fbb80').subscribe(data => {
     this.uploader = this.route.snapshot.data['uploader'];
     // console.log(this.route.snapshot.data['user']);

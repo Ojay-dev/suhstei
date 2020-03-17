@@ -1,7 +1,28 @@
-<!-- <p>search works!</p> -->
+<div class="more-book">
+  <h3>Search Result</h3>
 
-<!-- <pre>{{ state$ | async | json }}</pre> -->
+  <div *ngIf="searchResult.length > 0">
+    <div class="book-section-grid" *ngFor="let array of searchResult | paginate: config">
+      <div *ngFor="let book of array ">
+        <a [routerLink]="['/book-view', book._id]">
+          <img [src]="book?.avatar" [alt]="book?.title">
+          <h4>{{book?.title}}</h4>
+        </a>
+        <span>by <a href="#">{{book?.author}}</a></span>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <!-- <p *ngFor="let result of searchResult">{{result.title}}</p> -->
+  <div *ngIf="searchResult.length <= 0" class="not-available">
+    <h1>No result found</h1>
+  </div>
+
+  <pagination-controls *ngIf="searchResult.length > 0" (pageChange)="pageChange($event)" class="my-pagination">
+  </pagination-controls>
 </div>
+
+
+
+<!-- <footer id="footer">
+    <h3>©2019 Suhstei - All Rights Reserved.</h3>
+  </footer> -->

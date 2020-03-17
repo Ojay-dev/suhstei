@@ -18,7 +18,8 @@
         <div class="first">
           <span>
             <span class="image-cropper" style=" width: 36px; height: 36px;">
-              <img [src]="item.requester.avatar" alt="profile image" avatar>
+              <img *ngIf="item.requester.avatar" [src]="item.requester.avatar" alt="profile image" avatar>
+              <img *ngIf="!item.requester.avatar" src="assets/images/avatar.jpg" alt="profile image" avatar>
             </span>
             <h4>{{item.requester.firstname}} {{item.requester.lastname}}</h4>
           </span>

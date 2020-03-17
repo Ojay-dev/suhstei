@@ -9,7 +9,7 @@ export class IcomoonComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -36,7 +37,8 @@ import { RequestResolver } from './services/request-resolver/request-resolver.se
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    Ng2ImgMaxModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   declarations: [
     AppComponent,

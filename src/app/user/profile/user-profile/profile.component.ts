@@ -12,17 +12,17 @@ export class ProfileComponent implements OnInit {
 
   constructor(private authService: AuthService, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.profileData = this.route.snapshot.data['profile'];
 
     console.log(this.profileData);
 
 
     if (!!this.profileData.avatar && this.profileData.avatar !== '') {
-      const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
+      // const avatarImgNav: HTMLImageElement = document.querySelector('[avatar]');
       const avatarImg: HTMLImageElement = document.querySelector('#profile-img');
       avatarImg.src = this.profileData.avatar;
-      avatarImgNav.src = this.profileData.avatar;
+      // avatarImgNav.src = this.profileData.avatar;
     }
 
     // this.authService.profile().subscribe(profile => {
