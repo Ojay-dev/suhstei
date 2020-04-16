@@ -18,6 +18,7 @@ export class AddBookComponent implements OnInit {
   private avatar: FormControl;
   percentDone: any = 0;
   uploadedImage: File;
+  loading = false;
 
   constructor(
     private bookService: BookService,
@@ -52,21 +53,29 @@ export class AddBookComponent implements OnInit {
     filePath.innerHTML = `<b>Selected File: </b> book-image`;
     // console.log(file);
 
-    this.ng2ImgMax.resizeImage(file, 10000, 312).subscribe(
-      result => {
+    // this.ng2ImgMax.resizeImage(file, 10000, 312).subscribe(
+    //   result => {
 
-        this.uploadedImage = new File([result], result.name, {type: file.type});
-        console.log(this.uploadedImage);
+    //     this.uploadedImage = new File([result], result.name, {type: file.type});
+    //     console.log(this.uploadedImage);
 
-        this.newBookForm.patchValue({
-          avatar: this.uploadedImage
-        });
-        this.newBookForm.get('avatar').updateValueAndValidity();
-      },
-      error => {
-        console.log('😢 Oh no!', error);
-      }
-    );
+    //     this.newBookForm.patchValue({
+    //       avatar: this.uploadedImage
+    //     });
+    //     this.newBookForm.get('avatar').updateValueAndValidity();
+    //   },
+    //   error => {
+    //     console.log('😢 Oh no!', error);
+    //   }
+    // );
+
+    this.uploadedImage = new File([file], file.name, {type: file.type});
+    console.log(this.uploadedImage);
+
+    this.newBookForm.patchValue({
+      avatar: this.uploadedImage
+    });
+    this.newBookForm.get('avatar').updateValueAndValidity();
 
     // console.log(this.uploadedImage);
 
@@ -77,6 +86,7 @@ export class AddBookComponent implements OnInit {
 
       console.log(newBookForm);
 
+      this.loading = true;
       this.bookService.saveBook(
         this.newBookForm.value.bookTitle,
         this.newBookForm.value.author,

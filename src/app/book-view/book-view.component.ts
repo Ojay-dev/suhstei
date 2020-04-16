@@ -46,27 +46,28 @@ export class BookViewComponent implements OnInit {
     this.selfUploaded = this.auth.getUserDetails()._id === this.book.uploader_id ? true : false;
   }
 
-  selfUploade() {
-
-  }
-
 
   request() {
 
-    let requestData;
+    if (this.selfUploaded) {
+      this.router.navigate([`user/books/book-review/${this.book._id}`]);
+    } else {
+      let requestData;
 
-    requestData = {
-      requester: this.route.snapshot.data['loggedInUser'],
-      book: this.book
-    };
+      requestData = {
+        requester: this.route.snapshot.data['loggedInUser'],
+        book: this.book
+      };
 
-    console.log(requestData);
+      console.log(requestData);
 
-    this.requestService.saveRequest(requestData).subscribe((data) => {
-      // this.router.navigate(['book']);
-    }, (err) => {
-      console.error(err);
-    });
+      this.requestService.saveRequest(requestData).subscribe((data) => {
+        // this.router.navigate(['book']);
+      }, (err) => {
+        console.error(err);
+      });
+    }
+
   }
 
 }

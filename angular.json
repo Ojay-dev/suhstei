@@ -25,12 +25,12 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [
               "src/script.js",
               "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"
-
             ]
           },
           "configurations": {
@@ -128,6 +128,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Suhstei"
 }

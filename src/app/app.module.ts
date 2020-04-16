@@ -28,17 +28,22 @@ import { BookViewComponent } from './book-view/book-view.component';
 import { UserResolver } from './services/user-resolver/user-resolver.service';
 import { CurrentUserResolver } from './services/current-user-resolver/current-user-resolver.service';
 import { RequestResolver } from './services/request-resolver/request-resolver.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}),
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
     Ng2ImgMaxModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   declarations: [
     AppComponent,
@@ -52,6 +57,7 @@ import { RequestResolver } from './services/request-resolver/request-resolver.se
     BookViewComponent
   ],
   providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthService,
     BookService,
     BooksListResolver,

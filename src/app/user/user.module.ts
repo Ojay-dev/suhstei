@@ -28,6 +28,8 @@ import { ProfileResolver } from './profile/profile-resolver/profile-resolver.ser
 import { EditBookComponent } from './books/edit-book/edit-book.component';
 import { NotificationComponent } from './books/notification/notification.component';
 import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -35,7 +37,9 @@ import { NotificationDetailsComponent } from './books/notification-details/notif
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    RouterModule.forChild(userRoutes)
+    RouterModule.forChild(userRoutes),
+    // BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   declarations: [
     ProfileComponent,

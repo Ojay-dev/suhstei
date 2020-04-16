@@ -13,8 +13,8 @@
       <a href="#"><i><img src="assets/icons/baseline-call-24px.svg" alt=""></i>Call</a>
       <a href="#"><i><img src="assets/icons/whatsapp.svg" alt=""></i>Chat</a>
     </div>
-    <!-- <button *ngIf="auth.isLoggedIn() && !selfUploaded" (click)="request()" class="book-button">Borrow Book</button> -->
-    <button *ngIf="auth.isLoggedIn()" (click)="request()" class="book-button">Borrow Book</button>
+    <button *ngIf="auth.isLoggedIn() && !selfUploaded" (click)="request()" class="book-button">Borrow Book</button>
+    <button *ngIf="auth.isLoggedIn() && selfUploaded" (click)="request()" class="book-button" style="margin-block-start: 3rem;">Edit</button>
   </div>
 
 

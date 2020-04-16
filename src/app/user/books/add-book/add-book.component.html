@@ -1,6 +1,11 @@
 <app-sidebar></app-sidebar>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
 <section class="main" my-books>
+  <!-- <div *ngIf="loading" loader>
+    <img src="../../../../assets/icons/loading-indicator.svg" alt="">
+  </div> -->
+
   <div class="profile-header" style="margin-block-end: 57px;">
     <div>
       <a [routerLink]="['/user/books']"><i class="icon-back"></i></a>

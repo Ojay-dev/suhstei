@@ -7,7 +7,9 @@
 
 <div class="more-book">
   <h3>New Posts</h3>
-
+  <!-- <div loader>
+    <img src="../../assets/icons/loading-indicator.svg" alt="">
+  </div> -->
   <div class="book-section-grid" *ngFor="let array of newBooks;">
     <div *ngFor="let book of array">
       <a [routerLink]="['/book-view', book._id]" >
@@ -38,5 +40,5 @@
 
 
 <footer id="footer">
-  <h3>©2019 Suhstei - All Rights Reserved.</h3>
+  <h3>&copy;{{year}} Suhstei - All Rights Reserved.</h3>
 </footer>

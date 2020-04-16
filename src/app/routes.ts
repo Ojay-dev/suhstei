@@ -9,9 +9,19 @@ import { BooksListResolver, BookViewResolver, SearchResolver } from './services'
 import { UserResolver } from './services/user-resolver/user-resolver.service';
 import { CurrentUserResolver } from './services/current-user-resolver/current-user-resolver.service';
 
-export  const appRoutes: Routes = [
-  { path: '', component: LandingPageComponent},
-  { path: 'home', redirectTo: '', pathMatch: 'full'},
+export const appRoutes: Routes = [
+  {
+    path: '',
+    component: LandingPageComponent,
+    resolve: {
+      books: BooksListResolver
+    }
+  },
+  {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
   {
     path: 'book',
     component: BookListComponent,
@@ -29,9 +39,9 @@ export  const appRoutes: Routes = [
     }
   },
   // { path: 'book', component: BookListComponent },
-  { path: 'search-result', component: SearchComponent, resolve: {books: BooksListResolver}},
-  { path: 'icomoon', component: IcomoonComponent},
+  { path: 'search-result', component: SearchComponent, resolve: { books: BooksListResolver } },
+  { path: 'icomoon', component: IcomoonComponent },
   // { path: '404', component: Error404Component},
-  { path: 'user', loadChildren: './user/user.module#UserModule'},
+  { path: 'user', loadChildren: './user/user.module#UserModule' },
   { path: '**', component: Error404Component }
 ];
