@@ -1,35 +1,37 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-@font-face{
-  font-family:SFProText-bold;
-  src:url("/assets/fonts/SF-Pro-Text-Bold.woff")
+@font-face {
+  font-family: SFProText-bold;
+  src: url("/assets/fonts/SF-Pro-Text-Bold.woff")
 }
 
-@font-face{
-  font-family:SFProText;
-  src:url("/assets/fonts/SF-Pro-Text-Regular.otf")
+@font-face {
+  font-family: SFProText;
+  src: url("/assets/fonts/SF-Pro-Text-Regular.otf")
 }
 
-@font-face{
-  font-family:CircularStd;
-  src:url("/assets/fonts/CircularStd-Medium.woff")
+@font-face {
+  font-family: CircularStd;
+  src: url("/assets/fonts/CircularStd-Medium.woff")
 }
+
 html, body {
-	font-size: 100%;
+  font-size: 100%;
   height: 100%;
-  margin:0;
-
-  padding:0;
-	width: 100%;
-	/* background: #F1F1F1 !important; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* background: #F1F1F1 !important; */
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 section {
   padding-top: 85px;
 }
+
 footer {
   width: 100%;
   background: #C4C4C4;
@@ -47,13 +49,16 @@ footer h3 {
   padding-block-end: 3.75rem;
   color: #1D2029;
 }
+
 #footer.stikybottom {
   position: fixed;
-  bottom:0;
+  bottom: 0;
   left: 0;
-  right:0;
+  right: 0;
 }
+
 /* Style the sidebar - fixed full height */
+
 .sidebar {
   position: fixed;
   height: calc(100% - 85px);
@@ -67,7 +72,9 @@ footer h3 {
   padding-top: 16px;
   transition: top .5s;
 }
+
 /* Style sidebar links */
+
 .sidebar a {
   display: flex;
   align-items: center;
@@ -79,6 +86,7 @@ footer h3 {
   margin-block-end: 50px;
   color: #293D4A;
 }
+
 .sidebar a:first-child {
   margin-block-start: 46px;
 }
@@ -89,10 +97,15 @@ footer h3 {
 }
 
 /* Style links on mouse-over */
+
 .sidebar a:hover:not(.active), .sidebar .active {
   color: #4169E2;
   padding-inline-start: 56px;
   border-inline-start: 4px solid #4169E2;
+}
+
+.sidebar .active i {
+  color: #4169E2;
 }
 
 .sidebar a:hover:not(.active) {
@@ -100,10 +113,13 @@ footer h3 {
 }
 
 /* Style the main content */
+
 .main {
-  margin-left: 25%; /* Same as the width of the sidenav */
+  margin-left: 25%;
+  /* Same as the width of the sidenav */
   padding: 85px 20px 130px 111px;
 }
+
 .image-cropper {
   display: inline-block;
   border-radius: 50%;
@@ -118,6 +134,7 @@ footer h3 {
   margin-block-start: 40px;
   margin-block-end: 70px;
 }
+
 .profile-header h1 {
   font-family: CircularStd;
   font-weight: 450;
@@ -126,7 +143,7 @@ footer h3 {
   color: #1D2029;
 }
 
-.profile-header > a {
+.profile-header>a {
   position: relative;
   top: 95px;
   font-family: SFProText;
@@ -137,7 +154,7 @@ footer h3 {
 
 .book-section-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   column-gap: 1.75rem;
   row-gap: 5.5rem;
@@ -150,24 +167,29 @@ footer h3 {
 .book-section-grid a {
   text-decoration: none;
 }
+
 .review-section {
   margin-block-start: 88px;
 }
+
 .review-writeup .book-thumbnail {
   display: flex;
   flex-direction: row;
   margin-top: 0.625rem;
   margin-bottom: 1.5rem;
 }
-.review-info .book-thumbnail > img {
+
+.review-info .book-thumbnail>img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
   margin-bottom: 1.5rem;
 }
+
 [my-books] {
   padding-inline-start: 100px;
   padding-inline-end: 100px;
 }
+
 [my-books] .book-section-grid {
   margin-block-end: 48px;
 }
@@ -203,7 +225,7 @@ footer h3 {
   margin-block-end: 40px;
 }
 
-[my-books] .book-list-header > h2 {
+[my-books] .book-list-header>h2 {
   font-family: CircularStd;
   font-weight: 450;
   font-size: 18px;
@@ -211,7 +233,7 @@ footer h3 {
   margin: 0;
 }
 
-[my-books] .book-list-header > span {
+[my-books] .book-list-header>span {
   font-size: 14px;
   line-height: 18px;
   margin-inline-start: 18px;
@@ -229,21 +251,22 @@ footer h3 {
   color: #4F4F4F;
 }
 
-[my-books] .profile-header > div {
+[my-books] .profile-header>div {
   display: flex;
+  align-items: center;
 }
 
-[my-books] .profile-header > div a {
+[my-books] .profile-header>div a {
   color: #0B0817;
   cursor: pointer;
   text-decoration: none;
 }
 
-[my-books] .profile-header > div i {
+[my-books] .profile-header>div i {
   margin-inline-end: 24px;
 }
 
-[my-books] .profile-header > a {
+[my-books] .profile-header>a {
   top: 0;
   font-family: CircularStd;
   font-size: 14px;
@@ -262,7 +285,7 @@ footer h3 {
   color: #1D2029;
 } */
 
-[my-books] .book-thumbnail{
+[my-books] .book-thumbnail {
   margin-block-end: 49px;
 }
 
@@ -280,6 +303,7 @@ footer h3 {
   margin-block-start: 18px;
   color: #4F4F4F;
 }
+
 [my-books] article h2 {
   font-family: SFProText-bold;
   font-style: normal;
@@ -290,14 +314,16 @@ footer h3 {
   margin-block-end: 24px;
   color: #1D2029;
 }
+
 [my-books] article p {
   font-family: SFProText;
   font-size: 16px;
   line-height: 28px;
   color: #4F4F4F;
 }
+
 .signup-form {
-  width:50%;
+  width: 50%;
   margin: auto;
   margin-block-start: 5%;
   margin-block-end: 12%;
@@ -320,6 +346,7 @@ footer h3 {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 .signup-form input::-webkit-input-placeholder {
   /* Edge */
   font-family: CircularStd;
@@ -327,6 +354,7 @@ footer h3 {
   font-size: 1rem;
   color: #ABB4BD;
 }
+
 .signup-form input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   font-family: CircularStd;
@@ -334,12 +362,14 @@ footer h3 {
   font-size: 1rem;
   color: #ABB4BD;
 }
+
 .signup-form input::placeholder {
   font-family: CircularStd;
   font-weight: 450;
   font-size: 1rem;
   color: #ABB4BD;
 }
+
 .signup-form h2 {
   font-family: CircularStd;
   font-weight: 500;
@@ -368,7 +398,8 @@ footer h3 {
 .signup-form div[align="center"] {
   margin-top: 1.5rem;
 }
-.signup-form div[align="center"] > a {
+
+.signup-form div[align="center"]>a {
   color: #4169E2;
 }
 
@@ -403,7 +434,7 @@ div.not-available h1 {
 
 @media (max-width: 1024px) {
   .signup-form {
-    width:50%;
+    width: 50%;
   }
 }
 
@@ -413,14 +444,14 @@ div.not-available h1 {
   }
   [my-books] .book-list-header {
     flex-direction: column;
-   }
-
-   [my-books] .book-list-header > span {
-     margin-inline-start: 0;
-     margin-block-start: 11px;
-     align-self: flex-start;
-   }
+  }
+  [my-books] .book-list-header>span {
+    margin-inline-start: 0;
+    margin-block-start: 11px;
+    align-self: flex-start;
+  }
 }
+
 @media (max-width: 768px) {
   .book-section-subGrid {
     flex: 0 0 auto;
@@ -434,7 +465,7 @@ div.not-available h1 {
     padding-inline-start: 29px;
   }
   .signup-form {
-    width:70%;
+    width: 70%;
   }
 }
 
@@ -464,7 +495,7 @@ div.not-available h1 {
     padding-block-end: 20px;
   }
   .signup-form {
-    width: 100%;
+    width: 80%;
     height: 100%;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -484,5 +515,11 @@ div.not-available h1 {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

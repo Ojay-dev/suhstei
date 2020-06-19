@@ -56,7 +56,7 @@ img {
     "image article";
   width: 80%;
   margin: auto;
-  margin-block-end: 14.875rem;
+  /* margin-block-end: 14.875rem; */
 }
 
 .book-view {
@@ -200,6 +200,11 @@ img {
   text-decoration: none;
 }
 
+.disqus {
+  width: 80%;
+  margin: auto;
+}
+
 @media screen and (max-width: 48rem) {
   .review-section {
     grid-template-columns: auto;
@@ -208,8 +213,8 @@ img {
     grid-template-areas:
       "image"
       "article";
-    width: 90%;
-    margin-block-end: 6.75rem;
+    width: 80%;
+    margin-block-end: 2rem;
   }
 
   .book-view {

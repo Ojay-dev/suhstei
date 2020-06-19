@@ -31,6 +31,8 @@ import { RequestResolver } from './services/request-resolver/request-resolver.se
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DisqusModule } from 'ngx-disqus';
+import { CommunitiyComponent } from './communitiy/communitiy.component';
 
 @NgModule({
   imports: [
@@ -43,7 +45,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     Ng2ImgMaxModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    DisqusModule.forRoot('suhstei')
   ],
   declarations: [
     AppComponent,
@@ -54,10 +57,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     Error404Component,
     SearchComponent,
     IcomoonComponent,
-    BookViewComponent
+    BookViewComponent,
+    CommunitiyComponent
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthService,
     BookService,
     BooksListResolver,

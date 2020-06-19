@@ -1,28 +1,28 @@
 <!-- The sidebar -->
 <div class="sidebar" id="sidebar">
   <a [routerLink]="['/user/profile']" routerLinkActive="active">
-    <i class="icon-account"></i>
+    <i class="icon-baseline-account_circle-24px"></i>
     Profile
   </a>
 
   <a [routerLink]="['/user/books']" routerLinkActive="active">
-    <i class="icon-list"></i>
+    <i class="icon-baseline-list_alt-24px"></i>
     My Books
   </a>
 
   <a [routerLink]="['/user/books-borrowed']" routerLinkActive="active">
-    <i class="icon-swap"></i>
+    <i class="icon-baseline-swap_horiz-24px"></i>
     Books Transactions
   </a>
 
   <a [routerLink]="['/user/notification']" routerLinkActive="active" style="position: relative;">
-    <i class="icon-notifications"></i>
+    <i class="icon-mdi_notifications"></i>
     Notification
     <span class="badge" [style.display]="badgeAlert > 0 ? 'block' : 'none'">{{badgeAlert}}</span>
   </a>
 
   <a [routerLink]="['/user/timeline']" routerLinkActive="active">
-    <i class="icon-history"></i>
+    <i class="icon-outline-history-24px"></i>
     History
   </a>
 

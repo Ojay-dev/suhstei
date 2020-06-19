@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class BookService extends AuthService {
 
-  // baseURL = 'http://localhost:8808/api';
-  baseURL = 'http://suhstei.herokuapp.com/api';
+  baseURL = 'http://localhost:8808/api';
+  // baseURL = 'http://suhstei.herokuapp.com/api';
 
   constructor(private httpClient: HttpClient, router: Router) {
     super(httpClient, router);

@@ -8,6 +8,7 @@ import { BookViewComponent } from './book-view/book-view.component';
 import { BooksListResolver, BookViewResolver, SearchResolver } from './services';
 import { UserResolver } from './services/user-resolver/user-resolver.service';
 import { CurrentUserResolver } from './services/current-user-resolver/current-user-resolver.service';
+import { CommunitiyComponent } from './communitiy/communitiy.component';
 
 export const appRoutes: Routes = [
   {
@@ -28,6 +29,10 @@ export const appRoutes: Routes = [
     resolve: {
       books: BooksListResolver
     }
+  },
+  {
+    path: 'community',
+    component: CommunitiyComponent,
   },
   {
     path: 'book-view/:id',

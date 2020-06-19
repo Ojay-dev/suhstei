@@ -8,14 +8,15 @@
       <div class="vl nav-link"></div>
 
       <form (ngSubmit)="searchBooks(searchTerm)">
-        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xe90e;  Search"
+        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" placeholder="&#xe900;  Search"
           aria-label="Search" style="font-family: SFProText, icomoon">
       </form>
     </div>
 
     <div class="nav-link">
       <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-      <a [routerLink]="['book']" routerLinkActive="active">Book</a>
+      <a [routerLink]="['book']" routerLinkActive="active">Books</a>
+      <a [routerLink]="['community']" routerLinkActive="active">Community</a>
 
       <div *ngIf="!auth.isLoggedIn()" class="auth-link">
         <a [routerLink]="['/user/sign-in']">Sign In</a>
@@ -32,7 +33,7 @@
           </span>
 
           <div style="position: relative;">
-            <i class="icon-dropdown" style="cursor: pointer; font-size: 10px;"></i>
+            <i class="icon-Arrow" style="cursor: pointer; font-size: 10px;"></i>
             <div class="dropdown-content">
               <ul>
                 <a [routerLink]="['/user/profile']">
@@ -61,6 +62,7 @@
           onclick="closeNav()">Home</a></li>
 
       <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">Book</a></li>
+      <li><a [routerLink]="['community']" routerLinkActive="active" onclick="closeNav()">Community</a></li>
 
       <li><a [routerLink]="['/user/sign-in']" onclick="closeNav()">Sign In</a></li>
 
@@ -71,25 +73,28 @@
       <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
 
       <li><a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="active"
-          onclick="closeNav()"><i class="icon-home"></i>Home</a></li>
+          onclick="closeNav()"><i class="icon-mdi_home"></i>Home</a></li>
 
       <li><a [routerLink]="['book']" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-books"></i>Books</a></li>
+          <i class="icon-mdi_library_books"></i>Books</a></li>
+
+      <li><a [routerLink]="['community']" routerLinkActive="active" onclick="closeNav()" style="margin-block-end: rem;">
+          <i class="icon-group_24px_outlined"></i>Community</a></li>
 
       <li><a [routerLink]="['/user/profile']" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-account"></i>Profile</a></li>
+          <i class="icon-baseline-account_circle-24px"></i>Profile</a></li>
 
       <li><a [routerLink]="['/user/books']" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-list"></i>My Books</a></li>
+          <i class="icon-baseline-list_alt-24px"></i>My Books</a></li>
 
       <li><a [routerLink]="['/user/history']" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-history"></i>History</a></li>
+          <i class="icon-outline-history-24px"></i>History</a></li>
 
       <li><a [routerLink]="['/user/books-borrowed']" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-chart"></i>Books Transactions</a></li>
+          <i class="icon-baseline-insert_chart_outlined-24px"></i>Books Transactions</a></li>
 
       <li><a (click)="auth.logout()" routerLinkActive="active" onclick="closeNav()">
-          <i class="icon-power"></i>Sign Out</a></li>
+          <i class="icon-mdi_power_settings_new"></i>Sign Out</a></li>
 
     </ul>
   </nav>

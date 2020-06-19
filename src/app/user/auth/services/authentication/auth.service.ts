@@ -32,8 +32,8 @@ export interface TokenPayload {
 export class AuthService {
 
   private token: string;
-  // baseURL = 'http://localhost:8808/api';
-  baseURL = 'http://suhstei.herokuapp.com/api';
+  baseURL = 'http://localhost:8808/api';
+  // baseURL = 'http://suhstei.herokuapp.com/api';
 
   constructor(private http: HttpClient, private router: Router) {}
 

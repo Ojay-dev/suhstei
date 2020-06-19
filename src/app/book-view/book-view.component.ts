@@ -18,7 +18,12 @@ export class BookViewComponent implements OnInit {
   uploader: any;
   subscription: Subscription;
 
+  // pageId: string;
+  // url: string;
   selfUploaded: boolean;
+
+  pageId: string = '' + window.location.hash;
+  url: string = '' + window.location.href;
 
   constructor(
     private bookService: BookService,
@@ -44,6 +49,8 @@ export class BookViewComponent implements OnInit {
     }
 
     this.selfUploaded = this.auth.getUserDetails()._id === this.book.uploader_id ? true : false;
+    this.pageId = '' +   this.pageId.slice(1);
+    console.log(this.pageId);
   }
 
 

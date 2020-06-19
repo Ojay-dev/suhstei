@@ -10,8 +10,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class RequestService extends AuthService {
 
-  // baseURL = 'http://localhost:8808/api';
-  baseURL = 'http://suhstei.herokuapp.com/api';
+  baseURL = 'http://localhost:8808/api';
+  // baseURL = 'http://suhstei.herokuapp.com/api';
 
   constructor(private httpClient: HttpClient, router: Router) {
     super(httpClient, router);
