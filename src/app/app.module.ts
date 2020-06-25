@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DisqusModule } from 'ngx-disqus';
 import { CommunitiyComponent } from './communitiy/communitiy.component';
+import { CategoryComponent } from './communitiy/category/category.component';
 
 @NgModule({
   imports: [
@@ -58,10 +59,11 @@ import { CommunitiyComponent } from './communitiy/communitiy.component';
     SearchComponent,
     IcomoonComponent,
     BookViewComponent,
-    CommunitiyComponent
+    CommunitiyComponent,
+    CategoryComponent
   ],
   providers: [
-    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthService,
     BookService,
     BooksListResolver,

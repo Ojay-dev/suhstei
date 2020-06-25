@@ -27,13 +27,12 @@ export interface TokenPayload {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private token: string;
-  baseURL = 'http://localhost:8808/api';
-  // baseURL = 'http://suhstei.herokuapp.com/api';
+  // baseURL = 'http://localhost:8808/api';
+  baseURL = 'http://suhstei.herokuapp.com/api';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -72,13 +71,17 @@ export class AuthService {
     }
   }
 
-  private request(method: 'post'|'get'|'put', type: string, user?: TokenPayload): Observable<any> {
+  private request(
+    method: 'post' | 'get' | 'put',
+    type: string,
+    user?: TokenPayload
+  ): Observable<any> {
     let base;
 
     if (method === 'post') {
       base = this.http.post(`${this.baseURL}/${type}`, user);
     } else if (method === 'put') {
-      const  formData: any = new FormData();
+      const formData: any = new FormData();
 
       formData.append('avatar', user.avatar);
       formData.append('email', user.email);
@@ -87,13 +90,13 @@ export class AuthService {
       formData.append('lastname', user.lastname);
       formData.append('phone', user.phone);
 
-      base = this.http.put(
-        `${this.baseURL}/${type}`,
-        formData  ,
-        { headers: { Authorization: `Bearer ${this.getToken()}` }},
-      );
+      base = this.http.put(`${this.baseURL}/${type}`, formData, {
+        headers: { Authorization: `Bearer ${this.getToken()}` },
+      });
     } else {
-      base = this.http.get(`${this.baseURL}/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`${this.baseURL}/${type}`, {
+        headers: { Authorization: `Bearer ${this.getToken()}` },
+      });
     }
 
     const request = base.pipe(
@@ -118,12 +121,12 @@ export class AuthService {
 
   public profile(): Observable<any> {
     return this.request('get', 'profile');
-      //  .pipe(tap(data => {
-      //       this.currentUser = data;
-      //     }))
-      //     .pipe(catchError(err => {
-      //       return of(false);
-      //     }));
+    //  .pipe(tap(data => {
+    //       this.currentUser = data;
+    //     }))
+    //     .pipe(catchError(err => {
+    //       return of(false);
+    //     }));
   }
 
   public logout(): void {
@@ -141,7 +144,6 @@ export class AuthService {
   getUser(id: string): Observable<any> {
     return this.request('get', `user/${id}`);
   }
-
 
   // Former code
   // loginUser(userName: string, password: string) {
@@ -166,5 +168,4 @@ export class AuthService {
   //   //   phoneNo: '08034567890'
   //   // };
   // }
-
 }

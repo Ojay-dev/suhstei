@@ -26,7 +26,7 @@
     "@angular/router": "~8.2.14",
     "@angular/service-worker": "~8.2.14",
     "blueimp-canvas-to-blob": "^3.17.0",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "ng2-img-max": "^2.2.1",
     "ngf-bootstrap": "0.0.5",
     "ngf-server": "^1.0.2",

@@ -23,7 +23,7 @@ export class BookViewComponent implements OnInit {
   selfUploaded: boolean;
 
   pageId: string = '' + window.location.hash;
-  url: string = '' + window.location.href;
+  url: string;
 
   constructor(
     private bookService: BookService,
@@ -39,7 +39,7 @@ export class BookViewComponent implements OnInit {
     // console.log(this.route.snapshot.data['user']);
 
     this.book = this.route.snapshot.data['book'];
-    console.log(this.book);
+    this.url = this.router.url;
 
     if (this.auth.isLoggedIn) {
       if (!!this.uploader.avatar && this.uploader.avatar !== '') {

@@ -14,7 +14,8 @@
       <a href="#"><i><img src="assets/icons/whatsapp.svg" alt=""></i>Chat</a>
     </div>
     <button *ngIf="auth.isLoggedIn() && !selfUploaded" (click)="request()" class="book-button">Borrow Book</button>
-    <button *ngIf="auth.isLoggedIn() && selfUploaded" (click)="request()" class="book-button" style="margin-block-start: 3rem;">Edit</button>
+    <button *ngIf="auth.isLoggedIn() && selfUploaded" (click)="request()" class="book-button"
+      style="margin-block-start: 3rem;">Edit</button>
   </div>
 
 
@@ -32,37 +33,8 @@
   </div>
 </div>
 
-<!-- <div class="more-book">
-  <h3>More Books</h3>
-  <div class="book-section-grid">
-    <div>
-      <img src="https://via.placeholder.com/220x312/b3d7ff/FFFFFF/?text=Book-A" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <img src="https://via.placeholder.com/220x312/4169E2/FFFFFF/?text=Book-B" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <img src="https://via.placeholder.com/220x312/c4c4c4/FFFFFF/?text=Book-C" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-
-    <div>
-      <img src="https://via.placeholder.com/220x312/17a2b8/FFFFFF/?text=Book-D" alt="">
-      <h4>Photographer’s trouble shooter</h4>
-      <span>by <a href="#">Michael Freeman</a></span>
-    </div>
-  </div>
-</div> -->
-
 <div class="disqus">
-  <disqus [identifier]="'/book'" [title]="book.title" [url]="url"></disqus>
+  <disqus [identifier]="url" [title]="book.title" [url]="url"></disqus>
 </div>
 
 <app-footer></app-footer>

@@ -1,5 +1,19 @@
+.header {
+    background: #F1F4FB;
+    padding: 120px 10%;
+    margin-top: 6.3rem;
+}
+
+.header--h2 {
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 55px;
+    text-transform: capitalize;
+    color: #4169E2;
+}
+
 .disqus {
     width: 80%;
     margin: auto;
-    margin-block-start: 170px;
+    margin-block-start: 3rem;
 }
