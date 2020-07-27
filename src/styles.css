@@ -1,20 +1,27 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @font-face {
   font-family: SFProText-bold;
-  src: url("/assets/fonts/SF-Pro-Text-Bold.woff")
+  src: url("/assets/fonts/SF-Pro-Text-Bold.woff");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
   font-family: SFProText;
-  src: url("/assets/fonts/SF-Pro-Text-Regular.otf")
+  src: url("/assets/fonts/SF-Pro-Text-Regular.otf");
+  font-weight: ormal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: CircularStd;
-  src: url("/assets/fonts/CircularStd-Medium.woff")
+  src: url("/assets/fonts/CircularStd-Medium.woff");
+  font-weight: 500;
+  font-style: normal;
 }
 
-html, body {
+html,
+body {
   font-size: 100%;
   height: 100%;
   margin: 0;
@@ -34,20 +41,20 @@ section {
 
 footer {
   width: 100%;
-  background: #C4C4C4;
+  background: #c4c4c4;
 }
 
 footer h3 {
   font-family: CircularStd;
   font-style: normal;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 1.125rem;
   text-transform: capitalize;
   width: 80%;
   margin: auto;
   padding-block-start: 3.75rem;
   padding-block-end: 3.75rem;
-  color: #1D2029;
+  color: #1d2029;
 }
 
 #footer.stikybottom {
@@ -70,7 +77,7 @@ footer h3 {
   border-right: 1px solid #f1f1f1;
   overflow: hidden;
   padding-top: 16px;
-  transition: top .5s;
+  transition: top 0.5s;
 }
 
 /* Style sidebar links */
@@ -84,7 +91,7 @@ footer h3 {
   font-size: 16px;
   line-height: 25px;
   margin-block-end: 50px;
-  color: #293D4A;
+  color: #293d4a;
 }
 
 .sidebar a:first-child {
@@ -98,14 +105,15 @@ footer h3 {
 
 /* Style links on mouse-over */
 
-.sidebar a:hover:not(.active), .sidebar .active {
-  color: #4169E2;
+.sidebar a:hover:not(.active),
+.sidebar .active {
+  color: #4169e2;
   padding-inline-start: 56px;
-  border-inline-start: 4px solid #4169E2;
+  border-inline-start: 4px solid #4169e2;
 }
 
 .sidebar .active i {
-  color: #4169E2;
+  color: #4169e2;
 }
 
 .sidebar a:hover:not(.active) {
@@ -137,19 +145,19 @@ footer h3 {
 
 .profile-header h1 {
   font-family: CircularStd;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 1.5rem;
   margin: 0;
-  color: #1D2029;
+  color: #1d2029;
 }
 
-.profile-header>a {
+.profile-header > a {
   position: relative;
   top: 95px;
   font-family: SFProText;
   font-size: 16px;
   text-decoration: none;
-  color: #4169E2;
+  color: #4169e2;
 }
 
 .book-section-grid {
@@ -179,7 +187,7 @@ footer h3 {
   margin-bottom: 1.5rem;
 }
 
-.review-info .book-thumbnail>img {
+.review-info .book-thumbnail > img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
   margin-bottom: 1.5rem;
@@ -203,8 +211,8 @@ footer h3 {
   text-align: center;
   padding: 12px;
   margin-block-start: 40px;
-  color: #FFFFFF;
-  background: #2CBA8F;
+  color: #ffffff;
+  background: #2cba8f;
   border: 0;
   border-radius: 4px;
 }
@@ -225,20 +233,20 @@ footer h3 {
   margin-block-end: 40px;
 }
 
-[my-books] .book-list-header>h2 {
+[my-books] .book-list-header > h2 {
   font-family: CircularStd;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 18px;
-  color: #1D2029;
+  color: #1d2029;
   margin: 0;
 }
 
-[my-books] .book-list-header>span {
+[my-books] .book-list-header > span {
   font-size: 14px;
   line-height: 18px;
   margin-inline-start: 18px;
   align-self: flex-end;
-  color: #ABB4BD;
+  color: #abb4bd;
 }
 
 [my-books] h4 {
@@ -248,32 +256,32 @@ footer h3 {
   line-height: 20px;
   margin-block-start: 13px;
   margin-block-end: 19px;
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
-[my-books] .profile-header>div {
+[my-books] .profile-header > div {
   display: flex;
   align-items: center;
 }
 
-[my-books] .profile-header>div a {
-  color: #0B0817;
+[my-books] .profile-header > div a {
+  color: #0b0817;
   cursor: pointer;
   text-decoration: none;
 }
 
-[my-books] .profile-header>div i {
+[my-books] .profile-header > div i {
   margin-inline-end: 24px;
 }
 
-[my-books] .profile-header>a {
+[my-books] .profile-header > a {
   top: 0;
   font-family: CircularStd;
   font-size: 14px;
   text-align: center;
   padding: 11px 33px;
-  color: #FFFFFF;
-  background: #4169E2;
+  color: #ffffff;
+  background: #4169e2;
   border-radius: 4px;
 }
 
@@ -291,7 +299,7 @@ footer h3 {
 
 [my-books] span a {
   text-decoration: none;
-  color: #43CAED;
+  color: #43caed;
 }
 
 [my-books] .book-thumbnail h5 {
@@ -301,7 +309,7 @@ footer h3 {
   line-height: 20px;
   margin-block-start: 13px;
   margin-block-start: 18px;
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 [my-books] article h2 {
@@ -312,33 +320,44 @@ footer h3 {
   line-height: 28px;
   text-transform: capitalize;
   margin-block-end: 24px;
-  color: #1D2029;
+  color: #1d2029;
 }
 
 [my-books] article p {
   font-family: SFProText;
   font-size: 16px;
   line-height: 28px;
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 .signup-form {
-  width: 50%;
-  margin: auto;
-  margin-block-start: 5%;
-  margin-block-end: 12%;
-  padding: 5% 6%;
-  padding-block-start: 3%;
-  background: #FFFFFF;
-  box-shadow: 0px 7.52055px 16.7123px rgba(171, 180, 189, 0.23);
-  border-radius: 10px;
+  width: 100%;
+  padding: 10%;
+}
+
+@media screen and (min-width: 768px) {
+  .signup-form {
+    width: 50%;
+    margin: 4% auto 12%;
+    padding: 5%;
+    padding-block-start: 3%;
+    background: #ffffff;
+    box-shadow: 0px 7.52055px 16.7123px rgba(171, 180, 189, 0.23);
+    border-radius: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .signup-form {
+    width: 40%;
+  }
 }
 
 .signup-form input {
   width: 100%;
-  padding: 1rem;
+  padding: 10px;
   margin-top: 2rem;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 1rem;
   font-family: CircularStd;
   display: inline-block;
@@ -350,66 +369,67 @@ footer h3 {
 .signup-form input::-webkit-input-placeholder {
   /* Edge */
   font-family: CircularStd;
-  font-weight: 450;
-  font-size: 1rem;
-  color: #ABB4BD;
+  font-weight: normal;
+  font-size: 14px;
+  color: #abb4bd;
 }
 
 .signup-form input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   font-family: CircularStd;
-  font-weight: 450;
-  font-size: 1rem;
-  color: #ABB4BD;
+  font-weight: normal;
+  font-size: 14px;
+  color: #abb4bd;
 }
 
 .signup-form input::placeholder {
   font-family: CircularStd;
-  font-weight: 450;
-  font-size: 1rem;
-  color: #ABB4BD;
+  font-weight: normal;
+  font-size: 14px;
+  color: #abb4bd;
 }
 
 .signup-form h2 {
   font-family: CircularStd;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 20px;
   text-align: center;
   color: #070809;
 }
 
 .signup-form h3 {
   font-family: CircularStd;
-  font-weight: 450;
-  font-size: 18px;
+  font-weight: normal;
+  font-size: 16px;
   text-align: center;
   line-height: 1.7rem;
-  margin-bottom: .8rem;
-  color: #ABB4BD;
+  margin-bottom: 0.8rem;
+  color: #abb4bd;
 }
 
-.signup-form a, div[register] {
+.signup-form a,
+div[register] {
   font-family: CircularStd;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 14px;
-  color: #ABB4BD;
+  color: #abb4bd;
 }
 
 .signup-form div[align="center"] {
   margin-top: 1.5rem;
 }
 
-.signup-form div[align="center"]>a {
-  color: #4169E2;
+.signup-form div[align="center"] > a {
+  color: #4169e2;
 }
 
 .signup-form .button {
   color: white;
-  font-weight: 450;
+  font-weight: normal;
   font-size: 1.25rem;
-  padding: 1.2rem;
+  padding: 10px;
   /* margin: 8px 0; */
-  background: #4169E2;
+  background: #4169e2;
   box-shadow: 0px 9px 20px rgba(171, 180, 189, 0.148862);
 }
 
@@ -420,7 +440,7 @@ div.not-available h1 {
   font-size: 1.5rem;
   line-height: 20px;
   margin-block-start: 1rem;
-  margin-block-end: .8rem;
+  margin-block-end: 0.8rem;
   color: #98969662;
 }
 
@@ -431,13 +451,6 @@ div.not-available h1 {
   transform: translate(-50%, -50%);
   z-index: 5000;
 } */
-
-@media (max-width: 1024px) {
-  .signup-form {
-    width: 50%;
-  }
-}
-
 @media (max-width: 900px) {
   .book-section-grid {
     margin-bottom: 51px;
@@ -445,7 +458,7 @@ div.not-available h1 {
   [my-books] .book-list-header {
     flex-direction: column;
   }
-  [my-books] .book-list-header>span {
+  [my-books] .book-list-header > span {
     margin-inline-start: 0;
     margin-block-start: 11px;
     align-self: flex-start;
@@ -464,9 +477,9 @@ div.not-available h1 {
   .sidebar a:hover:not(.active) {
     padding-inline-start: 29px;
   }
-  .signup-form {
+  /* .signup-form {
     width: 70%;
-  }
+  } */
 }
 
 @media (max-width: 600px) {
@@ -494,7 +507,7 @@ div.not-available h1 {
     padding-inline-end: 20px;
     padding-block-end: 20px;
   }
-  .signup-form {
+  /* .signup-form {
     width: 80%;
     height: 100%;
     margin-block-start: 0;
@@ -506,7 +519,7 @@ div.not-available h1 {
   }
   .signup-form h2, .signup-form h3 {
     text-align: left;
-  }
+  } */
 }
 
 @media (max-width: 320px) {
@@ -515,7 +528,8 @@ div.not-available h1 {
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 

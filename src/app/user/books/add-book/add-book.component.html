@@ -17,36 +17,72 @@
     <div class="book-upload">
       <div id="imgFileUpload" (click)="fileLoader()">
         <span id="spnFilePath">Click to Upload Image</span>
-        <input type="file" (change)="uploadFile($event)" id="FileUpload1"
-          style="display: none" />
+        <input
+          type="file"
+          (change)="uploadFile($event)"
+          id="FileUpload1"
+          style="display: none;"
+        />
       </div>
 
       <div>
         <div class="row">
           <div class="col-md-6">
             <label for="Book-Title">Book Title</label>
-            <input formControlName="bookTitle" type="text" name="Book-Title" placeholder="Book Title" [ngClass]="{'invalid-input':
-            !validBookTitle() }">
-            <em *ngIf="!validBookTitle() && newBookForm.controls.bookTitle.errors.required">Required</em>
+            <input
+              formControlName="bookTitle"
+              type="text"
+              name="Book-Title"
+              placeholder="Book Title"
+              [ngClass]="{ 'invalid-input': !validBookTitle() }"
+              trim
+            />
+            <em
+              *ngIf="
+                !validBookTitle() &&
+                newBookForm.controls.bookTitle.errors.required
+              "
+              >Required</em
+            >
           </div>
 
           <div class="col-md-6">
             <label for="Author">Author</label>
-            <input formControlName="author" type="text" name="author" placeholder="Author" [ngClass]="{'invalid-input':
-            !validAuthor() }">
-            <em *ngIf="!validAuthor() && newBookForm.controls.author.errors.required">Required</em>
+            <input
+              formControlName="author"
+              type="text"
+              name="author"
+              placeholder="Author"
+              [ngClass]="{ 'invalid-input': !validAuthor() }"
+            />
+            <em
+              *ngIf="
+                !validAuthor() && newBookForm.controls.author.errors.required
+              "
+              >Required</em
+            >
           </div>
         </div>
 
         <label for="Book-Review">Book Review</label>
-        <textarea formControlName="bookReview" name="message" rows="10" cols="30" placeholder="Write review here..."
-          [ngClass]="{'invalid-input': !validBookReview() }"></textarea>
-        <em *ngIf="!validBookReview() && newBookForm.controls.bookReview.errors.required">Required</em>
+        <textarea
+          formControlName="bookReview"
+          name="message"
+          rows="10"
+          cols="30"
+          placeholder="Write review here..."
+          [ngClass]="{ 'invalid-input': !validBookReview() }"
+        ></textarea>
+        <em
+          *ngIf="
+            !validBookReview() &&
+            newBookForm.controls.bookReview.errors.required
+          "
+          >Required</em
+        >
 
-        <input type="submit" value="Save">
+        <input type="submit" value="Save" />
       </div>
-
     </div>
   </form>
-
 </section>

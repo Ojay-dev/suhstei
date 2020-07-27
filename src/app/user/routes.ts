@@ -23,6 +23,7 @@ import { NotificationComponent } from './books/notification/notification.compone
 import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
 import { NotificationResolverService } from '../services/notification-resolver/notification-resolver.service';
 import { RequestResolver } from '../services/request-resolver/request-resolver.service';
+import { RegisterationSuccessComponent } from './registeration-success/registeration-success.component';
 
 // const redirectTo = (uri: string) => {
 //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
@@ -93,6 +94,11 @@ export const userRoutes: Routes = [
   {
     path: 'sign-up',
     component: RegisterComponent
+  },
+  {
+    path: 'registration-successful',
+    component: RegisterationSuccessComponent,
+    canActivate: [AuthGuardService],
   },
   // { path: 'home', redirectTo: '', pathMatch: 'full'},
   // { path: 'book', component: BookListComponent},

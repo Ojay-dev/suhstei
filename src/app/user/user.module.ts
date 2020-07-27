@@ -30,6 +30,7 @@ import { NotificationComponent } from './books/notification/notification.compone
 import { NotificationDetailsComponent } from './books/notification-details/notification-details.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RegisterationSuccessComponent } from './registeration-success/registeration-success.component';
 
 @NgModule({
   imports: [
@@ -60,7 +61,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     LendedTabComponent,
     EditBookComponent,
     NotificationComponent,
-    NotificationDetailsComponent
+    NotificationDetailsComponent,
+    RegisterationSuccessComponent
   ],
   providers: [
     ProfileResolver

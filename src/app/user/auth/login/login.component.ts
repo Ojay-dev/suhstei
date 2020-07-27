@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.credentials).subscribe(() => {
-      this.router.navigate(['user/profile']);
+      this.router.navigate(['/']);
     }, (err) => {
       this.unAuthorized = true;
       console.error(err);

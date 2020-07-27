@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
       this.credentials.password = formValue.password;
 
       this.auth.register(this.credentials).subscribe(() => {
-        this.router.navigate(['user/profile']);
+        this.router.navigate(['user/registration-successful']);
       }, (err) => {
         console.error(err);
       });

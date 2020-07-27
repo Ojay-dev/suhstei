@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { InputTrimModule } from 'ng2-trim-directive';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -47,6 +48,7 @@ import { CategoryComponent } from './communitiy/category/category.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     MatProgressBarModule,
+    InputTrimModule,
     DisqusModule.forRoot('suhstei')
   ],
   declarations: [
@@ -60,7 +62,7 @@ import { CategoryComponent } from './communitiy/category/category.component';
     IcomoonComponent,
     BookViewComponent,
     CommunitiyComponent,
-    CategoryComponent
+    CategoryComponent,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
